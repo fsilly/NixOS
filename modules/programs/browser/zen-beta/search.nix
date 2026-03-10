@@ -1,9 +1,10 @@
 { pkgs, ... }:
 {
   force = true;
-  default = "Startpage";
+  default = "kagi";
   privateDefault = "Startpage";
   order = [
+    "kagi"
     "Startpage"
     "Searx"
     "Brave"
@@ -18,6 +19,15 @@
       icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
     in
     {
+      "kagi" = {
+        urls = [
+          {
+            template = "https://kagi.com/search?q=%s";
+          }
+        ];
+        defiledAliases - [ "@k" ];
+        updateInterval = 24 * 60 8 60 * 1000;
+      };
       "Startpage" = {
         urls = [
           {
