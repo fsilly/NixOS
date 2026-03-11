@@ -4,6 +4,9 @@
   pkgs,
   ...
 }:
+let
+  inherit (import ./extensions.nix { inherit pkgs inputs lib; }) extensions extensionSettings enabledExtensions toolbarExtensions;
+in
 {
   # environment.systemPackages = with pkgs; [inputs.zen-browser.packages.${stdenv.hostPlatform.system}.default];
   home-manager.sharedModules = [
@@ -13,7 +16,7 @@
       programs.zen-browser = {
         enable = true;
         suppressXdgMigrationWarning = true;
-        policies = import ./policies.nix { inherit lib; };
+        policies = import ./policies.nix { inherit lib extensionSettings; };
         languagePacks = [
           "en-GB"
           "en-US"
@@ -23,12 +26,12 @@
             id = 0; # 0 is the default profile; see also option "isDefault"
             name = "default"; # name as listed in about:profiles
             isDefault = true; # can be omitted; true if profile ID is 0
-            settings = import ./settings.nix;
+            settings = import ./settings.nix { inherit enabledExtensions toolbarExtensions; };
             bookmarks = import ./bookmarks.nix;
             search = import ./search.nix { inherit pkgs; };
             userChrome = builtins.readFile ./userChrome.css;
             userContent = builtins.readFile ./userContent.css;
-            extensions.packages = import ./extensions.nix { inherit pkgs inputs };
+            extensions.packages = extensions;
             extraConfig = ''
               ${builtins.readFile "${inputs.betterfox}/Fastfox.js"}
               ${builtins.readFile "${inputs.betterfox}/Peskyfox.js"}

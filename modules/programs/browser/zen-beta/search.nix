@@ -25,8 +25,8 @@
             template = "https://kagi.com/search?q=%s";
           }
         ];
-        defiledAliases - [ "@k" ];
-        updateInterval = 24 * 60 8 60 * 1000;
+        defiledAliases = [ "@k" ];
+        updateInterval = 24 * 60 * 60 * 1000;
       };
       "Startpage" = {
         urls = [

@@ -1,3 +1,4 @@
+{ enabledExtensions, toolbarExtensions }:
 let
   lock-false = {
     Value = false;
@@ -10,7 +11,7 @@ let
 in
 {
   "zen.view.use-single-toolbar" = false;
-  "zen.view.sidebar-expanded" = false;
+  "zen.view.sidebar-expanded" = true;
 
   "zen.view.compact.hide-toolbar" = true;
   "zen.view.compact.hide-tabbar" = true;
@@ -219,12 +220,7 @@ in
     placements = {
       widget-overflow-fixed-list = [ ];
       unified-extensions-area = [
-        "ublock0_raymondhill_net-browser-action"
-        "firemonkey_eros_man-browser-action"
-        "addon_darkreader_org-browser-action"
-        "queryamoid_kaply_com-browser-action"
-        # "_aecec67f-0d10-4fa7-b7c7-609a2db280cf_-browser-action"
-      ];
+      ] ++ toolbarExtensions;
       nav-bar = [
         "back-button"
         "forward-button"
@@ -235,13 +231,8 @@ in
         "unified-extensions-button"
 
         # Extensions
-        "_c4b582ec-4343-438c-bda2-2f691c16c262_-browser-action"
-        "firemonkey_eros_man-browser-action"
-        "ublock0_raymondhill_net-browser-action"
-        # "addon_darkreader_org-browser-action"
-        # "queryamoid_kaply_com-browser-action"
-        # "_aecec67f-0d10-4fa7-b7c7-609a2db280cf_-browser-action"
-      ];
+       # "_aecec67f-0d10-4fa7-b7c7-609a2db280cf_-browser-action"
+      ] ++ enabledExtensions;
       toolbar-menubar = [ "menubar-items" ];
       TabsToolbar = [
         "firefox-view-button"
