@@ -42,8 +42,14 @@ in
       autoNumlock = true;
       package = lib.mkForce pkgs.kdePackages.sddm;
       extraPackages = sddmDependencies;
-      settings.Theme.CursorTheme = "Bibata-Modern-Classic";
       theme = "sddm-astronaut-theme";
+      settings = {
+        Theme.CursorTheme = "Bibata-Modern-Classic";
+        AutoLogin = {
+          Session = "hyprland";
+          User = "Briar";
+        };
+      };
     };
   };
 
