@@ -266,10 +266,10 @@ in
                 "border, 1, 10, default"
                 "fade, 1, 2.5, md3_decel"
                 # "workspaces, 1, 3.5, md3_decel, slide"
-                "workspaces, 1, 3.5, easeOutExpo, slide"
+                "workspaces, 0.4, 3.5, easeOutExpo, slide"
                 # "workspaces, 1, 7, fluent_decel, slidefade 15%"
                 # "specialWorkspace, 1, 3, md3_decel, slidefadevert 15%"
-                "specialWorkspace, 1, 3, md3_decel, slidevert"
+                "specialWorkspace, 0.6, 3, md3_decel, slidevert"
               ];
             };
             render = {
@@ -589,16 +589,6 @@ in
 
             workspace = [
               # Binds workspaces to my monitors (find desc with: hyprctl monitors)
-              "1, persistent:true, monitor:desc:BNQ BenQ EL2870U PCK00489SL0,default:true"
-              "2, persistent:true, monitor:desc:BNQ BenQ EL2870U PCK00489SL0"
-              "3, persistent:true, monitor:desc:BNQ BenQ EL2870U PCK00489SL0"
-              "4, persistent:true, monitor:desc:BNQ BenQ EL2870U PCK00489SL0"
-              "5, persistent:true, monitor:desc:BNQ BenQ EW277HDR 99J01861SL0,default:true"
-              "6, persistent:true, monitor:desc:BNQ BenQ EW277HDR 99J01861SL0"
-              "7, persistent:true, monitor:desc:BNQ BenQ EW277HDR 99J01861SL0"
-              "8, persistent:true, monitor:desc:BNQ BenQ xl2420t 99D06760SL0,default:true"
-              "9, persistent:true, monitor:desc:BNQ BenQ xl2420t 99D06760SL0"
-              "10, persistent:true, monitor:desc:BNQ BenQ EL2870U PCK00489SL0"
             ];
           };
         };
