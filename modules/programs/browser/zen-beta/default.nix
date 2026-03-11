@@ -5,7 +5,7 @@
   ...
 }:
 let
-  inherit (import ./extensions.nix { inherit pkgs inputs lib; }) extensions extensionSettings enabledExtensions toolbarExtensions;
+  inherit (import ./extensions.nix { inherit pkgs inputs lib; }) extensionsNur extensions extensionSettings enabledExtensions toolbarExtensions;
 in
 {
   # environment.systemPackages = with pkgs; [inputs.zen-browser.packages.${stdenv.hostPlatform.system}.default];
@@ -31,7 +31,7 @@ in
             search = import ./search.nix { inherit pkgs; };
             userChrome = builtins.readFile ./userChrome.css;
             userContent = builtins.readFile ./userContent.css;
-            extensions.packages = extensions;
+            extensions.packages = extensionsNur;
             extraConfig = ''
               ${builtins.readFile "${inputs.betterfox}/Fastfox.js"}
               ${builtins.readFile "${inputs.betterfox}/Peskyfox.js"}
