@@ -94,6 +94,11 @@
           system = forAllSystems (system: system);
           modules = [
             ./hosts/${host}/configuration.nix
+            {
+              nixpkgs.overlays = [
+                inputs.nur.overlays.default
+              ];
+            }
           ];
           specialArgs = {
             overlays = import ./overlays { inherit inputs host; };

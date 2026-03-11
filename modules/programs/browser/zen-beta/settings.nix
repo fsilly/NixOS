@@ -1,4 +1,4 @@
-{ enabledExtensions, toolbarExtensions }:
+{ }:
 let
   lock-false = {
     Value = false;
@@ -194,7 +194,7 @@ in
 
   "extensions.autoDisableScopes" = {
     Value = 0;
-    Status = "locked";
+    #Status = "locked";
   };
   "extensions.enabledScopes" = {
     Value = 15;
@@ -210,7 +210,7 @@ in
   "plugins.enumerable_names" = "";
   "plugin.state.flash" = 0;
   "browser.search.update" = false;
-  "extensions.getAddons.cache.enabled" = lock-false;
+  #"extensions.getAddons.cache.enabled" = lock-false;
   "extensions.ui.sitepermission.hidden" = lock-true;
   "extensions.ui.locale.hidden" = lock-true;
 
@@ -220,7 +220,7 @@ in
     placements = {
       widget-overflow-fixed-list = [ ];
       unified-extensions-area = [
-      ] ++ toolbarExtensions;
+      ]; 
       nav-bar = [
         "back-button"
         "forward-button"
@@ -232,7 +232,7 @@ in
 
         # Extensions
        # "_aecec67f-0d10-4fa7-b7c7-609a2db280cf_-browser-action"
-      ] ++ enabledExtensions;
+      ];
       toolbar-menubar = [ "menubar-items" ];
       TabsToolbar = [
         "firefox-view-button"

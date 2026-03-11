@@ -1,4 +1,4 @@
-{ lib, extensionSettings, ... }:
+{ lib, ... }:
 {
   AllowFileSelectionDialogs = true;
   AppAutoUpdate = false;
@@ -73,5 +73,4 @@
     ExtensionRecommendations = false;
     SkipOnboarding = true;
   };
-  ExtensionSettings = extensionSettings;
 }

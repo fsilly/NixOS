@@ -22,7 +22,14 @@
       "kagi" = {
         urls = [
           {
-            template = "https://kagi.com/search?q=%s";
+            template = "https://kagi.com/search";
+            params = [
+              {
+                name = "q";
+                value = "{searchTerms}";
+ 
+              }
+            ];
           }
         ];
         defiledAliases = [ "@k" ];
