@@ -181,7 +181,7 @@ in
 
               tablet.output = "current";
 
-              sensitivity = 0; # -1.0 - 1.0, 0 means no modification.
+              sensitivity = 2.0; # -1.0 - 1.0, 0 means no modification.
               force_no_accel = true;
             };
             general = {
