@@ -50,8 +50,9 @@
             bindkey '\e\e' sudo-command-line
 
             # Key Bindings
-            bindkey '^a' beginning-of-line
-            bindkey '^e' end-of-line
+            #bindkey '^a' beginning-of-line
+            #bindkey '^e' end-of-line
+            bindkey -v
 
             # options
             unsetopt menu_complete
