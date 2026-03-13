@@ -53,6 +53,8 @@
             #bindkey '^a' beginning-of-line
             #bindkey '^e' end-of-line
             bindkey -v
+            bindkey -M vicmd 'k' history-substring-search-up
+            bindkey -M vicmd 'j' history-substring-search-down
 
             # options
             unsetopt menu_complete

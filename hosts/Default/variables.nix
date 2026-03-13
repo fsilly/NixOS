@@ -8,8 +8,8 @@
   bar = "noctalia"; # waybar, hyprpanel, noctalia
   waybarTheme = "stylish"; # stylish, minimal
   sddmTheme = "hyprland_kath"; # astronaut, black_hole, purple_leaves, jake_the_dog, hyprland_kath
-  defaultWallpaper = "galaxy.webp"; # Change with SUPER + SHIFT + W (Hyprland)
-  hyprlockWallpaper = "galaxy.webp";
+  defaultWallpaper = "cyberpunk.webp"; # Change with SUPER + SHIFT + W (Hyprland)
+  hyprlockWallpaper = "cyberpunk.webp";
 
   # Default Applications
   terminal = "kitty"; # kitty, alacritty
