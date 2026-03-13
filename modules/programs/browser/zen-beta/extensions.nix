@@ -24,6 +24,7 @@ in {
     return-youtube-dislikes
     dearrow
     ublock-origin
+    istilldontcareaboutcookies
   ];
 
   enabledExtensions = with extensions; [

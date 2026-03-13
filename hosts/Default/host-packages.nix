@@ -12,9 +12,15 @@
     proton-vpn-cli
     mullvad-vpn
 
+    zip
+    fastfetch
+    tmux
+
     # Audio / AirPods tool
     librepods
   ];
+
+    
     # Mullvad service (optional but recommended)
 
     services.mullvad-vpn.enable = true;
