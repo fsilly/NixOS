@@ -16,4 +16,6 @@
     librepods
   ];
     # Mullvad service (optional but recommended)
+
+    services.mullvad-vpn.enable = true;
 }
