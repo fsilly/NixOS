@@ -14,7 +14,7 @@
 
     zip
     fastfetch
-    tmux
+    # (pkgs.callPackage ../../overlays/hyprsession.nix { inherit pkgs; })
 
     # Audio / AirPods tool
     librepods

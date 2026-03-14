@@ -181,7 +181,7 @@ in
 
               tablet.output = "current";
 
-              sensitivity = 2.0; # -1.0 - 1.0, 0 means no modification.
+              sensitivity = 6.0; # -1.0 - 1.0, 0 means no modification.
               force_no_accel = true;
             };
             general = {
@@ -492,6 +492,10 @@ in
               # Switch workspaces relative to the active workspace with mainMod + CTRL + [←→]
               "$mainMod CTRL, right, workspace, r+1"
               "$mainMod CTRL, left, workspace, r-1"
+              "$mainMod CTRL, L, workspace, r+1"
+              "$mainMod CTRL, H, workspace, r-1"
+
+
 
               # move to the first empty workspace instantly with mainMod + CTRL + [↓]
               "$mainMod CTRL, down, workspace, empty"
