@@ -12,16 +12,23 @@
     proton-vpn-cli
     mullvad-vpn
 
+    waycorner
+
     zip
     fastfetch
     # (pkgs.callPackage ../../overlays/hyprsession.nix { inherit pkgs; })
 
     # Audio / AirPods tool
     librepods
+
+    # js
+    nodejs
+    electron
   ];
+  
+  # electron packages dynamic links
+  programs.nix-ld.enable = true;
 
-    
-    # Mullvad service (optional but recommended)
-
-    services.mullvad-vpn.enable = true;
+  # Mullvad service (optional but recommended)
+  services.mullvad-vpn.enable = true;
 }

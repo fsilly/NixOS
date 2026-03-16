@@ -4,7 +4,6 @@ let
 in {
   extensions = with extensions; [
     ublock-origin
-    dearrow
     bitwarden
     firemonkey
     darkreader
