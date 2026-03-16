@@ -41,8 +41,8 @@ in
           BROWSER = "${browser}";
           TERMINAL = "${terminal}";
         };
-      } // (import ../home.nix { inherit pkgs inputs host; }).${username};
-    };
+      };    
+    } // (import ../home.nix { inherit pkgs inputs host; }).${username};
   };
   users = {
     mutableUsers = true;

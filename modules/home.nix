@@ -5,7 +5,7 @@
   ...
 }:
 let
-  inherit (import ../../hosts/${host}/variables.nix)
+  inherit (import ../hosts/${host}/variables.nix)
     username
     editor
     terminal
@@ -14,13 +14,11 @@ let
     ;
 in {
   ${username} = {
-    homeConfiguration.briar = {
-      programs.git = {
-        enable = true;
-        settings.user = {
-          name = "John Doe";
-          email = "johndoe@example.com";
-        };
+    programs.git = {
+      enable = true;
+      settings.user = {
+        name = "John Doe";
+        email = "johndoe@example.com";
       };
     };
   };
