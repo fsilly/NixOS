@@ -78,6 +78,7 @@
     {
       self,
       nixpkgs,
+      home-manager,
       ...
     }@inputs:
     let
@@ -89,15 +90,24 @@
       forAllSystems = nixpkgs.lib.genAttrs systems;
       mkHost =
         host:
+        let
+          inherit (import ./hosts/${host}/variables.nix) username;
+        in
         nixpkgs.lib.nixosSystem {
           # inherit system;
           system = forAllSystems (system: system);
           modules = [
             ./hosts/${host}/configuration.nix
+            home-manager.nixosModules.home-manager
             {
               nixpkgs.overlays = [
                 inputs.nur.overlays.default
               ];
+              home-manager = {
+                useGlobalPkgs = true;
+                useUserPackages = true;
+
+                } ;
             }
           ];
           specialArgs = {

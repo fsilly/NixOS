@@ -21,10 +21,30 @@ in
     useUserPackages = true;
     overwriteBackup = true;
     backupFileExtension = "backup";
-    users.${username} = {
+    users.${username} = { config, lib, pkgs, ... }: {
       # Let Home Manager install and manage itself.
       programs.home-manager.enable = true;
       xdg.enable = true;
+
+      xdg.configFile."waycorner" = {
+        source = config.lib.file.mkOutOfStoreSymlink "/home/${username}/NixOS/hosts/${host}/waycorner/";
+        recursive = true;
+      };
+      programs.gh = {
+        enable = true;
+        gitCredentialHelper = {
+          enable = true;
+        };
+      };
+      programs.git = {
+        enable = true;
+        settings = {
+          user = {
+            name = "fsilly";
+            email = "naykeysnet@gmail.com";
+          };
+        };
+      };
 
       home = {
         username = "${username}";
@@ -42,7 +62,7 @@ in
           TERMINAL = "${terminal}";
         };
       };    
-    } // (import ../home.nix { inherit pkgs inputs host; }).${username};
+    }; 
   };
   users = {
     mutableUsers = true;

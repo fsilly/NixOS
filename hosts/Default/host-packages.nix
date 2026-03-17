@@ -16,6 +16,8 @@
 
     zip
     fastfetch
+    thunderbird
+    ente-auth
     # (pkgs.callPackage ../../overlays/hyprsession.nix { inherit pkgs; })
 
     # Audio / AirPods tool
