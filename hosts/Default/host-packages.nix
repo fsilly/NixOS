@@ -1,6 +1,6 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 {
-  environment.systemPackages = with pkgs; [
+  environment.systemPackages = with pkgs; with inputs; [
     obsidian
     ludusavi # For game saves
     protonvpn-gui # VPN
@@ -13,6 +13,8 @@
     mullvad-vpn
 
     waycorner
+    inputs.hyprsession.packages.${pkgs.system}.default
+    #"${inputs.hyprsession.packages.${pkgs.system}.hyprsession}/bin/hyprsession"
 
     zip
     fastfetch
@@ -22,6 +24,7 @@
 
     # Audio / AirPods tool
     librepods
+    libsForQt5.qtstyleplugin-kvantum 
 
     # js
     nodejs

@@ -156,6 +156,8 @@ in
               #"[workspace 6 silent] spotify"
               #"[workspace special silent] ${browser} --private-window"
               #"[workspace special silent] ${terminal}"
+              "hyprsession"
+              "librepods"
 
               "${lib.getExe wallpaper}"
               "${bar}"

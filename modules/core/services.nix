@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 {
   # Services to start
   services = {
@@ -38,14 +38,26 @@
       pulse.enable = true;
       #jack.enable = true;
 
-      # wireplumber = {
-      #   enable = true;
-      #   configPackages = [
-      #     (pkgs.writeTextDir "share/wireplumber/wireplumber.conf.d/11-bluetooth-policy.conf" ''
-      #       bluetooth.autoswitch-to-headset-profile = false
-      #     '')
-      #   ];
-      # };
+  extraConfig.pipewire-pulse."99-disable-ec" = {
+    context.modules = [
+      {
+        name = "libpipewire-module-protocol-pulse";
+        args = {
+          # Do not load any EC module
+        };
+      }
+    ];
+  };
+
+       wireplumber = {
+        enable = true;
+        
+         configPackages = [
+           (pkgs.writeTextDir "share/wireplumber/wireplumber.conf.d/11-bluetooth-policy.conf" ''
+             bluetooth.autoswitch-to-headset-profile = true
+           '')
+         ];
+       };
       # extraConfig.pipewire."92-low-latency" = {
       #   "context.properties" = {
       #     "default.clock.rate" = 48000;

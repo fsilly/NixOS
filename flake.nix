@@ -72,6 +72,7 @@
       url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    hyprsession.url = "github:joshurtree/hyprsession";
   };
 
   outputs =
