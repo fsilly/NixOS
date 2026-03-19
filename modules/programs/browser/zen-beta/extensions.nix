@@ -15,13 +15,11 @@ in {
   extensionsNur = with pkgs.nur.repos.rycee.firefox-addons; [
     floccus
     kagi-search
-    keepassxc-browser
     multi-account-containers
     bitwarden
     firemonkey
     sponsorblock
     return-youtube-dislikes
-    dearrow
     ublock-origin
     istilldontcareaboutcookies
   ];
