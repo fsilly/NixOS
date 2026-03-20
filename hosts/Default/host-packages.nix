@@ -10,7 +10,14 @@
     # VPNs
     protonup-ng
     proton-vpn-cli
-    mullvad-vpn
+
+    vim
+    firefox
+    wget
+    ripgrep
+    nil
+    neovim
+    nixpkgs-fmt
 
     waycorner
     inputs.hyprsession.packages.${pkgs.system}.default
@@ -26,9 +33,6 @@
     librepods
     libsForQt5.qtstyleplugin-kvantum 
 
-    # js
-    nodejs
-    electron
   ];
   
   # electron packages dynamic links

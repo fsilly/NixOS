@@ -73,6 +73,9 @@
             setopt inc_append_history
             setopt share_history
 
+            #auto fetch when oppeningn terminal
+            fastfetch  
+
             # Lazy load completion styles (depends on compinit)
             zsh-defer -c '
               zstyle ":completion:*" menu select
