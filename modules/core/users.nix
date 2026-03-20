@@ -27,8 +27,11 @@ in
       xdg.enable = true;
 
       xdg.configFile."waycorner" = {
-        source = config.lib.file.mkOutOfStoreSymlink "/home/${username}/NixOS/hosts/${host}/waycorner/";
+        source = config.lib.file.mkOutOfStoreSymlink "/home/${username}/NixOS/hosts/${host}/xfgconfig/waycorner/";
         recursive = true;
+      };
+      xdg.configFile."nvim" = {
+        source = config.lib.file.mkOutOfStoreSymlink "/home/${username}/NixOS/hosts/${host}/xdgconfig/nvim/";
       };
       programs.gh = {
         enable = true;

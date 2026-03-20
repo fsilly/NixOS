@@ -182,6 +182,8 @@
             projects = "cd /mnt/work/Projects/";
             proj = "cd /mnt/work/Projects/";
             dev = "cd /mnt/work/Projects/";
+            kys = "echo \"murder first\"";
+            briar = "echo \"*licks armpit*\"";
           };
         };
       }
