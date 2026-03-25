@@ -37,7 +37,7 @@ in
     ../../modules/desktop/${vars.desktop} # Set window manager defined in variables.nix
     ../../modules/programs/browser/${vars.browser} # Set browser defined in variables.nix
     ../../modules/programs/terminal/${vars.terminal} # Set terminal defined in variables.nix
-    ../../modules/programs/editor/${vars.editor} # Set editor defined in variables.nix
+    #../../modules/programs/editor/${vars.editor} # Set editor defined in variables.nix
     ../../modules/programs/cli/${vars.tuiFileManager} # Set file-manager defined in variables.nix
     ../../modules/programs/cli/direnv
     ../../modules/programs/cli/lazygit

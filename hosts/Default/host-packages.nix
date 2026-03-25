@@ -14,10 +14,8 @@
     vim
     firefox
     wget
-    ripgrep
-    nil
-    neovim
-    nixpkgs-fmt
+    gcc
+    lolcat
 
     waycorner
     inputs.hyprsession.packages.${pkgs.system}.default

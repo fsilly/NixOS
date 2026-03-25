@@ -74,7 +74,7 @@
             setopt share_history
 
             #auto fetch when oppeningn terminal
-            fastfetch  
+            # fastfetch  
 
             # Lazy load completion styles (depends on compinit)
             zsh-defer -c '
@@ -112,7 +112,7 @@
           };
           shellAliases = {
             lf = ''
-                {
+                {zsh
                   tmp="$(mktemp)"
                   # `command` is needed in case `lfcd` is aliased to `lf`
                   command lf -last-dir-path="$tmp" "$@"
