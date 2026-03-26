@@ -11,11 +11,17 @@
     protonup-ng
     proton-vpn-cli
 
+    #nvim
     vim
-    firefox
+    tree-sitter
+    ripgrep
+    fd
+    xclip
     wget
     gcc
+
     lolcat
+    firefox
 
     waycorner
     inputs.hyprsession.packages.${pkgs.system}.default
