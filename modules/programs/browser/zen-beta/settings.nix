@@ -1,4 +1,4 @@
-{ }:
+{ inputs, pkgs, lib }:
 let
   lock-false = {
     Value = false;
@@ -8,6 +8,7 @@ let
     Value = true;
     Status = "locked";
   };
+  extensions = import ./extensions.nix { inherit inputs pkgs lib; };
 in
 {
   "zen.view.use-single-toolbar" = false;
@@ -220,7 +221,7 @@ in
     placements = {
       widget-overflow-fixed-list = [ ];
       unified-extensions-area = [
-      ]; 
+      ] ++ extensions.area; 
       nav-bar = [
         "back-button"
         "forward-button"
@@ -232,7 +233,7 @@ in
 
         # Extensions
        # "_aecec67f-0d10-4fa7-b7c7-609a2db280cf_-browser-action"
-      ];
+      ] ++ extensions.navbar;
       toolbar-menubar = [ "menubar-items" ];
       TabsToolbar = [
         "firefox-view-button"

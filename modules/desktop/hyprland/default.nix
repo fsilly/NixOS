@@ -47,6 +47,9 @@ in
     ./programs/swaync
     ./programs/noctalia
   ]
+  ++ lib.optionals (bar == "caelestia") [
+    ./programs/caelestia
+  ]
   ++ lib.optionals (bar == "waybar") [
     # ./programs/dunst
     ./programs/swaync
