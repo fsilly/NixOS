@@ -42,6 +42,16 @@ in
                   useDistroLogo = true;
                 }
                 {
+                  id = "ControlCenter";
+                  useDistroLogo = true;
+                }
+
+                {
+                  id = "ControlCenter";
+                  useDistroLogo = true;
+                }
+
+                {
                   emptyColor = "secondary";
                   focusedColor = "primary";
                   followFocusedScreen = false;

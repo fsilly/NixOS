@@ -25,6 +25,7 @@
     steam-run
     wineWow64Packages.staging
     gamescope
+wineWowPackages.stable winetricks jdk17
   ];
   programs = {
     gamemode.enable = true;
@@ -32,7 +33,7 @@
       enable = true;
       remotePlay.openFirewall = true;
       dedicatedServer.openFirewall = true;
-      extraCompatPackages = [ pkgs.proton-ge-bin ];
+      extraCompatPackages = [ pkgs.proton-ge-bin pkgs.mesa-demos ];
       gamescopeSession = {
         enable = true;
         args = [

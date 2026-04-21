@@ -15,7 +15,7 @@ in
 
       programs.zen-browser = {
         enable = true;
-        suppressXdgMigrationWarning = true;
+        #suppressXdgMigrationWarning = true; Disabled in update
         policies = import ./policies.nix { inherit lib; };
         languagePacks = [
           "en-GB"

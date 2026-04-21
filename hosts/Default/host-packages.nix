@@ -3,12 +3,14 @@
   environment.systemPackages = with pkgs; with inputs; [
     obsidian
     ludusavi # For game saves
-    protonvpn-gui # VPN
+    proton-vpn # VPN
     github-desktop
     vesktop
     # pokego # Overlayed
     # VPNs
     protonup-ng
+    protonup-qt
+
     proton-vpn-cli
 
     #nvim
@@ -22,6 +24,7 @@
 
     lolcat
     firefox
+    yt-dlp
 
     waycorner
     inputs.hyprsession.packages.${pkgs.system}.default
@@ -36,7 +39,8 @@
     # Audio / AirPods tool
     librepods
     libsForQt5.qtstyleplugin-kvantum 
-
+    quickshell
+      qt6.qtwayland
   ];
   
   # electron packages dynamic links

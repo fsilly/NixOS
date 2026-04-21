@@ -2,6 +2,7 @@
   host,
   lib,
   pkgs,
+  inputs,
   ...
 }:
 let
@@ -121,6 +122,8 @@ in
           plugins = [
             # inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.hyprwinwrap
             # inputs.hyprsysteminfo.packages.${pkgs.stdenv.hostPlatform.system}.default
+
+            inputs.hyprkool.packages.${pkgs.system}.hyprkool-plugin 
           ];
           systemd = {
             enable = true;
@@ -161,6 +164,10 @@ in
               #"[workspace special silent] ${terminal}"
               "hyprsession"
               "librepods"
+              "caelestia-shell"
+              "qs -c overview &"
+            "hyprkool daemon"
+            "hyprpm reload -n"
 
               "${lib.getExe wallpaper}"
               "${bar}"
@@ -414,12 +421,15 @@ in
               ",XF86MonBrightnessUp,exec,${pkgs.brightnessctl}/bin/brightnessctl set +2%"
               ",XF86AudioLowerVolume,exec,${pkgs.pamixer}/bin/pamixer -d 2"
               ",XF86AudioRaiseVolume,exec,${pkgs.pamixer}/bin/pamixer -i 2"
+                "bind = Super, TAB, exec, qs ipc -c overview call overview toggle"
             ];
             bind = [
               # Keybinds help menu
               "$mainMod, question, exec, ${getExe keybinds-yad}"
               "$mainMod, slash, exec, ${getExe keybinds-yad}"
-              "$mainMod CTRL, K, exec, ${getExe keybinds-yad}"
+              #"$mainMod CTRL, K, exec, ${getExe keybinds-yad}"
+
+              "bind = Super, TAB, exec, qs ipc -c overview call overview toggle"
 
               "$mainMod, F8, exec, kill $(cat /tmp/auto-clicker.pid) 2>/dev/null || ${getExe autoclicker} --cps 40"
               # "$mainMod ALT, mouse:276, exec, kill $(cat /tmp/auto-clicker.pid) 2>/dev/null || ${lib.getExe autoclicker} --cps 60"
@@ -491,14 +501,23 @@ in
               # ",XF86AudioPause,exec,${getExe mediactrl} play-pause" # go to next media
 
               # to switch between windows in a floating workspace
-              "$mainMod, Tab, cyclenext"
-              "$mainMod, Tab, bringactivetotop"
+              #"$mainMod, Tab, cyclenext"
+              #"$mainMod, Tab, bringactivetotop"
 
               # Switch workspaces relative to the active workspace with mainMod + CTRL + [←→]
               "$mainMod CTRL, right, workspace, r+1"
               "$mainMod CTRL, left, workspace, r-1"
-              "$mainMod CTRL, L, workspace, r+1"
-              "$mainMod CTRL, H, workspace, r-1"
+#              "$mainMod CTRL, L, workspace, r+1"
+#              "$mainMod CTRL, H, workspace, r-1"
+# Move to a workspace
+              "bind = $mainMod CTRL, H, exec, hyprkool move-left -c"
+                "bind = $mainMod CTRL, L, exec, hyprkool move-right -c"
+                "bind = $mainMod CTRL, J, exec, hyprkool move-down -c"
+                "bind = $mainMod CTRL, K, exec, hyprkool move-up -c "
+
+                "bind = $mainMod CTRL, right, exec, hyprkool move-right -c "
+
+                "bind = $mainMod CTRL, left, exec, hyprkool move-left -c "
 
 
 

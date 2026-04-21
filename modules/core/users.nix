@@ -58,6 +58,9 @@ in
           ripgrep
           nil
           nixpkgs-fmt
+          inputs.caelestia-shell.packages.${pkgs.stdenv.hostPlatform.system}.default
+          inputs.quickshell-overview.packages.${pkgs.stdenv.hostPlatform.system}.default
+          inputs.hyprkool.packages."${system}".default
         ];
         sessionVariables = {
           EDITOR =

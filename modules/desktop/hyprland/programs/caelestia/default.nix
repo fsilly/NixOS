@@ -15,16 +15,8 @@ in
     brightnessctl
     # wf-recorder
   ];
-  home-manager.sharedModules = [
-    (_: {
-      imports = [
-        inputs.noctalia.homeModules.default
-      ];
-      programs.caelestia = {
-        enable = true;
-        systemd.enable = true;
-        settings = { }
-      }
-    }
-  ]
+ # 
+ # home.packages = with inputs; [
+ #   caelestia-shell.packages.${pkgs.system}.default
+ # ];
 }
