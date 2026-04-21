@@ -25,6 +25,7 @@
     lolcat
     firefox
     yt-dlp
+    cheese
 
     waycorner
     inputs.hyprsession.packages.${pkgs.system}.default
