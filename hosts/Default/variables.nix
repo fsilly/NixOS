@@ -10,12 +10,11 @@
   sddmTheme = "hyprland_kath"; # astronaut, black_hole, purple_leaves, jake_the_dog, hyprland_kath
   defaultWallpaper = "cyberpunk.webp"; # Change with SUPER + SHIFT + W (Hyprland)
   hyprlockWallpaper = "cyberpunk.webp";
-
   # Default Applications
   terminal = "kitty"; # kitty, alacritty
   editor = "nixvim"; # nixvim, vscode, helix, doom-emacs, nvchad, neovim
   browser = "zen-beta"; # zen-beta, firefox, floorp
-  tuiFileManager = "yazi"; # yazi, lf
+  fileManager = "yazi"; # yazi, lf, thunar
   shell = "zsh"; # zsh, bash
   games = true; # Enable/Disable gaming module
 
@@ -23,6 +22,7 @@
   hostname = "BriarAssSweat";
   videoDriver = "nvidia"; # nvidia, amdgpu, intel
   bluetoothSupport = true; # Whether your motherboard supports bluetooth
+  nvidiaChannel = "legacy_580"; # stable, latest, beta, legacy_xxx
 
   # Localization
   timezone = "Europe/Paris";

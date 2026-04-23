@@ -12,7 +12,7 @@ let
     waybarTheme
     browser
     terminal
-    tuiFileManager
+    fileManager
     kbdLayout
     kbdVariant
     defaultWallpaper
@@ -23,6 +23,7 @@ let
   autoclicker = pkgs.callPackage ./scripts/autoclicker.nix { };
   batterynotify = pkgs.callPackage ./scripts/batterynotify.nix { };
   clipmanager = pkgs.callPackage ./scripts/clipmanager.nix { };
+  fileManagerScript = pkgs.callPackage ./scripts/file-manager.nix { inherit terminal; };
   gamemode = pkgs.callPackage ./scripts/gamemode.nix { };
   keyboardswitch = pkgs.callPackage ./scripts/keyboardswitch.nix { };
   keybinds-yad = pkgs.callPackage ./scripts/keybinds-yad.nix { };
@@ -113,7 +114,7 @@ in
         };
 
         # Set wallpaper
-        services.swww.enable = true;
+        services.awww.enable = true;
 
         #test later systemd.user.targets.hyprland-session.Unit.Wants = [ "xdg-desktop-autostart.target" ];
         wayland.windowManager.hyprland = {
@@ -133,7 +134,6 @@ in
             "$mainMod" = "SUPER";
             "$term" = "${getExe pkgs.${terminal}}";
             "$editor" = "code --disable-gpu";
-            "$fileManager" = "$term --class \"tuiFileManager\" -e ${tuiFileManager}";
             "$browser" = browser;
 
             env = [
@@ -203,7 +203,7 @@ in
               "col.active_border" = "rgba(ca9ee6ff) rgba(f2d5cfff) 45deg";
               "col.inactive_border" = "rgba(b4befecc) rgba(6c7086cc) 45deg";
               resize_on_border = true;
-              layout = "dwindle"; # dwindle or master
+              layout = "dwindle"; # dwindle, master, scrolling, monocle
               # allow_tearing = true; # Allow tearing for games (use immediate window rules for specific games or all titles)
             };
             decoration = {
@@ -313,8 +313,6 @@ in
               mfact = 0.5;
             };
             windowrule = [
-              "tile on, match:title (.*)(Godot)(.*)$"
-
               "opacity 1.00 1.00, match:class ^(firefox|Brave-browser|floorp|zen|zen-beta)$"
               "opacity 0.90 0.80, match:class ^(Emacs)$"
               "opacity 0.90 0.80, match:class ^(gcr-prompter)$"
@@ -336,7 +334,7 @@ in
               "opacity 0.80 0.70, match:title ^(Kvantum Manager)$"
               "opacity 0.80 0.70, match:class ^(VSCodium|codium-url-handler)$"
               "opacity 0.80 0.70, match:class ^(code|code-url-handler)$"
-              "opacity 0.80 0.70, match:class ^(tuiFileManager)$"
+              "opacity 0.80 0.70, match:class ^(fileManager)$"
               "opacity 0.80 0.70, match:class ^(org.kde.dolphin)$"
               "opacity 0.80 0.70, match:class ^(org.kde.ark)$"
               "opacity 0.80 0.70, match:class ^(nwg-look)$"
@@ -363,6 +361,7 @@ in
               "opacity 0.80 0.70, match:class ^(nm-applet)$"
               "opacity 0.80 0.70, match:class ^(nm-connection-editor)$"
               "opacity 0.80 0.70, match:class ^(org.kde.polkit-kde-authentication-agent-1)$"
+              "opacity 0.80 0.70, match:class ^(xdg-desktop-portal-gtk|xdg-desktop-portal-kde)$"
 
               "float on, match:title ^(Picture-in-Picture)$, match:class ^(zen|zen-beta|floorp|firefox)$"
               "pin on, match:title ^(Picture-in-Picture)$, match:class ^(zen|zen-beta|floorp|firefox)$"
@@ -380,6 +379,11 @@ in
               "no_shadow on, match:tag games"
               "no_blur on, match:tag games"
               "no_anim on, match:tag games"
+
+              # Godot
+              "tile on, match:initial_title ^(Godot)$, match:initial_class ^(Godot)$"
+              "float on, match:title ^((.*)(DEBUG)), match:class ^(Godot)$"
+              "float on, match:initial_title ^(.*)(DEBUG)(.*)$, match:class ^(Godot)$"
 
               "opacity 0.80 0.70, match:class ^(microfetch)$"
               "float on, match:class ^(microfetch)$"
@@ -435,7 +439,7 @@ in
               # "$mainMod ALT, mouse:276, exec, kill $(cat /tmp/auto-clicker.pid) 2>/dev/null || ${lib.getExe autoclicker} --cps 60"
 
               # Night Mode (lower value means warmer temp)
-              "$mainMod, F9, exec, ${getExe pkgs.hyprsunset} --temperature 3500" # good values: 3500, 3000, 2500
+              "$mainMod, F9, exec, ${getExe pkgs.hyprsunset} --temperature 2500" # good values: 3500, 3000, 2500
               "$mainMod, F10, exec, pkill hyprsunset"
 
               # Window/Session actions
@@ -454,7 +458,7 @@ in
               # Applications/Programs
               "$mainMod, Return, exec, $term"
               "$mainMod, T, exec, $term"
-              "$mainMod, E, exec, $fileManager"
+              "$mainMod, E, exec, ${getExe fileManagerScript} ${fileManager}"
               "$mainMod, C, exec, $editor"
               "$mainMod, F, exec, $browser"
               "$mainMod SHIFT, S, exec, spotify"
@@ -536,6 +540,10 @@ in
               "$mainMod, l, movefocus, r"
               "$mainMod, k, movefocus, u"
               "$mainMod, j, movefocus, d"
+
+              # Switch scrolling columns
+              "$mainMod, period, layoutmsg, move +col"
+              "$mainMod, comma, layoutmsg, move -col"
 
               # Go to workspace 5, 6 and 7 with mouse side buttons
               "$mainMod, mouse:276, workspace, 5"

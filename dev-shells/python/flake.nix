@@ -28,7 +28,7 @@
         version. When you do this, make sure
         to delete the `.venv` directory to
         have the hook rebuild it for the new
-        version, since it won't overwrite an
+ on/mo       version, since it won't overwrite an
         existing one. After this, reload the
         development shell to rebuild it.
         You'll see a warning asking you to

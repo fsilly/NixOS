@@ -24,6 +24,7 @@
 
     lolcat
     firefox
+    vimb
     yt-dlp
     cheese
 
