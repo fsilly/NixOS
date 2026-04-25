@@ -32,10 +32,6 @@
       url = "github:caelestia-dots/shell";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    quickshell-overview = {
-      url = "github:fsilly/quickshell-overview";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     hyprkool = {
       url = "github:thrombe/hyprkool";
     };

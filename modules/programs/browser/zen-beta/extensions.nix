@@ -20,22 +20,30 @@ in {
     # "_aecec67f-0d10-4fa7-b7c7-609a2db280cf_-browser-action"
   ];
 
-    extensionsNur = with pkgs.nur.repos.rycee.firefox-addons; [
-    floccus
-    kagi-search
-    multi-account-containers
-    bitwarden
-    firemonkey
-    sponsorblock
-    return-youtube-dislikes
-    ublock-origin
-    istilldontcareaboutcookies
+extensionsNur = with pkgs.nur.repos.rycee.firefox-addons; [
+#    floccus
+#    kagi-search
+#    multi-account-containers
+#    bitwarden
+#    firemonkey
+#    sponsorblock
+#    return-youtube-dislikes
+#    ublock-origin
+#    istilldontcareaboutcookies
   ];
 
   extensionSettings = with extensions; {
-        "*" = {
-          #blocked_install_message = "Addon is not added in the nix config";
-          #installation_mode = "blocked";o
+       # "*" = {
+       #   blocked_install_message = "Addon is not added in the nix config";
+       #   installation_mode = "blocked";o
+       # };
+
+        "opensubtitles@stefan.breitenstein" = {
+          private_browsing = true;
+          default_area = "navbar";
+          installation_mode = "force_installed";
+          install_url = "https://addons.mozilla.org/en-US/firefox/addon/opensubtitles/latest.xpi";
+        };
 
         "uBlock0@raymondhill.net" = {
           private_browsing = true;
@@ -174,5 +182,4 @@ in {
         ];
       };
     };
-  };
 };}

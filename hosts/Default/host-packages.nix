@@ -41,8 +41,6 @@
     # Audio / AirPods tool
     librepods
     libsForQt5.qtstyleplugin-kvantum 
-    quickshell
-      qt6.qtwayland
   ];
   
   # electron packages dynamic links

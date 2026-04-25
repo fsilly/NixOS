@@ -33,6 +33,12 @@ in
       xdg.configFile."nvim" = {
         source = config.lib.file.mkOutOfStoreSymlink "/home/${username}/NixOS/hosts/${host}/xdgconfig/nvim/";
       };
+      xdg.configFile."quickshell/overview" = {
+        source = config.lib.file.mkOutOfStoreSymlink "/home/${username}/NixOS/hosts/${host}/xdgconfig/quickshell/overview";
+      };
+      xdg.configFile."hypr/hyprkool.toml" = {
+        source = config.lib.file.mkOutOfStoreSymlink "/home/${username}/NixOS/hosts/${host}/xdgconfig/hypr/hyprkool.toml";
+      };
       programs.gh = {
         enable = true;
         gitCredentialHelper = {
@@ -48,6 +54,15 @@ in
           };
         };
       };
+      programs.quickshell = {
+        enable = true;
+        activeConfig = null;
+        configs = {
+            #caelestia-shell = (inputs.caelestia-shell.packages.${pkgs.system}.default.override { withCli = true; });
+            #hyprkool = inputs.hyprkool.packages.${pkgs.system}.default;
+
+        };
+      };
 
       home = {
         username = "${username}";
@@ -58,9 +73,9 @@ in
           ripgrep
           nil
           nixpkgs-fmt
-          inputs.caelestia-shell.packages.${pkgs.stdenv.hostPlatform.system}.default
-          inputs.quickshell-overview.packages.${pkgs.stdenv.hostPlatform.system}.default
-          inputs.hyprkool.packages."${system}".default
+          qt6.qtwayland
+          inputs.caelestia-shell.packages.${pkgs.system}.default
+          inputs.hyprkool.packages."${pkgs.system}".default
         ];
         sessionVariables = {
           EDITOR =
