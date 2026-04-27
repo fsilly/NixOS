@@ -3,7 +3,7 @@
 activities = ["my-default-activity", "my-activity"]
 
 # number of workspaces in x and y dimensions
-workspaces = [2, 2]
+workspaces = [4, 4]
 
 # specify some named foci to load by default
 named_focii = { "1" = "my-activity:(1 1)", "2" = "my-activity:(2 2)" }
@@ -19,10 +19,10 @@ window_icon_try_min_size = 32
 remember_activity_focus = true
 
 # execute fallback commands if daemon cannot be reached
-fallback_commands = true
+fallback_commands = false
 
 [daemon.mouse]
-switch_workspace_on_edge = true
+switch_workspace_on_edge = false
 
 # how often to poll for cursor position
 polling_rate = 300 # in ms

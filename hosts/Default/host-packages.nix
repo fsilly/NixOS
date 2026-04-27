@@ -21,6 +21,7 @@
     xclip
     wget
     gcc
+    bat
 
     lolcat
     firefox

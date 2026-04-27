@@ -1,4 +1,65 @@
-{  }: {
+{
+  host,
+  lib,
+  pkgs,
+  inputs,
+  ...
+}: 
+let
+  inherit (lib) getExe getExe';
+  inherit (import ../../../hosts/${host}/variables.nix)
+    bar
+    waybarTheme
+    browser
+    terminal
+    fileManager
+    kbdLayout
+    kbdVariant
+    defaultWallpaper
+    ;
+
+  # Import script modules
+  # autowaybar = pkgs.callPackage ./scripts/autowaybar.nix { };
+  autoclicker = pkgs.callPackage ./scripts/autoclicker.nix { };
+  batterynotify = pkgs.callPackage ./scripts/batterynotify.nix { };
+  clipmanager = pkgs.callPackage ./scripts/clipmanager.nix { };
+  fileManagerScript = pkgs.callPackage ./scripts/file-manager.nix { inherit terminal; };
+  gamemode = pkgs.callPackage ./scripts/gamemode.nix { };
+  keyboardswitch = pkgs.callPackage ./scripts/keyboardswitch.nix { };
+  keybinds-yad = pkgs.callPackage ./scripts/keybinds-yad.nix { };
+  # keybinds-rofi = pkgs.callPackage ./scripts/keybinds-yad.nix { };
+  # mediactrl = pkgs.callPackage ./scripts/mediactrl.nix { };
+  rofimusic = pkgs.callPackage ./scripts/rofimusic.nix { };
+  screen-record = pkgs.callPackage ./scripts/screen-record.nix { };
+  screenshot = pkgs.callPackage ./scripts/screenshot.nix { };
+  wallpaper = pkgs.callPackage ./scripts/wallpaper.nix { inherit defaultWallpaper; };
+  zoom = pkgs.callPackage ./scripts/zoom.nix { };
+in
+{
+    binde = [
+      # Resize windows
+      "$mainMod SHIFT, right, resizeactive, 30 0"
+      "$mainMod SHIFT, left, resizeactive, -30 0"
+      "$mainMod SHIFT, up, resizeactive, 0 -30"
+      "$mainMod SHIFT, down, resizeactive, 0 30"
+
+      # Resize windows with hjkl keys
+      "$mainMod SHIFT, l, resizeactive, 30 0"
+      "$mainMod SHIFT, h, resizeactive, -30 0"
+      "$mainMod SHIFT, k, resizeactive, 0 -30"
+      "$mainMod SHIFT, j, resizeactive, 0 30"
+
+      # Functional keybinds
+      ",XF86MonBrightnessDown,exec,${pkgs.brightnessctl}/bin/brightnessctl set 2%-"
+      ",XF86MonBrightnessUp,exec,${pkgs.brightnessctl}/bin/brightnessctl set +2%"
+      ",XF86AudioLowerVolume,exec,${pkgs.pamixer}/bin/pamixer -d 2"
+      ",XF86AudioRaiseVolume,exec,${pkgs.pamixer}/bin/pamixer -i 2"
+    ];
+    bindm = [
+      # Move/Resize windows with mainMod + LMB/RMB and dragging
+      "$mainMod, mouse:272, movewindow"
+      "$mainMod, mouse:273, resizewindow"
+    ];
     bind = [
       # Keybinds help menu
       "$mainMod, question, exec, ${getExe keybinds-yad}"
@@ -89,20 +150,20 @@
 
 
       # move to the first empty workspace instantly with mainMod + CTRL + [↓]
-      "$mainMod CTRL, down, workspace, empty"
+      #"$mainMod CTRL, down, workspace, empty"
 
       # Move focus with mainMod + arrow keys
-      "$mainMod, left, movefocus, l"
-      "$mainMod, right, movefocus, r"
-      "$mainMod, up, movefocus, u"
-      "$mainMod, down, movefocus, d"
-      "ALT, Tab, movefocus, d"
+      #"$mainMod, left, movefocus, l"
+      #"$mainMod, right, movefocus, r"
+      #"$mainMod, up, movefocus, u"
+      #"$mainMod, down, movefocus, d"
+      #"ALT, Tab, movefocus, d"
 
       # Move focus with mainMod + HJKL keys
-      "$mainMod, h, movefocus, l"
-      "$mainMod, l, movefocus, r"
-      "$mainMod, k, movefocus, u"
-      "$mainMod, j, movefocus, d"
+      #"$mainMod, h, movefocus, l"
+      #"$mainMod, l, movefocus, r"
+      #"$mainMod, k, movefocus, u"
+      #"$mainMod, j, movefocus, d"
 
       # Switch scrolling columns
       "$mainMod, period, layoutmsg, move +col"
@@ -147,22 +208,25 @@
       "$mainMod ALT, S, movetoworkspacesilent, special"
       "$mainMod, S, togglespecialworkspace,"
 
+
+
+
       # ---- HYPRKOOL ----
       # Switch activity
-      #"$mainMod, TAB, exec, hyprkool next-activity -c"
+      "$mainMod, N, exec, hyprkool next-activity -c"
 
       # Move active window to a different acitvity
-      "$mainMod CTRL, TAB, exec, hyprkool next-activity -c -w"
+      "$mainMod CTRL, N, exec, hyprkool next-activity -c -w"
 
       # Switch monitor
-      "$mainMod, code:49, exec, $hyprkool next-monitor -c"
+      #"$mainMod, code:49, exec, $hyprkool next-monitor -c"
 
       # Move active window to a different monitor
-      "$mainMod CTRL, code:49, exec, $hyprkool next-monitor -c -w"
+      #"$mainMod CTRL, code:49, exec, $hyprkool next-monitor -c -w"
 
       # Swap active workspaces on current and next monitor
-      "$mainMod SHIFT, code:49, exec, $hyprkool swap-monitors-active-workspace"
-      "$mainMod CTRL SHIFT, code:49, exec, $hyprkool swap-monitors-active-workspace -w"
+      #"$mainMod SHIFT, code:49, exec, $hyprkool swap-monitors-active-workspace"
+      #"$mainMod CTRL SHIFT, code:49, exec, $hyprkool swap-monitors-active-workspace -w"
 
       # Relative workspace jumps
       "$mainMod, h, exec, hyprkool move-left -c"
@@ -177,9 +241,9 @@
       "$mainMod CTRL, k, exec, hyprkool move-up -c -w"
 
       # toggle special workspace
-      "$mainMod, SPACE, exec, hyprkool toggle-special-workspace -n minimized"
+      #"$mainMod, SPACE, exec, hyprkool toggle-special-workspace -n minimized"
       # move active window to special workspace without switching to that workspace
-      "$mainMod, s, exec, hyprkool toggle-special-workspace -n minimized -w -s"
+      #"$mainMod, s, exec, hyprkool toggle-special-workspace -n minimized -w -s"
 
       # harpoon for workspaces (previously known as named-focus :P)
       # switch to named focus

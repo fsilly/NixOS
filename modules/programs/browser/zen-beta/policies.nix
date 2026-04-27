@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ inputs, lib, pkgs, ... }:
 {
   AllowFileSelectionDialogs = true;
   AppAutoUpdate = false;
@@ -53,6 +53,7 @@
   NoDefaultBookmarks = false;
   OfferToSaveLogins = false;
   PasswordManagerEnabled = false;
+  ExtensionSettings = (import ./extensions.nix { inherit inputs pkgs lib; }).extensionSettings;
   PictureInPicture = {
     Enabled = true;
   };

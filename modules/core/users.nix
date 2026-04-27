@@ -32,12 +32,15 @@ in
       };
       xdg.configFile."nvim" = {
         source = config.lib.file.mkOutOfStoreSymlink "/home/${username}/NixOS/hosts/${host}/xdgconfig/nvim/";
+        recursive = true;
       };
       xdg.configFile."quickshell/overview" = {
         source = config.lib.file.mkOutOfStoreSymlink "/home/${username}/NixOS/hosts/${host}/xdgconfig/quickshell/overview";
+        recursive = true;
       };
       xdg.configFile."hypr/hyprkool.toml" = {
         source = config.lib.file.mkOutOfStoreSymlink "/home/${username}/NixOS/hosts/${host}/xdgconfig/hypr/hyprkool.toml";
+        recursive = true;
       };
       programs.gh = {
         enable = true;

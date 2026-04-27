@@ -162,7 +162,7 @@ in
               #"[workspace 6 silent] spotify"
               #"[workspace special silent] ${browser} --private-window"
               #"[workspace special silent] ${terminal}"
-              "hyprsession"
+              #"hyprsession"
               "librepods"
               "caelestia-shell"
               "qs -c overview"
@@ -226,38 +226,7 @@ in
               "col.border_locked_active" = "rgba(ca9ee6ff) rgba(f2d5cfff) 45deg";
               "col.border_locked_inactive" = "rgba(b4befecc) rgba(6c7086cc) 45deg";
             };
-            layerrule = [
-              # Rofi
-              "blur on, match:namespace rofi"
-              "ignore_alpha 0.7, match:namespace rofi"
-
-              # Hyprpanel Menus
-              "blur on, match:namespace ^bar-.*$"
-              "blur on, match:namespace notifications-window"
-              "blur on, match:namespace mediamenu"
-              "blur on, match:namespace notificationsmenu"
-              "blur on, match:namespace calendarmenu"
-              "blur on, match:namespace audiomenu"
-              "blur on, match:namespace networkmenu"
-              "blur on, match:namespace energymenu"
-              "blur on, match:namespace dashboardmenu"
-              "ignore_alpha 0.7, match:namespace ^bar-.*$"
-              "ignore_alpha 0.7, match:namespace notifications-window"
-              "ignore_alpha 0.7, match:namespace mediamenu"
-              "ignore_alpha 0.7, match:namespace notificationsmenu"
-              "ignore_alpha 0.7, match:namespace calendarmenu"
-              "ignore_alpha 0.7, match:namespace audiomenu"
-              "ignore_alpha 0.7, match:namespace networkmenu"
-              "ignore_alpha 0.7, match:namespace energymenu"
-              "ignore_alpha 0.7, match:namespace dashboardmenu"
-
-              # Swaync
-              "blur on, match:namespace swaync-control-center"
-              "blur on, match:namespace swaync-notification-window"
-              "ignore_alpha 0.7, match:namespace swaync-control-center"
-              "ignore_alpha 0.8, match:namespace swaync-notification-window"
-              # "dim_around on, match:namespace swaync-control-center"
-            ];
+            layerrule = (import ./windowrules.nix).layerrule;
             animations = {
               enabled = true;
               bezier = [
@@ -313,32 +282,9 @@ in
               mfact = 0.5;
             };
             windowrule = (import ./windowrules.nix).windowrule;
-            binde = [
-              # Resize windows
-              "$mainMod SHIFT, right, resizeactive, 30 0"
-              "$mainMod SHIFT, left, resizeactive, -30 0"
-              "$mainMod SHIFT, up, resizeactive, 0 -30"
-              "$mainMod SHIFT, down, resizeactive, 0 30"
-
-              # Resize windows with hjkl keys
-              "$mainMod SHIFT, l, resizeactive, 30 0"
-              "$mainMod SHIFT, h, resizeactive, -30 0"
-              "$mainMod SHIFT, k, resizeactive, 0 -30"
-              "$mainMod SHIFT, j, resizeactive, 0 30"
-
-              # Functional keybinds
-              ",XF86MonBrightnessDown,exec,${pkgs.brightnessctl}/bin/brightnessctl set 2%-"
-              ",XF86MonBrightnessUp,exec,${pkgs.brightnessctl}/bin/brightnessctl set +2%"
-              ",XF86AudioLowerVolume,exec,${pkgs.pamixer}/bin/pamixer -d 2"
-              ",XF86AudioRaiseVolume,exec,${pkgs.pamixer}/bin/pamixer -i 2"
-            ];
             bind = (import ./keybinds.nix { inherit host lib pkgs inputs; }).bind;
-            bindm = [
-              # Move/Resize windows with mainMod + LMB/RMB and dragging
-              "$mainMod, mouse:272, movewindow"
-              "$mainMod, mouse:273, resizewindow"
-            ];
-
+            bindm = (import ./keybinds.nix { inherit host lib pkgs inputs; }).bindm;
+            binde = (import ./keybinds.nix { inherit host lib pkgs inputs; }).binde;
             binds = {
               workspace_back_and_forth = 0;
               #allow_workspace_cycles=1
