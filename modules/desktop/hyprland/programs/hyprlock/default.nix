@@ -8,7 +8,7 @@ in
   home-manager.sharedModules = [
     (_: {
       programs.hyprlock = {
-        enable = true;
+        enable = false;
         settings = {
           general = {
             hide_cursor = true;

@@ -77,7 +77,7 @@ in
           nil
           nixpkgs-fmt
           qt6.qtwayland
-          inputs.caelestia-shell.packages.${pkgs.system}.default
+          #inputs.caelestia-shell.packages.${pkgs.system}.default
           inputs.hyprkool.packages."${pkgs.system}".default
         ];
         sessionVariables = {

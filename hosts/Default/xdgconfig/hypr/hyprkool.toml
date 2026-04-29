@@ -1,6 +1,6 @@
 # activity names (first activity is treated as default)
 # note: only a-z A-Z 0-9 - _ characters are allowed in the name
-activities = ["my-default-activity", "my-activity"]
+activities = ["", ""]
 
 # number of workspaces in x and y dimensions
 workspaces = [4, 4]

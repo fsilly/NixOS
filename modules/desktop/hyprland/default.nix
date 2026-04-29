@@ -37,7 +37,7 @@ let
 in
 {
   imports = [
-    ../../themes/Catppuccin # Catppuccin GTK and QT themes
+    ../../themes/rose-pine # Catppuccin GTK and QT themes
     ./programs/wlogout
     ./programs/rofi
     ./programs/hypridle
@@ -51,6 +51,10 @@ in
   ]
   ++ lib.optionals (bar == "caelestia") [
     ./programs/caelestia
+  ]
+  ++ lib.optionals (bar == "caelestia-shell") [
+    ./programs/caelestia-shell
+    ./programs/swaync
   ]
   ++ lib.optionals (bar == "waybar") [
     # ./programs/dunst
@@ -121,6 +125,8 @@ in
           enable = true;
           package = pkgs.hyprland;
           plugins = [
+            #pkgs.hyprlandPlugins.hyprtrails
+            pkgs.hyprlandPlugins.borders-plus-plus
             # inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.hyprwinwrap
             # inputs.hyprsysteminfo.packages.${pkgs.stdenv.hostPlatform.system}.default
 
@@ -164,7 +170,7 @@ in
               #"[workspace special silent] ${terminal}"
               #"hyprsession"
               "librepods"
-              "caelestia-shell"
+              #"caelestia-shell"
               "qs -c overview"
               "hyprkool daemon"
               "hyprpm reload -n"

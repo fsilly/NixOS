@@ -33,7 +33,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hyprkool = {
-      url = "https://github.com/shinkuan/hyprkool";
+      url = "github:shinkuan/hyprkool";
     };
     doom-config = {
       url = "github:Sly-Harvey/doom";

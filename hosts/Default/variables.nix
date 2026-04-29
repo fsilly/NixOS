@@ -5,11 +5,11 @@
   desktop = "hyprland"; # hyprland, i3, gnome, plasma6
 
   # Theme & Appearance
-  bar = "noctalia"; # waybar, hyprpanel, noctalia, caelestia
+  bar = "caelestia-shell"; # waybar, hyprpanel, noctalia, caelestia-shell
   waybarTheme = "stylish"; # stylish, minimal
   sddmTheme = "hyprland_kath"; # astronaut, black_hole, purple_leaves, jake_the_dog, hyprland_kath
-  defaultWallpaper = "cyberpunk.webp"; # Change with SUPER + SHIFT + W (Hyprland)
-  hyprlockWallpaper = "cyberpunk.webp";
+  defaultWallpaper = "girlsleepdesk.webp"; # Change with SUPER + SHIFT + W (Hyprland)
+  hyprlockWallpaper = "girlsleepdesk.webp";
   # Default Applications
   terminal = "kitty"; # kitty, alacritty
   editor = "nixvim"; # nixvim, vscode, helix, doom-emacs, nvchad, neovim

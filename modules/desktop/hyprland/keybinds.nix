@@ -142,8 +142,8 @@ in
       #"$mainMod, Tab, bringactivetotop"
 
       # Switch workspaces relative to the active workspace with mainMod + CTRL + [←→]
-      "$mainMod CTRL, right, workspace, r+1"
-      "$mainMod CTRL, left, workspace, r-1"
+      #"$mainMod CTRL, right, workspace, r+1"
+      #"$mainMod CTRL, left, workspace, r-1"
     #              "$mainMod CTRL, L, workspace, r+1"
     #              "$mainMod CTRL, H, workspace, r-1"
     # Move to a workspace
@@ -153,17 +153,17 @@ in
       #"$mainMod CTRL, down, workspace, empty"
 
       # Move focus with mainMod + arrow keys
-      #"$mainMod, left, movefocus, l"
-      #"$mainMod, right, movefocus, r"
-      #"$mainMod, up, movefocus, u"
-      #"$mainMod, down, movefocus, d"
+      "$mainMod, left, movefocus, l"
+      "$mainMod, right, movefocus, r"
+      "$mainMod, up, movefocus, u"
+      "$mainMod, down, movefocus, d"
       #"ALT, Tab, movefocus, d"
 
       # Move focus with mainMod + HJKL keys
-      #"$mainMod, h, movefocus, l"
-      #"$mainMod, l, movefocus, r"
-      #"$mainMod, k, movefocus, u"
-      #"$mainMod, j, movefocus, d"
+      "$mainMod, h, movefocus, l"
+      "$mainMod, l, movefocus, r"
+      "$mainMod, k, movefocus, u"
+      "$mainMod, j, movefocus, d"
 
       # Switch scrolling columns
       "$mainMod, period, layoutmsg, move +col"
@@ -229,16 +229,20 @@ in
       #"$mainMod CTRL SHIFT, code:49, exec, $hyprkool swap-monitors-active-workspace -w"
 
       # Relative workspace jumps
-      "$mainMod, h, exec, hyprkool move-left -c"
-      "$mainMod, l, exec, hyprkool move-right -c"
-      "$mainMod, j, exec, hyprkool move-down -c"
-      "$mainMod, k, exec, hyprkool move-up -c"
+      "$mainMod CTRL, h, exec, hyprkool move-left -c"
+      "$mainMod CTRL, l, exec, hyprkool move-right -c"
+      "$mainMod CTRL, j, exec, hyprkool move-down -c"
+      "$mainMod CTRL, k, exec, hyprkool move-up -c"
+      "$mainMod CTRL, left, exec, hyprkool move-left -c"
+      "$mainMod CTRL, right, exec, hyprkool move-right -c"
+      "$mainMod CTRL, down, exec, hyprkool move-down -c"
+      "$mainMod CTRL, up, exec, hyprkool move-up -c"
 
       # Move active window to a workspace
-      "$mainMod CTRL, h, exec, hyprkool move-left -c -w"
-      "$mainMod CTRL, l, exec, hyprkool move-right -c -w"
-      "$mainMod CTRL, j, exec, hyprkool move-down -c -w"
-      "$mainMod CTRL, k, exec, hyprkool move-up -c -w"
+      "$mainMod ALT CTRL, h, exec, hyprkool move-left -c -w"
+      "$mainMod ALT CTRL, l, exec, hyprkool move-right -c -w"
+      "$mainMod ALT CTRL, j, exec, hyprkool move-down -c -w"
+      "$mainMod ALT CTRL, k, exec, hyprkool move-up -c -w"
 
       # toggle special workspace
       #"$mainMod, SPACE, exec, hyprkool toggle-special-workspace -n minimized"

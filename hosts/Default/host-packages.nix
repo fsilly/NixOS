@@ -23,11 +23,15 @@
     gcc
     bat
 
+    #vscode, unortunatly
+    vscode
+
     lolcat
     firefox
     vimb
     yt-dlp
     cheese
+    pandoc
 
     waycorner
     inputs.hyprsession.packages.${pkgs.system}.default
