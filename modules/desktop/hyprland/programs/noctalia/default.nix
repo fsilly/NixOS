@@ -41,15 +41,6 @@ in
                   id = "ControlCenter";
                   useDistroLogo = true;
                 }
-                {
-                  id = "ControlCenter";
-                  useDistroLogo = true;
-                }
-
-                {
-                  id = "ControlCenter";
-                  useDistroLogo = true;
-                }
 
                 {
                   emptyColor = "secondary";

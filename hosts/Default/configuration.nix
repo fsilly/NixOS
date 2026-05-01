@@ -43,7 +43,6 @@ in
     ../../modules/programs/cli/tmux
     ../../modules/programs/cli/direnv
     ../../modules/programs/cli/lazygit
-    ../../modules/programs/cli/cava
     # ../../modules/programs/cli/fastfetch
     ../../modules/programs/cli/btop
     ../../modules/programs/media/spicetify
@@ -54,5 +53,6 @@ in
     ../../modules/programs/misc/tlp
     ../../modules/programs/misc/lact # GPU fan, clock and power configuration
   ]
-  ++ lib.optional (vars.games == true) ../../modules/core/games.nix;
+  ++ lib.optional (vars.games == true) ../../modules/core/games.nix
+  ++ lib.optional (vars.bar != "caelestia-shell") ../../modules/programs/cli/cava;
 }

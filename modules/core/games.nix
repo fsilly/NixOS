@@ -16,16 +16,16 @@
     enable32Bit = true;
   };
   environment.systemPackages = with pkgs; [
-    lutris
+    #lutris
     heroic
-    bottles
+    #bottles
     # ryujinx
     # prismlauncher
 
     steam-run
-    wineWow64Packages.staging
+    #wineWow64Packages.staging
     gamescope
-wineWowPackages.stable winetricks jdk17
+    #wineWowPackages.stable winetricks jdk17
   ];
   programs = {
     gamemode.enable = true;

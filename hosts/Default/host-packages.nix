@@ -34,7 +34,7 @@
     pandoc
 
     waycorner
-    inputs.hyprsession.packages.${pkgs.system}.default
+    #inputs.hyprsession.packages.${pkgs.system}.default
     #"${inputs.hyprsession.packages.${pkgs.system}.hyprsession}/bin/hyprsession"
 
     zip

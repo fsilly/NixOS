@@ -16,7 +16,7 @@ let
 
     appearance = {
       deformScale = 1;
-      anim.durations.scale = 1;
+      anim.durations.scale = 0.7;
 
       font = {
         family = {
@@ -95,6 +95,10 @@ let
           }
         ];
       };
+    };
+
+    paths = {
+        wallpaperDir = "~/NixOS/modules/themes/wallpapers/";
     };
 
     background = {
@@ -182,7 +186,7 @@ let
         activeIndicator = true;
         activeTrail = false;
         showWindows = false;
-        shown = 10;
+        shown = 4;
 
         activeLabel = "󰮯";
         label = "  ";

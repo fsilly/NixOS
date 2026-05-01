@@ -61,6 +61,9 @@ in
       "$mainMod, mouse:273, resizewindow"
     ];
     bind = [
+      # Caelestia
+      "$mainMod, SPACE, global, caelestia:launcher"
+
       # Keybinds help menu
       "$mainMod, question, exec, ${getExe keybinds-yad}"
       "$mainMod, slash, exec, ${getExe keybinds-yad}"
@@ -101,7 +104,7 @@ in
       "$mainMod CTRL, C, exec, ${getExe pkgs.hyprpicker} --autocopy --format=hex" # Colour Picker
 
       "$mainMod, A, exec, launcher drun" # launch desktop applications
-      "$mainMod, SPACE, exec, launcher drun" # launch desktop applications
+      #"$mainMod, SPACE, exec, launcher drun" # launch desktop applications
       "$mainMod SHIFT, W, exec, launcher wallpaper" # launch wallpaper switcher
       "$mainMod, Z, exec, launcher emoji" # launch emoji picker
       "$mainMod SHIFT, T, exec, launcher tmux" # launch tmux sessions
@@ -153,8 +156,8 @@ in
       #"$mainMod CTRL, down, workspace, empty"
 
       # Move focus with mainMod + arrow keys
-      "$mainMod, left, movefocus, l"
-      "$mainMod, right, movefocus, r"
+      #"$mainMod, left, movefocus, l"
+      #"$mainMod, right, movefocus, r"
       "$mainMod, up, movefocus, u"
       "$mainMod, down, movefocus, d"
       #"ALT, Tab, movefocus, d"

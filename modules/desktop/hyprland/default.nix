@@ -37,20 +37,20 @@ let
 in
 {
   imports = [
-    ../../themes/rose-pine # Catppuccin GTK and QT themes
     ./programs/wlogout
     ./programs/rofi
     ./programs/hypridle
     ./programs/hyprlock
   ]
-  ++ lib.optional (bar == "hyprpanel") ./programs/hyprpanel
+  ++ lib.optionals (bar == "hyprpanel") [
+    ./programs/hyprpanel
+    ../../themes/rose-pine # Catppuccin GTK and QT themes
+  ]
   ++ lib.optionals (bar == "noctalia") [
     # ./programs/dunst
+    ../../themes/rose-pine # Catppuccin GTK and QT themes
     ./programs/swaync
     ./programs/noctalia
-  ]
-  ++ lib.optionals (bar == "caelestia") [
-    ./programs/caelestia
   ]
   ++ lib.optionals (bar == "caelestia-shell") [
     ./programs/caelestia-shell
@@ -58,6 +58,7 @@ in
   ]
   ++ lib.optionals (bar == "waybar") [
     # ./programs/dunst
+    ../../themes/rose-pine # Catppuccin GTK and QT themes
     ./programs/swaync
     ./programs/waybar/${waybarTheme}.nix
   ];
@@ -126,7 +127,7 @@ in
           package = pkgs.hyprland;
           plugins = [
             #pkgs.hyprlandPlugins.hyprtrails
-            pkgs.hyprlandPlugins.borders-plus-plus
+            #pkgs.hyprlandPlugins.borders-plus-plus
             # inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.hyprwinwrap
             # inputs.hyprsysteminfo.packages.${pkgs.stdenv.hostPlatform.system}.default
 
@@ -195,11 +196,11 @@ in
 
               follow_mouse = 1;
 
-              touchpad.natural_scroll = false;
+              touchpad.natural_scroll = true;
 
               tablet.output = "current";
 
-              sensitivity = 6.0; # -1.0 - 1.0, 0 means no modification.
+              sensitivity = 5.0; # -1.0 - 1.0, 0 means no modification.
               force_no_accel = true;
             };
             general = {
