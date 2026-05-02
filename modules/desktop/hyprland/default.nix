@@ -87,7 +87,7 @@ in
 
   programs.hyprland = {
     enable = true;
-    package = pkgs.hyprland;
+    package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
     # withUWSM = true;
   };
 
@@ -124,14 +124,15 @@ in
         #test later systemd.user.targets.hyprland-session.Unit.Wants = [ "xdg-desktop-autostart.target" ];
         wayland.windowManager.hyprland = {
           enable = true;
-          package = pkgs.hyprland;
+          package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
           plugins = [
+            #inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.hyprwinwrap
+            inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.borders-plus-plus
             #pkgs.hyprlandPlugins.hyprtrails
             #pkgs.hyprlandPlugins.borders-plus-plus
             # inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.hyprwinwrap
             # inputs.hyprsysteminfo.packages.${pkgs.stdenv.hostPlatform.system}.default
-
-            inputs.hyprkool.packages.${pkgs.system}.hyprkool-plugin 
+            inputs.hyprkool.packages.${pkgs.stdenv.hostPlatform.system}.hyprkool-plugin 
           ];
           systemd = {
             enable = true;
@@ -188,15 +189,15 @@ in
               "polkit-agent-helper-1"
             ];
             input = {
-              kb_layout = "${kbdLayout},ru";
+              kb_layout = "${kbdLayout},us";
               kb_variant = "${kbdVariant},";
               repeat_delay = 275; # or 212
               repeat_rate = 35;
               numlock_by_default = true;
 
-              follow_mouse = 1;
+              follow_mouse = 0;
 
-              touchpad.natural_scroll = true;
+              touchpad.natural_scroll = false;
 
               tablet.output = "current";
 
@@ -233,7 +234,7 @@ in
               "col.border_locked_active" = "rgba(ca9ee6ff) rgba(f2d5cfff) 45deg";
               "col.border_locked_inactive" = "rgba(b4befecc) rgba(6c7086cc) 45deg";
             };
-            layerrule = (import ./windowrules.nix).layerrule;
+            layerrule = (import ./windowrules.nix).layer/ule;
             animations = {
               enabled = true;
               bezier = [

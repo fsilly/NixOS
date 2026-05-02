@@ -33,6 +33,7 @@
             zsh-defer -c 'source ${pkgs.zsh-syntax-highlighting}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh'
             zsh-defer -c 'source ${pkgs.zsh-autosuggestions}/share/zsh-autosuggestions/zsh-autosuggestions.zsh'
             zsh-defer -c 'source ${pkgs.zsh-fzf-tab}/share/fzf-tab/fzf-tab.plugin.zsh'
+            zsh-defer -c 'bindkey "^R" history-incremental-search-backward'
             zsh-defer -c 'source ${pkgs.zsh-history-substring-search}/share/zsh-history-substring-search/zsh-history-substring-search.zsh; bindkey "^[[A" history-substring-search-up; bindkey "^[[B" history-substring-search-down'
             zsh-defer -c 'eval "$(direnv hook zsh)"' 2>/dev/null
             zsh-defer -c 'eval "$(zoxide init zsh)"' 2>/dev/null
