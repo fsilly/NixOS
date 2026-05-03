@@ -45,8 +45,7 @@ let
       sessionGifSpeed = 0.7;
 
       apps = {
-        terminal = [ "foot" ];
-        audio = [ "pavucontrol" ];
+        terminal = [ "foot" ]; audio = [ "pavucontrol" ];
         playback = [ "mpv" ];
         explorer = [ "thunar" ];
       };

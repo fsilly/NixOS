@@ -24,12 +24,30 @@ in
       enableSSHSupport = true;
     };
   };
+  services.udev.extraHwdb = ''
+    evdev:atkbd:*
+      KEYBOARD_KEY_3a=esc
+  '';
   services.xserver = {
     enable = true;
     excludePackages = with pkgs; [ xterm ];
-    exportConfiguration = true; # Make sure /etc/X11/xkb is populated so localectl works correctly
+    exportConfiguration = pkgs.lib.mkDefault true; # Make sure /etc/X11/xkb is populated so localectl works correctly
     xkb = {
       layout = "${kbdLayout}";
+      #options = "caps:swapescape";
+
+     # extraLayouts.custom = {
+     #   description = "Disable PgUp/PgDn";
+     #   languages = [ "eng" ];
+
+     #   symbolsFile = ''
+     #     xkb_symbols "basic" {
+     #       key <CAPS> { 
+     #       key <PGUP> { [ NoSymbol ] };
+     #       key <PGDN> { [ NoSymbol ] };
+     #     };
+     #   '';
+     # };
       variant = "${kbdVariant}";
     };
   };

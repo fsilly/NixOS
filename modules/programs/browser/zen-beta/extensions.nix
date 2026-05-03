@@ -4,19 +4,20 @@ let
 in {
 
   area = [
-     "ublock0_raymondhill_net-browser-action"
-     "firemonkey_eros_man-browser-action"
-     "addon_darkreader_org-browser-action"
-     "queryamoid_kaply_com-browser-action"
+    # "ublock0_raymondhill_net-browser-action"
+    # "firemonkey_eros_man-browser-action"
+    # "addon_darkreader_org-browser-action"
+    # "queryamoid_kaply_com-browser-action"
      # "_aecec67f-0d10-4fa7-b7c7-609a2db280cf_-browser-action"
   ];
 
   navbar = [
-    "_c4b582ec-4343-438c-bda2-2f691c16c262_-browser-action"
-    #"firemonkey_eros_man-browser-action"
+    #"_c4b582ec-4343-438c-bda2-2f691c16c262_-browser-action"
+    "firemonkey_eros_man-browser-action"
     "ublock0_raymondhill_net-browser-action"
-    # "addon_darkreader_org-browser-action"
-    # "queryamoid_kaply_com-browser-action"
+    "addon_darkreader_org-browser-action"
+    "queryamoid_kaply_com-browser-action"
+    "_446900e4-71c2-419f-a6a7-df9c091e268b_-browser-action" #bitwarden
     # "_aecec67f-0d10-4fa7-b7c7-609a2db280cf_-browser-action"
   ];
 
@@ -37,14 +38,33 @@ extensionsNur = with pkgs.nur.repos.rycee.firefox-addons; [
        #   blocked_install_message = "Addon is not added in the nix config";
        #   installation_mode = "blocked";o
        # };
+#{
+#  myExtension = pkgs.firefox-addons.buildFirefoxXpiAddon {
+#    pname = "my-extension";
+#    version = "1.0";
+#
+#    src = pkgs.fetchurl {
+#      url = "https://addons.mozilla.org/firefox/downloads/file/XXXX/my_extension.xpi";
+#      sha256 = "sha256-...";
+#    };
+#
+#    addonId = "addon-id@example.com";
+#  };
+#}
 
+
+        "{446900e4-71c2-419f-a6a7-df9c091e268b}" = {
+          private_browsing = true;
+          default_area = "navbar";
+          installation_mode = "force_installed";
+          install_url = "https://addons.mozilla.org/firefox/downloads/file/4749958/bitwarden_password_manager-2026.3.0.xpi";
+        };
         "opensubtitles@stefan.breitenstein" = {
           private_browsing = true;
           default_area = "navbar";
           installation_mode = "force_installed";
           install_url = "https://addons.mozilla.org/en-US/firefox/addon/opensubtitles/latest.xpi";
         };
-
         "uBlock0@raymondhill.net" = {
           private_browsing = true;
           default_area = "navbar";
@@ -90,6 +110,11 @@ extensionsNur = with pkgs.nur.repos.rycee.firefox-addons; [
           private_browsing = true;
           installation_mode = "force_installed";
           install_url = "https://github.com/mkaply/queryamoid/releases/download/v0.2/query_amo_addon_id-0.2-fx.xpi";
+        };
+        "{1b6fd6ea-f3f1-4446-8358-0d16920a4223}" = { # Trydactil
+          private_browsing = true;
+          installation_mode = "force_installed";
+          install_url = "https://addons.mozilla.org/firefox/downloads/file/4704384/tridactyl_vim-1.24.5.xpi";
         };
     };
 

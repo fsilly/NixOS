@@ -127,7 +127,7 @@ in
           package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
           plugins = [
             #inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.hyprwinwrap
-            inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.borders-plus-plus
+            #inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.borders-plus-plus
             #pkgs.hyprlandPlugins.hyprtrails
             #pkgs.hyprlandPlugins.borders-plus-plus
             # inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.hyprwinwrap
@@ -195,7 +195,7 @@ in
               repeat_rate = 35;
               numlock_by_default = true;
 
-              follow_mouse = 0;
+              follow_mouse = 1;
 
               touchpad.natural_scroll = false;
 
@@ -205,8 +205,8 @@ in
               force_no_accel = true;
             };
             general = {
-              gaps_in = 4;
-              gaps_out = 9;
+              gaps_in = 3;
+              gaps_out = 3;
               border_size = 2;
               "col.active_border" = "rgba(ca9ee6ff) rgba(f2d5cfff) 45deg";
               "col.inactive_border" = "rgba(b4befecc) rgba(6c7086cc) 45deg";
@@ -234,7 +234,7 @@ in
               "col.border_locked_active" = "rgba(ca9ee6ff) rgba(f2d5cfff) 45deg";
               "col.border_locked_inactive" = "rgba(b4befecc) rgba(6c7086cc) 45deg";
             };
-            layerrule = (import ./windowrules.nix).layer/ule;
+            layerrule = (import ./windowrules.nix).layerrule;
             animations = {
               enabled = true;
               bezier = [
@@ -273,7 +273,7 @@ in
               mouse_move_focuses_monitor = true;
               swallow_regex = "^(Alacritty|kitty)$";
               enable_swallow = true;
-              vfr = true; # always keep on
+              #vfr = false; # always keep on
               vrr = 2; # enable variable refresh rate (0=off, 1=on, 2=fullscreen only, 3 = fullscreen games/media)
             };
             xwayland.force_zero_scaling = false;
@@ -281,7 +281,7 @@ in
               "3, horizontal, workspace"
             ];
             dwindle = {
-              pseudotile = true;
+              #pseudotile = true;
               preserve_split = true;
             };
             master = {

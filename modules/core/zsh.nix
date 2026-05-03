@@ -22,6 +22,7 @@
               src = pkgs.nix-zsh-completions;
             }
           ];
+
           initContent = ''
             fpath=(${pkgs.nix-zsh-completions}/share/zsh/site-functions $fpath)
 
@@ -55,7 +56,25 @@
             #bindkey '^e' end-of-line
             bindkey -v
             bindkey -M vicmd 'k' history-substring-search-up
-            bindkey -M vicmd 'j' history-substring-search-down
+            bindkey -M vicmd 'j' history-substring-search
+            # Remove unwanted key interactions
+            #bindkey -r "^?"        # DEL
+            #bindkey -r "^[[3~"     # Delete key
+            #bindkey -r "^[[5~"     # Page Up
+            #bindkey -r "^[[6~"     # Page Down
+
+            # Also ensure they do nothing in both modes
+            #bindkey -M viins "^[[5~" undefined-key
+            #bindkey -M viins "^[[6~" undefined-key
+            #bindkey -M vicmd "^[[5~" undefined-key
+            #bindkey -M vicmd "^[[6~" undefined-key
+            #bindkey -M viins "^[[3~" undefined-key
+            #bindkey -M vicmd "^[[3~" undefined-key
+
+            # Hard-disable problematic navigation keys
+            for key in "^[[3~" "^[[5~" "^[[6~" "^[3~" "^[5~" "^[6~"; do
+              bindkey -r $key 2>/dev/null
+            done
 
             # options
             unsetopt menu_complete
@@ -171,6 +190,8 @@
             tpr = "${pkgs.trash-cli}/bin/trash-restore";
             grep = "grep --color=always";
             pokemon = "pokego --random 1-8 --no-title";
+
+            gs = "git status"
 
             # Nixos
             list-gens = "nixos-rebuild list-generations";

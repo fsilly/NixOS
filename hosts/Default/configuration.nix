@@ -26,7 +26,6 @@ in
     ../../modules/core/syncthing.nix
     ../../modules/core/system.nix
     ../../modules/core/users.nix
-    ../../modules/core/kanata.nix
     # ../../modules/core/flatpak.nix
     # ../../modules/core/virtualisation.nix
     # ../../modules/core/dlna.nix

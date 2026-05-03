@@ -8,6 +8,12 @@
           add_newline = false;
           scan_timeout = 10;
           format = "$username$hostname$directory$git_branch$git_state$git_status$cmd_duration$python$nix_shell$character";
+          time = {
+            disabled = false;
+            format = "[$time]($style) ";
+            time_format = "%a %H:%M";
+            style = "bold bright-black";
+          };
           directory = {
             truncate_to_repo = false;
             read_only = " ro";
