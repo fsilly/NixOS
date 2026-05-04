@@ -273,6 +273,15 @@ in
           inputs.caelestia-shell.homeManagerModules.default
         ];
 
+        # Pointer cursor
+        home.pointerCursor = {
+          gtk.enable = true;
+          x11.enable = true;
+          package = pkgs.bibata-cursors;
+          name = "Bibata-Modern-Classic";
+          size = 24;
+        };
+
         programs.caelestia = {
           enable = true;
           cli.enable = true;

@@ -7,11 +7,12 @@
         settings = {
           add_newline = false;
           scan_timeout = 10;
-          format = "$username$hostname$directory$git_branch$git_state$git_status$cmd_duration$python$nix_shell$character";
+          format = "$time$username$hostname$directory$git_branch$git_state$git_status$cmd_duration$python$nix_shell$character";
           time = {
             disabled = false;
-            format = "[$time]($style) ";
-            time_format = "%a %H:%M";
+            format = "[$time ♥]($style) ";
+            time_format = "%R";
+            #time_format = "%a %H:%M";
             style = "bold bright-black";
           };
           directory = {

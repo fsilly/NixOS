@@ -4,11 +4,6 @@ let
 in {
 
   area = [
-    # "ublock0_raymondhill_net-browser-action"
-    # "firemonkey_eros_man-browser-action"
-    # "addon_darkreader_org-browser-action"
-    # "queryamoid_kaply_com-browser-action"
-     # "_aecec67f-0d10-4fa7-b7c7-609a2db280cf_-browser-action"
   ];
 
   navbar = [
@@ -22,15 +17,6 @@ in {
   ];
 
 extensionsNur = with pkgs.nur.repos.rycee.firefox-addons; [
-#    floccus
-#    kagi-search
-#    multi-account-containers
-#    bitwarden
-#    firemonkey
-#    sponsorblock
-#    return-youtube-dislikes
-#    ublock-origin
-#    istilldontcareaboutcookies
   ];
 
   extensionSettings = with extensions; {
@@ -111,7 +97,7 @@ extensionsNur = with pkgs.nur.repos.rycee.firefox-addons; [
           installation_mode = "force_installed";
           install_url = "https://github.com/mkaply/queryamoid/releases/download/v0.2/query_amo_addon_id-0.2-fx.xpi";
         };
-        "{1b6fd6ea-f3f1-4446-8358-0d16920a4223}" = { # Trydactil
+        "tridactyl.vim@cmcaine.co.uk" = { # Trydactil
           private_browsing = true;
           installation_mode = "force_installed";
           install_url = "https://addons.mozilla.org/firefox/downloads/file/4704384/tridactyl_vim-1.24.5.xpi";

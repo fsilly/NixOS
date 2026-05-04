@@ -101,7 +101,8 @@ in
             xdg-desktop-portal-gtk
           ];
           xdgOpenUsePortal = true;
-          configPackages = [ config.wayland.windowManager.hyprland.package ];
+          #configPackages = [ config.wayland.windowManager.hyprland.package ];
+          configPackages = [ inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland ];
           config.hyprland = {
             default = [
               "hyprland"
@@ -127,7 +128,7 @@ in
           package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
           plugins = [
             #inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.hyprwinwrap
-            #inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.borders-plus-plus
+            inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.borders-plus-plus
             #pkgs.hyprlandPlugins.hyprtrails
             #pkgs.hyprlandPlugins.borders-plus-plus
             # inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.hyprwinwrap
@@ -206,7 +207,7 @@ in
             };
             general = {
               gaps_in = 3;
-              gaps_out = 3;
+              gaps_out = 9;
               border_size = 2;
               "col.active_border" = "rgba(ca9ee6ff) rgba(f2d5cfff) 45deg";
               "col.inactive_border" = "rgba(b4befecc) rgba(6c7086cc) 45deg";

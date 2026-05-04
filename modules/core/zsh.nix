@@ -191,7 +191,8 @@
             grep = "grep --color=always";
             pokemon = "pokego --random 1-8 --no-title";
 
-            gs = "git status"
+            gs = "git status";
+            gc = "git commit -m";
 
             # Nixos
             list-gens = "nixos-rebuild list-generations";

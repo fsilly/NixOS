@@ -32,13 +32,14 @@
       url = "github:caelestia-dots/shell";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    hyprland.url = "github:hyprwm/Hyprland";
+    hyprland.url = "github:hyprwm/Hyprland/0002f14";
     hyprland-plugins = {
       url = "github:hyprwm/hyprland-plugins";
       inputs.hyprland.follows = "hyprland";
     };
     hyprkool = {
       url = "github:shinkuan/hyprkool";
+      #inputs.hyprland.follows = "hyprland";
     };
     doom-config = {
       url = "github:Sly-Harvey/doom";
@@ -85,6 +86,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hyprsession.url = "github:joshurtree/hyprsession";
+    nixos-grub-themes.url = "github:jeslie0/nixos-grub-themes";
   };
 
   outputs =

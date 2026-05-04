@@ -62,7 +62,6 @@ in
         activeConfig = null;
         configs = {
             #caelestia-shell = (inputs.caelestia-shell.packages.${pkgs.system}.default.override { withCli = true; });
-            #hyprkool = inputs.hyprkool.packages.${pkgs.system}.default;
 
         };
       };

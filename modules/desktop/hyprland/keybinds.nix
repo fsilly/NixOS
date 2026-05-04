@@ -96,7 +96,7 @@ in
       "$mainMod, T, exec, $term"
       "$mainMod, E, exec, ${getExe fileManagerScript} ${fileManager}"
       "$mainMod, C, exec, $editor"
-    "$mainMod, F, exec, vimb duckduckgo.com"
+      "$mainMod, F, exec, firefox"
       "$mainMod SHIFT, S, exec, spotify"
       "$mainMod SHIFT, Y, exec, youtube-music"
       "$CONTROL ALT, DELETE, exec, $term -e '${getExe pkgs.btop}'" # System Monitor
