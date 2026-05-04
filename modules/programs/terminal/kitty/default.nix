@@ -8,7 +8,7 @@
           size = 12.0;
           name = "monospace";
         };
-        themeFile = "Catppuccin-Mocha";
+        #themeFile = "Catppuccin-Mocha";
         settings = {
           # shell = "${getExe pkgs.tmux}";
           # cursor_trail = 3; # Fancy cursor movements (especially in nixvim)
@@ -37,6 +37,74 @@
           window_padding_width = 10;
         };
         # shellIntegration.mode = "no-sudo";
+              
+        extraConfig = ''
+#          # Colors (Catppuccin Mocha example)
+#          foreground              #CDD6F4
+#          background              #1E1E2E
+#          selection_foreground    #1E1E2E
+#          selection_background    #F5E0DC
+#
+#          color0  #45475A
+#          color1  #F38BA8
+#          color2  #A6E3A1
+#          color3  #F9E2AF
+#          color4  #89B4FA
+#          color5  #F5C2E7
+#          color6  #94E2D5
+#          color7  #BAC2DE
+#
+#          color8  #585B70
+#          color9  #F38BA8
+#          color10 #A6E3A1
+#          color11 #F9E2AF
+#          color12 #89B4FA
+#          color13 #F5C2E7
+#          color14 #94E2D5
+#          color15 #A6ADC8
+background            #101010
+foreground            #999993
+cursor                #9d9eca
+selection_background  #4d4d4d
+color0                #333333
+color8                #3d3d3d
+color1                #8c4665
+color9                #bf4d80
+color2                #287373
+color10               #53a6a6
+color3                #7c7c99
+color11               #9e9ecb
+color4                #395573
+color12               #477ab3
+color5                #5e468c
+color13               #7e62b3
+color6                #31658c
+color14               #6096bf
+color7                #899ca1
+color15               #c0c0c0
+selection_foreground #101010
+#           background #212733
+#           foreground #d9d7ce
+#           cursor #F5C2E7
+#           selection_background #343f4c
+#           color0 #191e2a
+#           color8 #686868
+#           color1 #ed8274
+#           color9 #f28779
+#           color2  #a6cc70
+#           color10 #bae67e
+#           color3  #fad07b
+#           color11 #ffd580
+#           color4  #6dcbfa
+#           color12 #73d0ff
+#           color5  #cfbafa
+#           color13 #d4bfff
+#           color6  #90e1c6
+#           color14 #95e6cb
+#           color7  #c7c7c7
+#           color15 #ffffff
+           selection_foreground #212733
+        '';
         keybindings = {
           "ctrl+alt+n" = "launch --cwd=current";
           "alt+w" = "copy_and_clear_or_interrupt";

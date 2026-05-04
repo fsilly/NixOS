@@ -230,7 +230,7 @@ in
               #"col.active_border" = "rgba(ca9ee6ff) rgba(f2d5cfff) 45deg";
               #"col.inactive_border" = "rgba(b4befecc) rgba(6c7086cc) 45deg";
               "col.inactive_border" = "rgba(50,0,20,0.5) rgba(60,0,80,0.3) 45deg";
-              "col.active_border" = "rgba(250,120,220,0.6) rgba(210,120,250,0.6) 45deg";
+              "col.active_border" = "rgba(250,120,220,0.6) rgba(210,120,250,0.6) 45deg"; ##fa78dc99
               resize_on_border = true;
               layout = "dwindle"; # dwindle, master, scrolling, monocle
               # allow_tearing = true; # Allow tearing for games (use immediate window rules for specific games or all titles)
