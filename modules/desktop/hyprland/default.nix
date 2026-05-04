@@ -129,7 +129,7 @@ in
           package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
           plugins = [
             #inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.hyprwinwrap
-            inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.borders-plus-plus
+            #inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.borders-plus-plus
             #pkgs.hyprlandPlugins.hyprtrails
             #pkgs.hyprlandPlugins.borders-plus-plus
             # inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.hyprwinwrap
@@ -146,20 +146,20 @@ in
             "$editor" = "code --disable-gpu";
             "$browser" = browser;
 
-            plugin = {
-                borders-plus-plus = [
-                    "add_borders = 2"
-
-                    # INNER BORDER (static, subtle)"
-                    "col.border_1 = rgba(ffffff1a)"
-                    "border_size_1 = 6"
-
-                    # OUTER BORDER (animated)"
-                    "col.border_2 = rgba(ff69b4ff) rgba(c850bed9) 0deg"
-                    "border_size_2 = 4"
-                    "natural_rounding = 1"
-                ];
-            };
+#            plugin = {
+#                borders-plus-plus = {
+#                    add_borders = 2;
+#
+#                    # INNER BORDER (static, subtle)"
+#                    "col.border_1" = "rgba(50, 0, 20, 0.4)";
+#                    border_size_1 = 4;
+#
+#                    # OUTER BORDER (animated)"
+#                    "col.border_2" = "rgba(228, 149, 236, 0.831)";
+#                    border_size_2 = 1;
+#                    natural_rounding = 1;
+#                };
+#            };
 
             env = [
               "XDG_CURRENT_DESKTOP,Hyprland"
@@ -224,17 +224,28 @@ in
               force_no_accel = true;
             };
             general = {
-              gaps_in = 2;
+              gaps_in = 5;
               gaps_out = 6;
-#              border_size = 2;
-#              "col.active_border" = "rgba(ca9ee6ff) rgba(f2d5cfff) 45deg";
-#              "col.inactive_border" = "rgba(b4befecc) rgba(6c7086cc) 45deg";
-#              resize_on_border = true;
-#              layout = "dwindle"; # dwindle, master, scrolling, monocle
+              border_size = 3;
+              #"col.active_border" = "rgba(ca9ee6ff) rgba(f2d5cfff) 45deg";
+              #"col.inactive_border" = "rgba(b4befecc) rgba(6c7086cc) 45deg";
+              "col.inactive_border" = "rgba(50,0,20,0.5) rgba(60,0,80,0.3) 45deg";
+              "col.active_border" = "rgba(250,120,220,0.6) rgba(210,120,250,0.6) 45deg";
+              resize_on_border = true;
+              layout = "dwindle"; # dwindle, master, scrolling, monocle
               # allow_tearing = true; # Allow tearing for games (use immediate window rules for specific games or all titles)
             };
             decoration = {
-              shadow.enabled = false;
+              shadow = {
+                enabled = true;
+                range = 25;
+                render_power = 283;
+                sharp = false;
+                color = "rgba(0,0,0,1)";
+                color_inactive = "rgba(0,0,0,0.8)";
+                #shadow_ignore_window = true;
+              };
+
               rounding = 10;
               dim_special = 0.3;
               blur = {

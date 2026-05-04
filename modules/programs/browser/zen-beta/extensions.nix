@@ -12,6 +12,8 @@ in {
     "ublock0_raymondhill_net-browser-action"
     "addon_darkreader_org-browser-action"
     "queryamoid_kaply_com-browser-action"
+    "opensubtitles@stefan.breitenstein"
+    "_c4b582ec-4343-438c-bda2-2f691c16c262_-browser-action" #open subtitles
     "_446900e4-71c2-419f-a6a7-df9c091e268b_-browser-action" #bitwarden
     # "_aecec67f-0d10-4fa7-b7c7-609a2db280cf_-browser-action"
   ];

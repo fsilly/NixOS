@@ -11,8 +11,6 @@ let
     username
     bluetoothSupport
     ;
-
-  caelestiaShellJson = pkgs.writeText "caelestia-shell.json" (builtins.toJSON caelestiaSettings);
 in
 {
   environment.systemPackages = with pkgs; [
@@ -21,9 +19,12 @@ in
   ];
 
   home-manager = {
-      xdg.configFile."caelestia" = {
-        source = config.lib.file.mkOutOfStoreSymlink ./config.json;
-        recursive = true;
+      users.${username} = { config, lib, pkgs, ... }: {
+          xdg.configFile."caelestia" = {
+            #source = config.lib.file.mkOutOfStoreSymlink ./config/;
+            source = config.lib.file.mkOutOfStoreSymlink "/home/${username}/NixOS/modules/desktop/hyprland/programs/caelestia-shell/caelestia";
+            recursive = true;
+          };
       };
       sharedModules = [
         (
@@ -50,5 +51,5 @@ in
           }
         )
       ];
-  }
+  };
 }
