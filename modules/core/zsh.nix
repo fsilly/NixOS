@@ -57,6 +57,8 @@
             bindkey -v
             bindkey -M vicmd 'k' history-substring-search-up
             bindkey -M vicmd 'j' history-substring-search
+            zsh-defer -c 'source ${pkgs.fzf}/share/fzf/key-bindings.zsh'
+            zsh-defer -c 'bindkey "^R" fzf-history-widget'
             # Remove unwanted key interactions
             #bindkey -r "^?"        # DEL
             #bindkey -r "^[[3~"     # Delete key

@@ -10,6 +10,7 @@
     # VPNs
     protonup-ng
     protonup-qt
+    baobab
 
     proton-vpn-cli
 

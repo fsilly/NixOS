@@ -21,7 +21,7 @@ let
   # Import script modules
   # autowaybar = pkgs.callPackage ./scripts/autowaybar.nix { };
   autoclicker = pkgs.callPackage ./scripts/autoclicker.nix { };
-  batterynotify = pkgs.callPackage ./scripts/batterynotify.nix { };
+  #batterynotify = pkgs.callPackage ./scripts/batterynotify.nix { };
   clipmanager = pkgs.callPackage ./scripts/clipmanager.nix { };
   fileManagerScript = pkgs.callPackage ./scripts/file-manager.nix { inherit terminal; };
   gamemode = pkgs.callPackage ./scripts/gamemode.nix { };
@@ -34,6 +34,7 @@ let
   screenshot = pkgs.callPackage ./scripts/screenshot.nix { };
   wallpaper = pkgs.callPackage ./scripts/wallpaper.nix { inherit defaultWallpaper; };
   zoom = pkgs.callPackage ./scripts/zoom.nix { };
+  border-animation = pkgs.callPackage ./scripts/border-animation.nix { };
 in
 {
   imports = [
@@ -145,6 +146,21 @@ in
             "$editor" = "code --disable-gpu";
             "$browser" = browser;
 
+            plugin = {
+                borders-plus-plus = [
+                    "add_borders = 2"
+
+                    # INNER BORDER (static, subtle)"
+                    "col.border_1 = rgba(ffffff1a)"
+                    "border_size_1 = 6"
+
+                    # OUTER BORDER (animated)"
+                    "col.border_2 = rgba(ff69b4ff) rgba(c850bed9) 0deg"
+                    "border_size_2 = 4"
+                    "natural_rounding = 1"
+                ];
+            };
+
             env = [
               "XDG_CURRENT_DESKTOP,Hyprland"
               "XDG_SESSION_DESKTOP,Hyprland"
@@ -166,6 +182,7 @@ in
               "NIXPKGS_ALLOW_UNFREE,1"
             ];
             exec-once = [
+
               #"[workspace 1 silent] ${terminal}"
               #"[workspace 5 silent] ${browser}"
               #"[workspace 6 silent] spotify"
@@ -177,6 +194,7 @@ in
               "qs -c overview"
               "hyprkool daemon"
               "hyprpm reload -n"
+              "${lib.getExe border-animation}"
 
               "${lib.getExe wallpaper}"
               "${bar}"
@@ -186,7 +204,7 @@ in
               "${getExe' pkgs.wl-clipboard "wl-paste"} --type text --watch cliphist store" # clipboard store text data
               "${getExe' pkgs.wl-clipboard "wl-paste"} --type image --watch cliphist store" # clipboard store image data
               "rm '$XDG_CACHE_HOME/cliphist/db'" # Clear clipboard
-              "${getExe batterynotify}" # battery notification
+              #"${getExe batterynotify}" # battery notification
               "polkit-agent-helper-1"
             ];
             input = {
@@ -206,13 +224,13 @@ in
               force_no_accel = true;
             };
             general = {
-              gaps_in = 3;
-              gaps_out = 9;
-              border_size = 2;
-              "col.active_border" = "rgba(ca9ee6ff) rgba(f2d5cfff) 45deg";
-              "col.inactive_border" = "rgba(b4befecc) rgba(6c7086cc) 45deg";
-              resize_on_border = true;
-              layout = "dwindle"; # dwindle, master, scrolling, monocle
+              gaps_in = 2;
+              gaps_out = 6;
+#              border_size = 2;
+#              "col.active_border" = "rgba(ca9ee6ff) rgba(f2d5cfff) 45deg";
+#              "col.inactive_border" = "rgba(b4befecc) rgba(6c7086cc) 45deg";
+#              resize_on_border = true;
+#              layout = "dwindle"; # dwindle, master, scrolling, monocle
               # allow_tearing = true; # Allow tearing for games (use immediate window rules for specific games or all titles)
             };
             decoration = {
@@ -229,12 +247,12 @@ in
                 xray = false;
               };
             };
-            group = {
-              "col.border_active" = "rgba(ca9ee6ff) rgba(f2d5cfff) 45deg";
-              "col.border_inactive" = "rgba(b4befecc) rgba(6c7086cc) 45deg";
-              "col.border_locked_active" = "rgba(ca9ee6ff) rgba(f2d5cfff) 45deg";
-              "col.border_locked_inactive" = "rgba(b4befecc) rgba(6c7086cc) 45deg";
-            };
+#            group = {
+#              "col.border_active" = "rgba(ca9ee6ff) rgba(f2d5cfff) 45deg";
+#              "col.border_inactive" = "rgba(b4befecc) rgba(6c7086cc) 45deg";
+#              "col.border_locked_active" = "rgba(ca9ee6ff) rgba(f2d5cfff) 45deg";
+#              "col.border_locked_inactive" = "rgba(b4befecc) rgba(6c7086cc) 45deg";
+#            };
             layerrule = (import ./windowrules.nix).layerrule;
             animations = {
               enabled = true;
@@ -253,7 +271,7 @@ in
               ];
               animation = [
                 "windows, 1, 3, md3_decel, popin 60%"
-                "border, 1, 10, default"
+                #"border, 1, 10, default"
                 "fade, 1, 2.5, md3_decel"
                 # "workspaces, 1, 3.5, md3_decel, slide"
                 "workspaces, 0.4, 3.5, easeOutExpo, slide"
