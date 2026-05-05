@@ -25,7 +25,7 @@
         useOSProber = true;
         gfxmodeEfi = "1920x1080"; # for 4k: 3840x2160
         gfxmodeBios = "1920x1080"; # for 4k: 3840x2160
-        theme = inputs.nixos-grub-themes.packages.${pkgs.system}.hyperfluent;
+        theme = inputs.nixos-grub-themes.packages.${pkgs.stdenv.hostPlatform.system}.hyperfluent;
 #        theme = pkgs.stdenv.mkDerivation {
 #          pname = "distro-grub-themes";
 #          version = "3.1";

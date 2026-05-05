@@ -14,7 +14,9 @@ let
     ;
 in
 {
-  imports = [ inputs.home-manager.nixosModules.home-manager ];
+  imports = [
+    inputs.home-manager.nixosModules.home-manager
+  ];
   programs.dconf.enable = true; # Enable dconf for home-manager
   home-manager = {
     useGlobalPkgs = true;
@@ -22,6 +24,9 @@ in
     overwriteBackup = true;
     backupFileExtension = "backup";
     users.${username} = { config, lib, pkgs, ... }: {
+#      imports = [
+#        inputs.dms.homeModules.dank-material-shell
+#      ];
       # Let Home Manager install and manage itself.
       programs.home-manager.enable = true;
       xdg.enable = true;
@@ -65,7 +70,6 @@ in
 
         };
       };
-
       home = {
         username = "${username}";
         homeDirectory = "/home/${username}";
@@ -77,7 +81,7 @@ in
           nixpkgs-fmt
           qt6.qtwayland
           #inputs.caelestia-shell.packages.${pkgs.system}.default
-          inputs.hyprkool.packages."${pkgs.system}".default
+          inputs.hyprkool.packages."${pkgs.stdenv.hostPlatform.system}".default
         ];
         sessionVariables = {
           EDITOR =

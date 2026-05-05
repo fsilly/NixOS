@@ -37,7 +37,7 @@
             "background": {
                 "blur": true,
                 "enabled": false,
-                "opacity": 0.7
+                "opacity": 0.3
             },
             "enabled": false,
             "invertColors": false,
@@ -46,7 +46,7 @@
             "shadow": {
                 "blur": 0.4,
                 "enabled": true,
-                "opacity": 0.7
+                "opacity": 0.9
             }
         },
         "enabled": true,
@@ -171,6 +171,9 @@
         "dragThreshold": 50,
         "enabled": true,
         "mediaUpdateInterval": 500,
+        "performance": {
+            "showBattery": true
+        },
         "showDashboard": true,
         "showMedia": true,
         "showOnHover": true,
@@ -223,12 +226,12 @@
             "timeouts": [
                 {
                     "idleAction": "lock",
-                    "timeout": 180
+                    "timeout": 380
                 },
                 {
                     "idleAction": "dpms off",
                     "returnAction": "dpms on",
-                    "timeout": 300
+                    "timeout": 600
                 },
                 {
                     "idleAction": [

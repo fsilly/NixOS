@@ -40,6 +40,8 @@
       url = "github:fsilly/caelestia-cli";
     };
 
+    dms.url = "github:AvengeMedia/DankMaterialShell";
+
     hyprland.url = "github:hyprwm/Hyprland/0002f14";
     hyprland-plugins = {
       url = "github:hyprwm/hyprland-plugins";

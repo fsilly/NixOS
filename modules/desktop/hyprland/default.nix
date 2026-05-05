@@ -56,6 +56,7 @@ in
   ++ lib.optionals (bar == "caelestia-shell") [
     ./programs/caelestia-shell
     ./programs/swaync
+    ./programs/dank-material-shell
   ]
   ++ lib.optionals (bar == "waybar") [
     # ./programs/dunst
