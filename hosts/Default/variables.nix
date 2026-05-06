@@ -24,6 +24,8 @@
   bluetoothSupport = true; # Whether your motherboard supports bluetooth
   nvidiaChannel = "legacy_580"; # stable, latest, beta, legacy_xxx
 
+  wsSwitchTimeOffset = "0.07";
+
   # Localization
   timezone = "Europe/Paris";
   locale = "en_US.UTF-8";

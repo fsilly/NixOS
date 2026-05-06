@@ -16,6 +16,7 @@ let
     kbdLayout
     kbdVariant
     defaultWallpaper
+    wsSwitchTimeOffset
     ;
 
   # Import script modules
@@ -131,6 +132,7 @@ in
           plugins = [
             #inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.hyprwinwrap
             #inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.borders-plus-plus
+            inputs.hyprgrass.packages.${pkgs.stdenv.hostPlatform.system}.default
             #pkgs.hyprlandPlugins.hyprtrails
             #pkgs.hyprlandPlugins.borders-plus-plus
             # inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.hyprwinwrap
@@ -225,7 +227,7 @@ in
               force_no_accel = true;
             };
             general = {
-              gaps_in = 5;
+              gaps_in = 3;
               gaps_out = 6;
               border_size = 3;
               #"col.active_border" = "rgba(ca9ee6ff) rgba(f2d5cfff) 45deg";
@@ -310,7 +312,25 @@ in
             };
             xwayland.force_zero_scaling = false;
             gesture = [
-              "3, horizontal, workspace"
+              "3, left, dispatcher, exec, qs ipc -c overview call overview quickShow && sleep ${wsSwitchTimeOffset} && hyprkool move-left -c"
+              "3, right, dispatcher, exec, qs ipc -c overview call overview quickShow && sleep ${wsSwitchTimeOffset} && hyprkool move-right -c"
+              "3, up, dispatcher, exec, qs ipc -c overview call overview quickShow && sleep ${wsSwitchTimeOffset} && hyprkool move-up -c"
+              "3, down, dispatcher, exec, qs ipc -c overview call overview quickShow && sleep ${wsSwitchTimeOffset} && hyprkool move-down -c"
+              #''3, left, function() os.execute("qs ipc -c overview call overview quickShow && sleep ${wsSwitchTimeOffset} && hyprkool move-left -c") end''
+              #''3, right, function() os.execute("qs ipc -c overview call overview quickShow && sleep ${wsSwitchTimeOffset} && hyprkool move-right -c") end''
+              #''3, up, function() os.execute("qs ipc -c overview call overview quickShow && sleep ${wsSwitchTimeOffset} && hyprkool move-up -c") end''
+              #''3, down, function() os.execute("qs ipc -c overview call overview quickShow && sleep ${wsSwitchTimeOffset} && hyprkool move-down -c") end''
+              #{
+              #  fingers = 3;
+              #  direction = "left";
+              #  action = ''function()
+              #      os.execute("qs ipc -c overview call overview quickShow && sleep ${wsSwitchTimeOffset} && hyprkool move-left -c")
+              #  end'';
+              #}
+              #"3, left, sendshortcut, $mainMod, CTRL, h"
+              #"3, right, sendshortcut, $mainMod, CTRL, l"
+              #"3, up, sendshortcut, $mainMod, CTRL, k"
+              #"3, down, sendshortcut, $mainMod, CTRL, j"
             ];
             dwindle = {
               #pseudotile = true;

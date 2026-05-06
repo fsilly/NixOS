@@ -42,7 +42,7 @@
 
     dms.url = "github:AvengeMedia/DankMaterialShell";
 
-    hyprland.url = "github:hyprwm/Hyprland/0002f14";
+    hyprland.url = "github:hyprwm/Hyprland/6ec0228c38a6203e4789fe7e7e793a558521c109";
     hyprland-plugins = {
       url = "github:hyprwm/hyprland-plugins";
       inputs.hyprland.follows = "hyprland";
@@ -51,6 +51,11 @@
       url = "github:shinkuan/hyprkool";
       #inputs.hyprland.follows = "hyprland";
     };
+    hyprgrass = {
+       url = "github:horriblename/hyprgrass";
+       inputs.hyprland.follows = "hyprland"; # IMPORTANT
+    };
+
     doom-config = {
       url = "github:Sly-Harvey/doom";
       flake = false;

@@ -16,6 +16,7 @@ let
     kbdLayout
     kbdVariant
     defaultWallpaper
+    wsSwitchTimeOffset
     ;
 
   # Import script modules
@@ -232,14 +233,14 @@ in
       #"$mainMod CTRL SHIFT, code:49, exec, $hyprkool swap-monitors-active-workspace -w"
 
       # Relative workspace jumps
-      "$mainMod CTRL, h, exec,  qs ipc -c overview call overview quickShow && sleep 0.1 &&  hyprkool move-left -c "
-      "$mainMod CTRL, l, exec,  qs ipc -c overview call overview quickShow && sleep 0.1 &&  hyprkool move-right -c "
-      "$mainMod CTRL, j, exec,  qs ipc -c overview call overview quickShow && sleep 0.1 &&  hyprkool move-down -c "
-      "$mainMod CTRL, k, exec,  qs ipc -c overview call overview quickShow && sleep 0.1 &&  hyprkool move-up -c "
-      "$mainMod CTRL, left, exec,  qs ipc -c overview call overview quickShow && sleep 0.1 &&  hyprkool move-left -c "
-      "$mainMod CTRL, right, exec,  qs ipc -c overview call overview quickShow && sleep 0.1 &&  hyprkool move-right -c "
-      "$mainMod CTRL, down, exec,  qs ipc -c overview call overview quickShow && sleep 0.1 &&  hyprkool move-down -c "
-      "$mainMod CTRL, up, exec,  qs ipc -c overview call overview quickShow && sleep 0.1 &&  hyprkool move-up -c "
+      "$mainMod CTRL, h, exec,  qs ipc -c overview call overview quickShow && sleep ${wsSwitchTimeOffset} &&  hyprkool move-left -c "
+      "$mainMod CTRL, l, exec,  qs ipc -c overview call overview quickShow && sleep ${wsSwitchTimeOffset} &&  hyprkool move-right -c "
+      "$mainMod CTRL, j, exec,  qs ipc -c overview call overview quickShow && sleep ${wsSwitchTimeOffset} &&  hyprkool move-down -c "
+      "$mainMod CTRL, k, exec,  qs ipc -c overview call overview quickShow && sleep ${wsSwitchTimeOffset} &&  hyprkool move-up -c "
+      "$mainMod CTRL, left, exec,  qs ipc -c overview call overview quickShow && sleep ${wsSwitchTimeOffset} &&  hyprkool move-left -c "
+      "$mainMod CTRL, right, exec,  qs ipc -c overview call overview quickShow && sleep ${wsSwitchTimeOffset} &&  hyprkool move-right -c "
+      "$mainMod CTRL, down, exec,  qs ipc -c overview call overview quickShow && sleep ${wsSwitchTimeOffset} &&  hyprkool move-down -c "
+      "$mainMod CTRL, up, exec,  qs ipc -c overview call overview quickShow && sleep ${wsSwitchTimeOffset} &&  hyprkool move-up -c "
 
       # Move active window to a workspace
       "$mainMod ALT CTRL, h, exec, hyprkool move-left -c -w"
