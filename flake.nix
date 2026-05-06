@@ -37,7 +37,7 @@
       };
     };
     caelestia-cli = {
-      url = "github:fsilly/caelestia-cli";
+      url = "github:fsilly/caelestia-cli?ref=cute";
     };
 
     dms.url = "github:AvengeMedia/DankMaterialShell";

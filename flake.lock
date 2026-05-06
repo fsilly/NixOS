@@ -92,15 +92,16 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1777975076,
-        "narHash": "sha256-tzVU0qarxovivZUu0ePkc2+sD3jFqs1KAax573VuN84=",
+        "lastModified": 1778059905,
+        "narHash": "sha256-mhBLx2WuRktXOfHW26+OFfDuU+H81wP54+57A+xhfCc=",
         "owner": "fsilly",
         "repo": "caelestia-cli",
-        "rev": "1ebe2af855675590a3d1fba770435c0440f3dfe4",
+        "rev": "8142a062af757fb793eac4cd45c4e72f561b01c8",
         "type": "github"
       },
       "original": {
         "owner": "fsilly",
+        "ref": "cute",
         "repo": "caelestia-cli",
         "type": "github"
       }
