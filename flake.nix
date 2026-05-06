@@ -149,6 +149,19 @@
     {
       templates = import ./dev-shells;
       formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.nixfmt-tree);
+      devShells = forAllSystems (system: { ${system}.hyprland = nixpkgs.mkShell {
+        buildInputs = with nixpkgs; [
+          hyprland
+          wl-clipboard
+          waybar
+          grim
+          slurp
+        ];
+
+        shellHook = ''
+          echo "Hyprland dev environment loaded"
+        '';
+      };});
       nixosConfigurations = {
         Default = mkHost "Default";
       };

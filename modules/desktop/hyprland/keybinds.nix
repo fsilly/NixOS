@@ -96,7 +96,7 @@ in
       "$mainMod, T, exec, $term"
       "$mainMod, E, exec, ${getExe fileManagerScript} ${fileManager}"
       "$mainMod, C, exec, $editor"
-      "$mainMod, F, exec, firefox"
+    "$mainMod, F, exec, vimb duckduckgo.com"
       "$mainMod SHIFT, S, exec, spotify"
       "$mainMod SHIFT, Y, exec, youtube-music"
       "$CONTROL ALT, DELETE, exec, $term -e '${getExe pkgs.btop}'" # System Monitor
@@ -232,14 +232,14 @@ in
       #"$mainMod CTRL SHIFT, code:49, exec, $hyprkool swap-monitors-active-workspace -w"
 
       # Relative workspace jumps
-      "$mainMod CTRL, h, exec, hyprkool move-left -c"
-      "$mainMod CTRL, l, exec, hyprkool move-right -c"
-      "$mainMod CTRL, j, exec, hyprkool move-down -c"
-      "$mainMod CTRL, k, exec, hyprkool move-up -c"
-      "$mainMod CTRL, left, exec, hyprkool move-left -c"
-      "$mainMod CTRL, right, exec, hyprkool move-right -c"
-      "$mainMod CTRL, down, exec, hyprkool move-down -c"
-      "$mainMod CTRL, up, exec, hyprkool move-up -c"
+      "$mainMod CTRL, h, exec,  qs ipc -c overview call overview quickShow && sleep 0.1 &&  hyprkool move-left -c "
+      "$mainMod CTRL, l, exec,  qs ipc -c overview call overview quickShow && sleep 0.1 &&  hyprkool move-right -c "
+      "$mainMod CTRL, j, exec,  qs ipc -c overview call overview quickShow && sleep 0.1 &&  hyprkool move-down -c "
+      "$mainMod CTRL, k, exec,  qs ipc -c overview call overview quickShow && sleep 0.1 &&  hyprkool move-up -c "
+      "$mainMod CTRL, left, exec,  qs ipc -c overview call overview quickShow && sleep 0.1 &&  hyprkool move-left -c "
+      "$mainMod CTRL, right, exec,  qs ipc -c overview call overview quickShow && sleep 0.1 &&  hyprkool move-right -c "
+      "$mainMod CTRL, down, exec,  qs ipc -c overview call overview quickShow && sleep 0.1 &&  hyprkool move-down -c "
+      "$mainMod CTRL, up, exec,  qs ipc -c overview call overview quickShow && sleep 0.1 &&  hyprkool move-up -c "
 
       # Move active window to a workspace
       "$mainMod ALT CTRL, h, exec, hyprkool move-left -c -w"

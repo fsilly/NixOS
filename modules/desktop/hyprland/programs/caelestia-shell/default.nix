@@ -15,6 +15,10 @@ in
 {
   environment.systemPackages = with pkgs; [
     wl-clipboard
+    wf-recorder
+    #vaapi
+    #gsr-kms-server
+    gpu-screen-recorder
     brightnessctl
   ];
 
