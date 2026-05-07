@@ -53,15 +53,15 @@ in
           enable = true;
         };
       };
-#      programs.git = {
-#        enable = true;
+      programs.git = {
+        enable = true;
 #        settings = {
 #          user = {
 #            name = "fsilly";
 #            email = "naykeysnet@gmail.com";
 #          };
 #        };
-#      };
+      };
       programs.quickshell = {
         enable = true;
         activeConfig = null;
