@@ -32,10 +32,14 @@ So from now on, commits on stable branch will be done after reboot to prevent th
 
 Well guess waht !
 ```
-hyprland.url = "github:hyprwm/Hyprland/6ec0228c38a6203e4789fe7e7e793a558521c109";
+hyprland.url = "github:hyprwm/Hyprland/";
 #nothing bellow (:
 ```
 
+
+untested-{ }: means hasnt beeen tested (feat or fix or ...), if next commit doesnt specify that it actually builds or works AND is from  the same branch that counts as a succesful test in one shot ! If not then it should be followed by fix on the same branch
+
+fix: an actual bug fix with test, but not full rebuild and reboot
 
 
 
@@ -44,3 +48,8 @@ hyprland.url = "github:hyprwm/Hyprland/6ec0228c38a6203e4789fe7e7e793a558521c109"
 
 # File Result - references - dateless
 > ---
+
+
+untested-{ }: means hasnt beeen tested (feat or fix or ...), if next commit doesnt specify that it actually builds or works AND is from  the same branch that counts as a succesful test in one shot ! If not then it should be followed by fix on the same branch
+
+fix: an actual bug fix with test, but not full rebuild and reboot
