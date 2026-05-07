@@ -37,6 +37,10 @@ hyprland.url = "github:hyprwm/Hyprland/";
 ```
 
 
+untested-{ }: means hasnt beeen tested (feat or fix or ...), if next commit doesnt specify that it actually builds or works AND is from  the same branch that counts as a succesful test in one shot ! If not then it should be followed by fix on the same branch
+
+fix: an actual bug fix with test, but not full rebuild and reboot
+
 
 
 
