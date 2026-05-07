@@ -262,10 +262,6 @@ in
      "$mainMod SHIFT, 1, exec, hyprkool set-named-focus -n 1"
      "$mainMod SHIFT, 2, exec, hyprkool set-named-focus -n 2"
      "$mainMod SHIFT, 3, exec, hyprkool set-named-focus -n 3"
-
-     "$mainMod CTRL, right, exec, hyprkool move-right -c "
-     "$mainMod CTRL, left, exec, hyprkool move-left -c "
-
     ]
     ++ (builtins.concatLists (
       builtins.genList (
@@ -284,4 +280,25 @@ in
         ]
       ) 10
     ));
+    gesture = [
+      "3, right, dispatcher, exec, qs ipc -c overview call overview quickShow && sleep ${wsSwitchTimeOffset} && hyprkool move-left -c"
+      "3, left, dispatcher, exec, qs ipc -c overview call overview quickShow && sleep ${wsSwitchTimeOffset} && hyprkool move-right -c"
+      "3, down, dispatcher, exec, qs ipc -c overview call overview quickShow && sleep ${wsSwitchTimeOffset} && hyprkool move-up -c"
+      "3, up, dispatcher, exec, qs ipc -c overview call overview quickShow && sleep ${wsSwitchTimeOffset} && hyprkool move-down -c"
+      #''3, left, function() os.execute("qs ipc -c overview call overview quickShow && sleep ${wsSwitchTimeOffset} && hyprkool move-left -c") end''
+      #''3, right, function() os.execute("qs ipc -c overview call overview quickShow && sleep ${wsSwitchTimeOffset} && hyprkool move-right -c") end''
+      #''3, up, function() os.execute("qs ipc -c overview call overview quickShow && sleep ${wsSwitchTimeOffset} && hyprkool move-up -c") end''
+      #''3, down, function() os.execute("qs ipc -c overview call overview quickShow && sleep ${wsSwitchTimeOffset} && hyprkool move-down -c") end''
+      #{
+      #  fingers = 3;
+      #  direction = "left";
+      #  action = ''function()
+      #      os.execute("qs ipc -c overview call overview quickShow && sleep ${wsSwitchTimeOffset} && hyprkool move-left -c")
+      #  end'';
+      #}
+      #"3, left, sendshortcut, $mainMod, CTRL, h"
+      #"3, right, sendshortcut, $mainMod, CTRL, l"
+      #"3, up, sendshortcut, $mainMod, CTRL, k"
+      #"3, down, sendshortcut, $mainMod, CTRL, j"
+    ];
 }

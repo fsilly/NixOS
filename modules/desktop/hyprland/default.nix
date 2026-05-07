@@ -36,6 +36,7 @@ let
   wallpaper = pkgs.callPackage ./scripts/wallpaper.nix { inherit defaultWallpaper; };
   zoom = pkgs.callPackage ./scripts/zoom.nix { };
   border-animation = pkgs.callPackage ./scripts/border-animation.nix { };
+  keybinds = import ./keybinds.nix { inherit host lib pkgs inputs; };
 in
 {
   imports = [
@@ -312,28 +313,8 @@ in
               #vfr = false; # always keep on
               vrr = 2; # enable variable refresh rate (0=off, 1=on, 2=fullscreen only, 3 = fullscreen games/media)
             };
+            gesture = keybinds.gesture;
             xwayland.force_zero_scaling = false;
-            gesture = [
-              "3, right, dispatcher, exec, qs ipc -c overview call overview quickShow && sleep ${wsSwitchTimeOffset} && hyprkool move-left -c"
-              "3, left, dispatcher, exec, qs ipc -c overview call overview quickShow && sleep ${wsSwitchTimeOffset} && hyprkool move-right -c"
-              "3, down, dispatcher, exec, qs ipc -c overview call overview quickShow && sleep ${wsSwitchTimeOffset} && hyprkool move-up -c"
-              "3, up, dispatcher, exec, qs ipc -c overview call overview quickShow && sleep ${wsSwitchTimeOffset} && hyprkool move-down -c"
-              #''3, left, function() os.execute("qs ipc -c overview call overview quickShow && sleep ${wsSwitchTimeOffset} && hyprkool move-left -c") end''
-              #''3, right, function() os.execute("qs ipc -c overview call overview quickShow && sleep ${wsSwitchTimeOffset} && hyprkool move-right -c") end''
-              #''3, up, function() os.execute("qs ipc -c overview call overview quickShow && sleep ${wsSwitchTimeOffset} && hyprkool move-up -c") end''
-              #''3, down, function() os.execute("qs ipc -c overview call overview quickShow && sleep ${wsSwitchTimeOffset} && hyprkool move-down -c") end''
-              #{
-              #  fingers = 3;
-              #  direction = "left";
-              #  action = ''function()
-              #      os.execute("qs ipc -c overview call overview quickShow && sleep ${wsSwitchTimeOffset} && hyprkool move-left -c")
-              #  end'';
-              #}
-              #"3, left, sendshortcut, $mainMod, CTRL, h"
-              #"3, right, sendshortcut, $mainMod, CTRL, l"
-              #"3, up, sendshortcut, $mainMod, CTRL, k"
-              #"3, down, sendshortcut, $mainMod, CTRL, j"
-            ];
             dwindle = {
               #pseudotile = true;
               preserve_split = true;
@@ -344,9 +325,9 @@ in
               mfact = 0.5;
             };
             windowrule = (import ./windowrules.nix).windowrule;
-            bind = (import ./keybinds.nix { inherit host lib pkgs inputs; }).bind;
-            bindm = (import ./keybinds.nix { inherit host lib pkgs inputs; }).bindm;
-            binde = (import ./keybinds.nix { inherit host lib pkgs inputs; }).binde;
+            bind = keybinds.bind;
+            bindm = keybinds.bindm;
+            binde = keybinds.binde;
             binds = {
               workspace_back_and_forth = 0;
               #allow_workspace_cycles=1
@@ -358,13 +339,8 @@ in
               #"eDP-1, preferred, 0x0, 1.2"
               #"DP-2, preferred, -1920x0, 1, transform, 1"
               "eDP-1, preferred, 0x0, 1.2"
-              "DP-2, preferred, -1080x0, 1, transform, 1" # dont ask me why 1600 instead of 1920
-              #"HDMI-A-1, preferred, auto, 3, mirror,"
-              
-              # My Monitors (Fine to leave these since i used the serial numbers)
-              "desc:BNQ BenQ EW277HDR 99J01861SL0,preferred,-1920x0,1"
-              "desc:BNQ BenQ EL2870U PCK00489SL0,preferred,0x0,2"
-              "desc:BNQ BenQ xl2420t 99D06760SL0,preferred,1920x-420,1,transform,1" # 5 for fipped
+              "DP-2, preferred, -1080x-600, 1, transform, 1" # dont ask me why 1600 instead of 1920
+              "HDMI-A-1, preferred, auto, 3, mirror,"
             ];
 
             workspace = [
