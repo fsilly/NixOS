@@ -39,6 +39,7 @@
     #"${inputs.hyprsession.packages.${pkgs.system}.hyprsession}/bin/hyprsession"
 
     zip
+    ffmpeg
     fastfetch
     thunderbird
     ente-auth
