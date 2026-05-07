@@ -71,6 +71,7 @@ in
     swappy
     cliphist
     wl-clipboard
+    swayimg
   ];
 
   systemd.user.services.hyprpolkitagent = {
@@ -132,7 +133,7 @@ in
           plugins = [
             #inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.hyprwinwrap
             #inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.borders-plus-plus
-            inputs.hyprgrass.packages.${pkgs.stdenv.hostPlatform.system}.default
+            #inputs.hyprgrass.packages.${pkgs.stdenv.hostPlatform.system}.default
             #pkgs.hyprlandPlugins.hyprtrails
             #pkgs.hyprlandPlugins.borders-plus-plus
             # inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.hyprwinwrap
@@ -278,7 +279,8 @@ in
                 "overshot, 0.05, 0.9, 0.1, 1.1"
                 "crazyshot, 0.1, 1.5, 0.76, 0.92"
                 "hyprnostretch, 0.05, 0.9, 0.1, 1.0"
-                "fluent_decel, 0.1, 1, 0, 1"
+                "fluent_decel, 0.1, 2, 0, 2"
+                #"fluent_decel, 0.1, 1, 0, 1"
                 "easeInOutCirc, 0.85, 0, 0.15, 1"
                 "easeOutCirc, 0, 0.55, 0.45, 1"
                 "easeOutExpo, 0.16, 1, 0.3, 1"
@@ -286,11 +288,11 @@ in
               animation = [
                 "windows, 1, 3, md3_decel, popin 60%"
                 #"border, 1, 10, default"
-                "fade, 1, 2.5, md3_decel"
+                #"fade, 1, 2.5, md3_decel"
                 #"workspaces, 1, 3.5, md3_decel, slide"
                 #"workspaces, 0.4, 3.5, easeOutExpo, slide"
                 #"workspaces, 1, 7, fluent_decel, slidefade 15%"
-                "workspaces, 2, 7, fluent_decel, fade"
+                "workspaces, -1, 7, fluent_decel, slidefade 15%"
                 # "specialWorkspace, 1, 3, md3_decel, slidefadevert 15%"
                 "specialWorkspace, 0.6, 3, md3_decel, slidevert"
               ];
@@ -312,10 +314,10 @@ in
             };
             xwayland.force_zero_scaling = false;
             gesture = [
-              "3, left, dispatcher, exec, qs ipc -c overview call overview quickShow && sleep ${wsSwitchTimeOffset} && hyprkool move-left -c"
-              "3, right, dispatcher, exec, qs ipc -c overview call overview quickShow && sleep ${wsSwitchTimeOffset} && hyprkool move-right -c"
-              "3, up, dispatcher, exec, qs ipc -c overview call overview quickShow && sleep ${wsSwitchTimeOffset} && hyprkool move-up -c"
-              "3, down, dispatcher, exec, qs ipc -c overview call overview quickShow && sleep ${wsSwitchTimeOffset} && hyprkool move-down -c"
+              "3, right, dispatcher, exec, qs ipc -c overview call overview quickShow && sleep ${wsSwitchTimeOffset} && hyprkool move-left -c"
+              "3, left, dispatcher, exec, qs ipc -c overview call overview quickShow && sleep ${wsSwitchTimeOffset} && hyprkool move-right -c"
+              "3, down, dispatcher, exec, qs ipc -c overview call overview quickShow && sleep ${wsSwitchTimeOffset} && hyprkool move-up -c"
+              "3, up, dispatcher, exec, qs ipc -c overview call overview quickShow && sleep ${wsSwitchTimeOffset} && hyprkool move-down -c"
               #''3, left, function() os.execute("qs ipc -c overview call overview quickShow && sleep ${wsSwitchTimeOffset} && hyprkool move-left -c") end''
               #''3, right, function() os.execute("qs ipc -c overview call overview quickShow && sleep ${wsSwitchTimeOffset} && hyprkool move-right -c") end''
               #''3, up, function() os.execute("qs ipc -c overview call overview quickShow && sleep ${wsSwitchTimeOffset} && hyprkool move-up -c") end''
@@ -353,8 +355,9 @@ in
 
             monitor = [
               # Easily plug in any monitor
-              "eDP-1,preferred,auto,1.2"
-              "HDMI-A-1, preferred, auto, 3, mirror,"
+              "eDP-1, preferred, 0x0, 1.2"
+              #"HDMI-A-1, preferred, auto, 3, mirror,"
+              #"DP-2, preferred, 0x1080, 1, transform, 1"
 
               # My Monitors (Fine to leave these since i used the serial numbers)
               "desc:BNQ BenQ EW277HDR 99J01861SL0,preferred,-1920x0,1"
