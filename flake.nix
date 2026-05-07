@@ -42,18 +42,26 @@
 
     dms.url = "github:AvengeMedia/DankMaterialShell";
 
-    hyprland.url = "github:hyprwm/Hyprland/6ec0228c38a6203e4789fe7e7e793a558521c109";
+    hyprland = {
+        #url = "github:hyprwm/Hyprland/6ec0228c38a6203e4789fe7e7e793a558521c109"; # 0.54.0
+        url = "github:hyprwm/Hyprland/521ece4"; # 0.54.3
+        #url = "github:hyprwm/Hyprland";
+        #inputs.nixpkgs.follows = "nixpkgs";
+        #follows = "hyprland-plugins/hyprland";
+    };
     hyprland-plugins = {
       url = "github:hyprwm/hyprland-plugins";
+      inputs.nixpkgs.follows = "nixpkgs";
       inputs.hyprland.follows = "hyprland";
     };
     hyprkool = {
       url = "github:shinkuan/hyprkool";
-      #inputs.hyprland.follows = "hyprland";
+      inputs.hyprland.follows = "hyprland";
     };
     hyprgrass = {
        url = "github:horriblename/hyprgrass";
-       inputs.hyprland.follows = "hyprland"; # IMPORTANT
+       inputs.hyprland.follows = "hyprland"; 
+        inputs.nixpkgs.follows = "nixpkgs";
     };
 
     doom-config = {
