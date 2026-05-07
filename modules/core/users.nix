@@ -55,12 +55,12 @@ in
       };
       programs.git = {
         enable = true;
-#        settings = {
-#          user = {
-#            name = "fsilly";
-#            email = "naykeysnet@gmail.com";
-#          };
-#        };
+        settings = {
+          user = {
+            name = "fsilly";
+            email = "46908682+fsilly@users.noreply.github.com";
+          };
+        };
       };
       programs.quickshell = {
         enable = true;
