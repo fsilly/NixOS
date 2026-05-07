@@ -355,10 +355,12 @@ in
 
             monitor = [
               # Easily plug in any monitor
+              #"eDP-1, preferred, 0x0, 1.2"
+              #"DP-2, preferred, -1920x0, 1, transform, 1"
               "eDP-1, preferred, 0x0, 1.2"
+              "DP-2, preferred, -1080x0, 1, transform, 1" # dont ask me why 1600 instead of 1920
               #"HDMI-A-1, preferred, auto, 3, mirror,"
-              "DP-2, preferred, 0x1080, 1, transform, 1"
-
+              
               # My Monitors (Fine to leave these since i used the serial numbers)
               "desc:BNQ BenQ EW277HDR 99J01861SL0,preferred,-1920x0,1"
               "desc:BNQ BenQ EL2870U PCK00489SL0,preferred,0x0,2"
