@@ -146,8 +146,8 @@
             "occupiedBg": false,
             "occupiedLabel": "󰮯",
             "perMonitorWorkspaces": true,
-            "showWindows": true,
-            "shown": 4,
+            "showWindows": false,
+            "shown": 8,
             "specialWorkspaceIcons": [
                 {
                     "icon": "sports_esports",

@@ -14,7 +14,6 @@
 
     proton-vpn-cli
 
-    #nvim
     vim
     tree-sitter
     ripgrep

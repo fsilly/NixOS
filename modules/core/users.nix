@@ -35,10 +35,10 @@ in
         source = config.lib.file.mkOutOfStoreSymlink "/home/${username}/NixOS/hosts/${host}/xdgconfig/waycorner/";
         recursive = true;
       };
-      xdg.configFile."nvim" = {
-        source = config.lib.file.mkOutOfStoreSymlink "/home/${username}/NixOS/hosts/${host}/xdgconfig/nvim/";
-        recursive = true;
-      };
+      #xdg.configFile."nvim" = {
+      #  source = config.lib.file.mkOutOfStoreSymlink "/home/${username}/NixOS/hosts/${host}/xdgconfig/nvim/";
+      #  recursive = true;
+      #};
       xdg.configFile."quickshell/overview" = {
         source = config.lib.file.mkOutOfStoreSymlink "/home/${username}/NixOS/hosts/${host}/xdgconfig/quickshell/overview";
         recursive = true;
@@ -75,8 +75,8 @@ in
         homeDirectory = "/home/${username}";
         stateVersion = "26.05"; # Do not change!
         packages = with pkgs; [
-          neovim
           ripgrep
+          opencode
           nil
           nixpkgs-fmt
           qt6.qtwayland
