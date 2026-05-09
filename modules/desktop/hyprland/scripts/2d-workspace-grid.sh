@@ -44,23 +44,51 @@ log "Normalized workspace index: $WS_ID"
 
 RESULT_WS=0
 
+set_animation() {
+    case "$1" in
+        left)
+            log "Animation: slidefadeleft"
+            hyprctl keyword animation "workspaces, 1, 7, default, slidefadeleft"
+            ;;
+
+        right)
+            log "Animation: slidefaderight"
+            hyprctl keyword animation "workspaces, 1, 7, default, slidefaderight"
+            ;;
+
+        up)
+            log "Animation: slidefadeup"
+            hyprctl keyword animation "workspaces, 1, 7, default, slidefadeup"
+            ;;
+
+        down)
+            log "Animation: slidefadedown"
+            hyprctl keyword animation "workspaces, 1, 7, default, slidefadedown"
+            ;;
+    esac
+}
+
 case "$DIRECTION" in
     -l)
+        set_animation left
         RESULT_WS=$(( (WS_ID - 1 + DIMENSION) % DIMENSION ))
         log "Moving LEFT"
         ;;
 
     -r)
+        set_animation right
         RESULT_WS=$(( (WS_ID + 1) % DIMENSION ))
         log "Moving RIGHT"
         ;;
 
     -t)
+        set_animation up
         RESULT_WS=$(( (WS_ID - Y_OFFSET + DIMENSION) % DIMENSION ))
         log "Moving UP"
         ;;
 
     -b)
+        set_animation down
         RESULT_WS=$(( (WS_ID + Y_OFFSET) % DIMENSION ))
         log "Moving DOWN"
         ;;
