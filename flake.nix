@@ -69,7 +69,7 @@
       flake = false;
     };
     nixvim = {
-      url = "github:Sly-Harvey/nixvim";
+      url = "github:fsilly/nixvim/fsilly-changes";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     #neovim = {
