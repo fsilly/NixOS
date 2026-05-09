@@ -7,7 +7,7 @@
         settings = {
           add_newline = false;
           scan_timeout = 10;
-          format = "$time$username$hostname$directory$git_branch$git_state$git_status$cmd_duration$python$nix_shell$character";
+          format = "$time$username$hostname$directory$git_branch$git_state$git_status$cmd_duration$python$nix_shell$line_break$character";
           time = {
             disabled = false;
             format = "[$time ♥]($style) ";
