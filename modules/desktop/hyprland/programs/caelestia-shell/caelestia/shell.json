@@ -125,7 +125,7 @@
             "showAudio": true,
             "showBattery": true,
             "showBluetooth": true,
-            "showKbLayout": false,
+            "showKbLayout": true,
             "showLockStatus": false,
             "showMicrophone": true,
             "showNetwork": true,

@@ -40,4 +40,67 @@ in
       };
     };
   };
+  services.autorandr = {
+  enable = true;
+
+  defaultTarget = "laptop";
+
+  profiles = {
+    laptop = {
+      config = {
+        eDP-1 = {
+          enable = true;
+          primary = true;
+          mode = "1920x1080";
+          position = "0x0";
+        };
+      };
+    };
+     fire = {
+      config = {
+        HDMI-A-1 = {
+          enable = true;
+          primary = true;
+          mode = "1920x1080";
+          position = "0x0";
+        };
+       DP-2 = {
+          enable = true;
+          primary = true;
+          mode = "2560x1440";
+          position = "0x0";
+        };
+
+        eDP-1.enable = false;
+      };
+    };
+
+
+    hdmi = {
+      config = {
+        HDMI-A-1 = {
+          enable = true;
+          primary = true;
+          mode = "1920x1080";
+          position = "0x0";
+        };
+
+        eDP-1.enable = false;
+      };
+    };
+
+    dp = {
+      config = {
+        DP-2 = {
+          enable = true;
+          primary = true;
+          mode = "2560x1440";
+          position = "0x0";
+        };
+
+        eDP-1.enable = false;
+      };
+    };
+  };
+};
 }

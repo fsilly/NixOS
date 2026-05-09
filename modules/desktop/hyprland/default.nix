@@ -225,7 +225,7 @@ in
 
               tablet.output = "current";
 
-              sensitivity = 5.0; # -1.0 - 1.0, 0 means no modification.
+              sensitivity = 35.0; # -1.0 - 1.0, 0 means no modification.
               force_no_accel = true;
             };
             general = {
@@ -339,8 +339,10 @@ in
               #"eDP-1, preferred, 0x0, 1.2"
               #"DP-2, preferred, -1920x0, 1, transform, 1"
               "eDP-1, preferred, 0x0, 1.2"
-              "DP-2, preferred, -1080x-600, 1, transform, 1" # dont ask me why 1600 instead of 1920
-              "HDMI-A-1, preferred, auto, 3, mirror,"
+              #"DP-2, preferred, -1080x-600, 1, transform, 1" # dont ask me why 1600 instead of 1920
+              "DP-2, preferred, auto, 1"
+              #"HDMI-A-1, preferred, auto, 1, transform, 1"
+              "HDMI-A-1, preferred, auto, 1.3 "
             ];
 
             workspace = [
