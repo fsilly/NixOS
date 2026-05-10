@@ -37,6 +37,8 @@ let
   zoom = pkgs.callPackage ./scripts/zoom.nix { };
   border-animation = pkgs.callPackage ./scripts/border-animation.nix { };
   keybinds = import ./keybinds.nix { inherit host lib pkgs inputs; };
+
+  gapIn = 2;
 in
 {
   imports = [
@@ -230,7 +232,7 @@ in
               force_no_accel = true;
             };
             general = {
-              gaps_in = 3;
+              gaps_in = gapIn;
               gaps_out = 6;
               border_size = 3;
               #"col.active_border" = "rgba(ca9ee6ff) rgba(f2d5cfff) 45deg";
