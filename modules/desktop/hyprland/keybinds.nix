@@ -30,7 +30,7 @@ let
   keybinds-yad = pkgs.callPackage ./scripts/keybinds-yad.nix { };
   # keybinds-rofi = pkgs.callPackage ./scripts/keybinds-yad.nix { };
   # mediactrl = pkgs.callPackage ./scripts/mediactrl.nix { };
-  workspace-movements = pkgs.callPackage ./scripts/2d-workspace-grid.nix { };
+  workspace-movements = pkgs.callPackage ./scripts/2d-workspace-movements.nix { };
   rofimusic = pkgs.callPackage ./scripts/rofimusic.nix { };
   screen-record = pkgs.callPackage ./scripts/screen-record.nix { };
   screenshot = pkgs.callPackage ./scripts/screenshot.nix { };
@@ -244,14 +244,14 @@ in
       #"$mainMod CTRL, down, exec,  qs ipc -c overview call overview quickShow && sleep ${wsSwitchTimeOffset} &&  hyprkool move-down -c "
       #"$mainMod CTRL, up, exec,  qs ipc -c overview call overview quickShow && sleep ${wsSwitchTimeOffset} &&  hyprkool move-up -c "
 
-      "$mainMod CTRL, h, exec,  qs ipc -c overview call overview quickShow  && ${getExe workspace-movements} move -l"
+      "$mainMod CTRL, h, exec,  qs ipc -c overview call overview quickShow  && ${getExe workspace-movements} move -r"
       "$mainMod CTRL, l, exec,  qs ipc -c overview call overview quickShow  && ${getExe workspace-movements} move -l"
-      "$mainMod CTRL, j, exec,  qs ipc -c overview call overview quickShow  && ${getExe workspace-movements} move -l"
-      "$mainMod CTRL, k, exec,  qs ipc -c overview call overview quickShow  && ${getExe workspace-movements} move -l"
+      "$mainMod CTRL, j, exec,  qs ipc -c overview call overview quickShow  && ${getExe workspace-movements} move -b"
+      "$mainMod CTRL, k, exec,  qs ipc -c overview call overview quickShow  && ${getExe workspace-movements} move -t"
       "$mainMod CTRL, left, exec,  qs ipc -c overview call overview quickShow  && ${getExe workspace-movements} move -l"
-      "$mainMod CTRL, right, exec,  qs ipc -c overview call overview quickShow  && ${getExe workspace-movements} move -l"
-      "$mainMod CTRL, down, exec,  qs ipc -c overview call overview quickShow  && ${getExe workspace-movements} move -l"
-      "$mainMod CTRL, up, exec,  qs ipc -c overview call overview quickShow  && ${getExe workspace-movements} move -l"
+      "$mainMod CTRL, right, exec,  qs ipc -c overview call overview quickShow  && ${getExe workspace-movements} move -r"
+      "$mainMod CTRL, down, exec,  qs ipc -c overview call overview quickShow  && ${getExe workspace-movements} move -b"
+      "$mainMod CTRL, up, exec,  qs ipc -c overview call overview quickShow  && ${getExe workspace-movements} move -t"
 
       # Move active window to a workspace
       "$mainMod ALT CTRL, h, exec, hyprkool move-left -c -w"

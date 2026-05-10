@@ -73,6 +73,7 @@ in
     cliphist
     wl-clipboard
     swayimg
+    bc # this should probably go elsewhere since its math but it is required here
   ];
 
   systemd.user.services.hyprpolkitagent = {
