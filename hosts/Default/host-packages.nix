@@ -15,6 +15,7 @@
     proton-vpn-cli
 
     vim
+    #neovim
     tree-sitter
     ripgrep
     fd

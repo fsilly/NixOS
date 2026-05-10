@@ -162,19 +162,27 @@
     {
       templates = import ./dev-shells;
       formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.nixfmt-tree);
-      devShells = forAllSystems (system: { ${system}.hyprland = nixpkgs.mkShell {
-        buildInputs = with nixpkgs; [
-          hyprland
-          wl-clipboard
-          waybar
-          grim
-          slurp
+      devShells.default = nixpkgs.mkShell {
+        packages = with nixpkgs; [
+          git
+          just
+          fd
+          ripgrep
+          entr
+          statix
+          deadnix
+          nixd
+          nil
+          alejandra
+
+          # local nixvim build
+          nvim
         ];
 
         shellHook = ''
-          echo "Hyprland dev environment loaded"
+          echo "hum yeah shell thing good"
         '';
-      };});
+      };
       nixosConfigurations = {
         Default = mkHost "Default";
       };
