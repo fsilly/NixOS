@@ -140,7 +140,7 @@ in
             #pkgs.hyprlandPlugins.borders-plus-plus
             # inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.hyprwinwrap
             # inputs.hyprsysteminfo.packages.${pkgs.stdenv.hostPlatform.system}.default
-            inputs.hyprkool.packages.${pkgs.stdenv.hostPlatform.system}.hyprkool-plugin 
+            #inputs.hyprkool.packages.${pkgs.stdenv.hostPlatform.system}.hyprkool-plugin 
           ];
           systemd = {
             enable = true;
@@ -198,7 +198,7 @@ in
               "librepods"
               #"caelestia-shell"
               "qs -c overview"
-              "hyprkool daemon"
+              #"hyprkool daemon"
               "hyprpm reload -n"
               "${lib.getExe border-animation}"
 
@@ -291,10 +291,11 @@ in
                 "windows, 1, 3, md3_decel, popin 60%"
                 #"border, 1, 10, default"
                 #"fade, 1, 2.5, md3_decel"
-                #"workspaces, 1, 3.5, md3_decel, slide"
+                "workspaces, 1, 3.5, md3_decel, slide up"
                 #"workspaces, 0.4, 3.5, easeOutExpo, slide"
                 #"workspaces, 1, 7, fluent_decel, slidefade 15%"
-                "workspaces, -1, 7, fluent_decel, slidefade 15%"
+                #"workspaces, 1, 7, fluent_decel, slide up%"
+                #"workspaces, -1, 7, fluent_decel, slidefade 15%"
                 # "specialWorkspace, 1, 3, md3_decel, slidefadevert 15%"
                 "specialWorkspace, 0.6, 3, md3_decel, slidevert"
               ];

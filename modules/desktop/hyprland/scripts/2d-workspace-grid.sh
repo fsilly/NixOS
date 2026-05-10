@@ -44,16 +44,16 @@ log "Coordinates: x=$X y=$Y"
 set_animation() {
     case "$1" in
         left)
-            hyprctl keyword animation "workspaces, 1, 7, default, slidefadeleft"
+            hyprctl keyword animation "workspaces, 1, 7, default, slidefade"
             ;;
         right)
-            hyprctl keyword animation "workspaces, 1, 7, default, slidefaderight"
+            hyprctl keyword animation "workspaces, 1, 7, default, slidefade"
             ;;
         up)
-            hyprctl keyword animation "workspaces, 1, 7, default, slidefadeup"
+            hyprctl keyword animation "workspaces, 1, 7, default, slidefadevert"
             ;;
         down)
-            hyprctl keyword animation "workspaces, 1, 7, default, slidefadedown"
+            hyprctl keyword animation "workspaces, 1, 7, default, slidefadevert"
             ;;
     esac
 }
