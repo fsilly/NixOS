@@ -6,7 +6,7 @@ COMMAND="${1:-move}"
 DIRECTION="${2:-}"
 
 DIMENSION=16
-Y_OFFSET=$(printf "%.0f" "$(echo "sqrt($DIMENSION)" | bc -l)")
+SIZE=$(printf "%.0f" "$(echo "sqrt($DIMENSION)" | bc -l)")
 
 log() {
     echo "[workspace-nav] $*"
@@ -22,11 +22,8 @@ if [[ "$COMMAND" != "move" ]]; then
     usage
 fi
 
-if [[ -z "$DIRECTION" ]]; then
-    usage
-fi
+[[ -z "$DIRECTION" ]] && usage
 
-# Get active workspace ID from Hyprland
 RAW_WS_ID=$(hyprctl activeworkspace -j | jq '.id')
 
 if [[ -z "$RAW_WS_ID" || "$RAW_WS_ID" == "null" ]]; then
@@ -34,35 +31,28 @@ if [[ -z "$RAW_WS_ID" || "$RAW_WS_ID" == "null" ]]; then
     exit 1
 fi
 
-log "Raw workspace ID: $RAW_WS_ID"
+# Convert Hyprland 1-based -> 0-based
+WS=$((RAW_WS_ID - 1))
 
-# Normalize workspace index:
-# If Hyprland starts at 1, convert to 0-based
-WS_ID=$((RAW_WS_ID - 1))
+# Grid coordinates
+X=$((WS % SIZE))
+Y=$((WS / SIZE))
 
-log "Normalized workspace index: $WS_ID"
-
-RESULT_WS=0
+log "Workspace: $WS"
+log "Coordinates: x=$X y=$Y"
 
 set_animation() {
     case "$1" in
         left)
-            log "Animation: slidefadeleft"
             hyprctl keyword animation "workspaces, 1, 7, default, slidefadeleft"
             ;;
-
         right)
-            log "Animation: slidefaderight"
             hyprctl keyword animation "workspaces, 1, 7, default, slidefaderight"
             ;;
-
         up)
-            log "Animation: slidefadeup"
             hyprctl keyword animation "workspaces, 1, 7, default, slidefadeup"
             ;;
-
         down)
-            log "Animation: slidefadedown"
             hyprctl keyword animation "workspaces, 1, 7, default, slidefadedown"
             ;;
     esac
@@ -70,27 +60,27 @@ set_animation() {
 
 case "$DIRECTION" in
     -l)
-        set_animation left
-        RESULT_WS=$(( (WS_ID - 1 + DIMENSION) % DIMENSION ))
-        log "Moving LEFT"
+        set_animation right # reverse animation
+        RESULT_WS=$(( Y * SIZE + ((X + 1) % SIZE) ))
+        log "Move LEFT"
         ;;
 
     -r)
-        set_animation right
-        RESULT_WS=$(( (WS_ID + 1) % DIMENSION ))
-        log "Moving RIGHT"
+        set_animation left
+        RESULT_WS=$(( Y * SIZE + ((X - 1 + SIZE) % SIZE) ))
+        log "Move RIGHT"
         ;;
 
     -t)
-        set_animation up
-        RESULT_WS=$(( (WS_ID - Y_OFFSET + DIMENSION) % DIMENSION ))
-        log "Moving UP"
+        set_animation down
+        RESULT_WS=$(( ((Y - 1 + SIZE) % SIZE) * SIZE + X ))
+        log "Move UP"
         ;;
 
     -b)
-        set_animation down
-        RESULT_WS=$(( (WS_ID + Y_OFFSET) % DIMENSION ))
-        log "Moving DOWN"
+        set_animation up
+        RESULT_WS=$(( ((Y + 1) % SIZE) * SIZE + X ))
+        log "Move DOWN"
         ;;
 
     *)
@@ -99,10 +89,10 @@ case "$DIRECTION" in
         ;;
 esac
 
-# Convert back to Hyprland's 1-based workspace numbering
+# Convert back to Hyprland 1-based
 TARGET_WS=$((RESULT_WS + 1))
 
-log "Target workspace index: $RESULT_WS"
+log "Target workspace: $RESULT_WS"
 log "Switching to workspace ID: $TARGET_WS"
 
 hyprctl dispatch workspace "$TARGET_WS"
