@@ -242,7 +242,7 @@ in
             decoration = {
               shadow = {
                 enabled = true;
-                range = 25;
+                range = 15;
                 render_power = 283;
                 sharp = false;
                 color = "rgba(0,0,0,1)";
