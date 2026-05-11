@@ -30,7 +30,7 @@ let
   keybinds-yad = pkgs.callPackage ./scripts/keybinds-yad.nix { };
   # keybinds-rofi = pkgs.callPackage ./scripts/keybinds-yad.nix { };
   # mediactrl = pkgs.callPackage ./scripts/mediactrl.nix { };
-  workspace-movements = pkgs.callPackage ./scripts/2d-workspace-movements.nix { };
+  workspace-movements = pkgs.callPackage ./scripts/2d-workspace-movements.nix { inherit host; };
   rofimusic = pkgs.callPackage ./scripts/rofimusic.nix { };
   screen-record = pkgs.callPackage ./scripts/screen-record.nix { };
   screenshot = pkgs.callPackage ./scripts/screenshot.nix { };

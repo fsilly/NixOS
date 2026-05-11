@@ -1,13 +1,16 @@
 
 {
   pkgs,
+  host,
   ...
 }:
 let
-  _terminal = "varexample";
   script = builtins.readFile ./2d-workspace-grid.sh;
+  inherit (import ../../../hosts/${host}/variables.nix)
+    dim
+    ;
 in
 pkgs.writeShellScriptBin "file-manager" ''
-  TERMINAL="${_terminal}"
+  DIMENSION="${dim}"
   ${script}
 ''

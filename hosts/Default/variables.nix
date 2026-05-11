@@ -25,6 +25,7 @@
   nvidiaChannel = "legacy_580"; # stable, latest, beta, legacy_xxx
 
   wsSwitchTimeOffset = "0";
+  dim = 16;
 
   # Localization
   timezone = "Europe/Paris";

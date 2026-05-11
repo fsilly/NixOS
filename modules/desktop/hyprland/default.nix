@@ -37,7 +37,7 @@ let
   zoom = pkgs.callPackage ./scripts/zoom.nix { };
   border-animation = pkgs.callPackage ./scripts/border-animation.nix { };
   keybinds = import ./keybinds.nix { inherit host lib pkgs inputs; };
-
+  hypr_session = import ./hypr_session.nix { inherit host; };
   gapIn = 3;
 in
 {
@@ -75,6 +75,7 @@ in
     cliphist
     wl-clipboard
     swayimg
+    #inputs.hyprsession.packages.${pkgs.stdenv.hostPlatform.system}.default
     bc # this should probably go elsewhere since its math but it is required here
   ];
 
@@ -137,6 +138,7 @@ in
           plugins = [
             #inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.hyprwinwrap
             #inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.borders-plus-plus
+            inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.hyprexpo
             #inputs.hyprgrass.packages.${pkgs.stdenv.hostPlatform.system}.default
             #pkgs.hyprlandPlugins.hyprtrails
             #pkgs.hyprlandPlugins.borders-plus-plus
@@ -189,13 +191,7 @@ in
               "WLR_RENDERER_ALLOW_SOFTWARE,1"
               "NIXPKGS_ALLOW_UNFREE,1"
             ];
-            exec-once = [
-
-              #"[workspace 1 silent] ${terminal}"
-              #"[workspace 5 silent] ${browser}"
-              #"[workspace 6 silent] spotify"
-              #"[workspace special silent] ${browser} --private-window"
-              #"[workspace special silent] ${terminal}"
+            exec-once = hypr_session ++ [
               #"hyprsession"
               "librepods"
               #"caelestia-shell"
@@ -293,7 +289,7 @@ in
                 "windows, 1, 3, md3_decel, popin 60%"
                 #"border, 1, 10, default"
                 #"fade, 1, 2.5, md3_decel"
-                "workspaces, 1, 3.5, md3_decel, slide up"
+                "workspaces, 1, 3.5, md3_decel, fade"
                 #"workspaces, 0.4, 3.5, easeOutExpo, slide"
                 #"workspaces, 1, 7, fluent_decel, slidefade 15%"
                 #"workspaces, 1, 7, fluent_decel, slide up%"

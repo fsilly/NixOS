@@ -40,8 +40,6 @@
       url = "github:fsilly/caelestia-cli?ref=cute";
     };
 
-    dms.url = "github:AvengeMedia/DankMaterialShell";
-
     hyprland = {
         #url = "github:hyprwm/Hyprland/6ec0228c38a6203e4789fe7e7e793a558521c109"; # 0.54.0
         url = "github:hyprwm/Hyprland/521ece4"; # 0.54.3
@@ -108,8 +106,14 @@
       url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    hyprsession.url = "github:joshurtree/hyprsession";
-    nixos-grub-themes.url = "github:jeslie0/nixos-grub-themes";
+    hyprsession = {
+		url = "github:joshurtree/hyprsession";
+        inputs.nixpkgs.follows = "nixpkgs";
+	};
+    nixos-grub-themes = {
+		url = "github:jeslie0/nixos-grub-themes";
+        inputs.nixpkgs.follows = "nixpkgs";
+	};
   };
 
   outputs =

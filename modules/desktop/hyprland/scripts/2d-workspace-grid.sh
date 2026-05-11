@@ -5,7 +5,6 @@ set -euo pipefail
 COMMAND="${1:-move}"
 ARG="${2:-}"
 
-DIMENSION=16
 SIZE=$(printf "%.0f" "$(echo "sqrt($DIMENSION)" | bc -l)")
 
 log() {
