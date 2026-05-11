@@ -3,7 +3,7 @@
 set -euo pipefail
 
 COMMAND="${1:-move}"
-DIRECTION="${2:-}"
+ARG="${2:-}"
 
 DIMENSION=16
 SIZE=$(printf "%.0f" "$(echo "sqrt($DIMENSION)" | bc -l)")
@@ -13,16 +13,40 @@ log() {
 }
 
 usage() {
-    echo "Usage: $0 move [-l|-r|-t|-b]"
+    echo "Usage: $0 move [-l|-r|-t|-b] | teleport [00-99]"
     exit 1
 }
 
-if [[ "$COMMAND" != "move" ]]; then
-    log "Invalid command: $COMMAND"
-    usage
-fi
+case "$COMMAND" in
+    move)
+        case "$ARG" in
+            -l|-r|-t|-b)
+                ;;
+            *)
+                log "Invalid direction for move: $ARG"
+                usage
+                ;;
+        esac
+        ;;
+    teleport)
+        case "$ARG" in
+            [0-9][0-9])
+                TP_X=$((10#${ARG:0:1}))
+                TP_Y=$((10#${ARG:1:1}))
+                ;;
+            *)
+                log "Invalid coordinate for teleport: $ARG"
+                usage
+                ;;
+        esac
+        ;;
+    *)
+        log "Invalid command: $COMMAND"
+        usage
+        ;;
+esac
 
-[[ -z "$DIRECTION" ]] && usage
+[[ -z "$ARG" ]] && usage
 
 RAW_WS_ID=$(hyprctl activeworkspace -j | jq '.id')
 
@@ -41,60 +65,68 @@ Y=$((WS / SIZE))
 log "Workspace: $WS"
 log "Coordinates: x=$X y=$Y"
 
-set_animation() {
-    case "$1" in
-        left)
-            hyprctl keyword animation "workspaces, 1, 2, default, slidefade 15%"
+
+if [ $COMMAND == "move" ]; then
+    DIRECTION=$ARG;
+
+    WORKSPACE_ANIMATION="workspaces, 1, 2, default" 
+
+    set_animation() {
+        case "$1" in
+            left)
+                hyprctl keyword animation "$WORKSPACE_ANIMATION, slide"
+                ;;
+            right)
+                hyprctl keyword animation "$WORKSPACE_ANIMATION, slide"
+                ;;
+            up)
+                hyprctl keyword animation "$WORKSPACE_ANIMATION, slidevert"
+                ;;
+            down)
+                hyprctl keyword animation "$WORKSPACE_ANIMATION, slidevert"
+                ;;
+        esac
+    }
+
+    case "$DIRECTION" in
+        -l)
+            set_animation right # reverse animation
+            TARGET_WS=$(( Y * SIZE + ((X + 1) % SIZE) ))
+            log "Move LEFT"
             ;;
-        right)
-            hyprctl keyword animation "workspaces, 1, 2, default, slidefade 15%"
+
+        -r)
+            set_animation left
+            TARGET_WS=$(( Y * SIZE + ((X - 1 + SIZE) % SIZE) ))
+            log "Move RIGHT"
             ;;
-        up)
-            hyprctl keyword animation "workspaces, 1, 2, default, slidefadevert 55%"
+
+        -t)
+            set_animation down
+            TARGET_WS=$(( ((Y - 1 + SIZE) % SIZE) * SIZE + X ))
+            log "Move UP"
             ;;
-        down)
-            hyprctl keyword animation "workspaces, 1, 2, default, slidefadevert 55%"
+
+        -b)
+            set_animation up
+            TARGET_WS=$(( ((Y + 1) % SIZE) * SIZE + X ))
+            log "Move DOWN"
+            ;;
+
+        *)
+            log "Invalid direction: $DIRECTION"
+            usage
             ;;
     esac
-}
+fi
 
-case "$DIRECTION" in
-    -l)
-        set_animation right # reverse animation
-        RESULT_WS=$(( Y * SIZE + ((X + 1) % SIZE) ))
-        log "Move LEFT"
-        ;;
+if [ $COMMAND == "teleport" ]; then
+    TARGET_WS=$((TP_Y * SIZE + TP_X))
+    echo "$TP_Y * $SIZE + $TP_X = $TARGET_WS"
+fi
 
-    -r)
-        set_animation left
-        RESULT_WS=$(( Y * SIZE + ((X - 1 + SIZE) % SIZE) ))
-        log "Move RIGHT"
-        ;;
-
-    -t)
-        set_animation down
-        RESULT_WS=$(( ((Y - 1 + SIZE) % SIZE) * SIZE + X ))
-        log "Move UP"
-        ;;
-
-    -b)
-        set_animation up
-        RESULT_WS=$(( ((Y + 1) % SIZE) * SIZE + X ))
-        log "Move DOWN"
-        ;;
-
-    *)
-        log "Invalid direction: $DIRECTION"
-        usage
-        ;;
-esac
-
-# Convert back to Hyprland 1-based
-TARGET_WS=$((RESULT_WS + 1))
-
-log "Target workspace: $RESULT_WS"
-log "Switching to workspace ID: $TARGET_WS"
-
-hyprctl dispatch workspace "$TARGET_WS"
+log "Target workspace: $TARGET_WS"
+log "Switching to workspace ID: $TARGET_WS + 1"
+hyprctl dispatch workspace "$(($TARGET_WS + 1))"
 
 log "Done."

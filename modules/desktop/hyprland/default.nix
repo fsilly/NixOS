@@ -38,7 +38,7 @@ let
   border-animation = pkgs.callPackage ./scripts/border-animation.nix { };
   keybinds = import ./keybinds.nix { inherit host lib pkgs inputs; };
 
-  gapIn = 2;
+  gapIn = 3;
 in
 {
   imports = [
