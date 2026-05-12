@@ -7,10 +7,14 @@
 let
   script = builtins.readFile ./2d-workspace-grid.sh;
   inherit (import ../../../../hosts/${host}/variables.nix)
-    ws_dim
+    ws_col
+    ws_row
+    ws_topology
     ;
 in
 pkgs.writeShellScriptBin "file-manager" ''
-  DIMENSION="${ toString ws_dim }"
+  WS_COL=${toString ws_col}
+  WS_ROW=${toString ws_row}
+  WS_TOPOLOGY=${ws_topology}
   ${script}
 ''

@@ -25,9 +25,9 @@
   nvidiaChannel = "legacy_580"; # stable, latest, beta, legacy_xxx
 
   wsSwitchTimeOffset = "0";
-  ws_dim = 16;
-  ws_rows = 4;
-  ws_cols = 4;
+  ws_row = 5;
+  ws_col = 5;
+  ws_topology = "plane";
 
   # Localization
   timezone = "Europe/Paris";
