@@ -145,13 +145,13 @@ in
   "browser.newtabpage.introShown" = lock-true;
   "browser.newtabpage.pinned" = false;
   "browser.bookmarks.defaultLocation" = "toolbar";
-  "browser.startup.page" = 3;
+  "browser.startup.page" = 1;
   "app.shield.optoutstudies.enabled" = lock-false;
   "dom.security.https_only_mode" = lock-true;
   "dom.security.https_only_mode_ever_enabled" = lock-true;
   "identity.fxaccounts.enabled" = lock-false;
   "app.update.auto" = false;
-  "browser.startup.homepage" = "";
+  "browser.startup.homepage" = "https://google.com|https://chatgpt.com";
   "browser.bookmarks.restore_default_bookmarks" = false;
   "browser.ctrlTab.recentlyUsedOrder" = false;
   "browser.discovery.enabled" = false;
