@@ -138,7 +138,7 @@ in
           plugins = [
             #inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.hyprwinwrap
             #inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.borders-plus-plus
-            inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.hyprexpo
+            #inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.hyprexpo
             #inputs.hyprgrass.packages.${pkgs.stdenv.hostPlatform.system}.default
             #pkgs.hyprlandPlugins.hyprtrails
             #pkgs.hyprlandPlugins.borders-plus-plus
@@ -194,7 +194,7 @@ in
             exec-once = hypr_session ++ [
               #"hyprsession"
               "librepods"
-              #"caelestia-shell"
+              "caelestia scheme set -n rosepine -f cute"
               "qs -c overview"
               #"hyprkool daemon"
               "hyprpm reload -n"
@@ -242,7 +242,7 @@ in
             decoration = {
               shadow = {
                 enabled = true;
-                range = 15;
+                range = 20;
                 render_power = 283;
                 sharp = false;
                 color = "rgba(0,0,0,1)";
