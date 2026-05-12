@@ -1,0 +1,42 @@
+@-moz-document url(chrome://browser/content/browser.xul), url(chrome://browser/content/browser.xhtml) {
+    #tabbrowser-tabs {
+        visibility: collapse !important;
+    } 
+    /* Hide the entire top chrome area */
+
+
+    #TabsToolbar {
+        visibility: collapse !important;
+    }
+
+    #nav-bar {
+        visibility: collapse !important;
+    }
+
+    #titlebar {
+        visibility: collapse !important;
+    }
+
+    #toolbar-menubar {
+        visibility: collapse !important;
+    }
+
+    #PersonalToolbar {
+        visibility: collapse !important;
+    }
+
+    /* Remove spacer height left behind */
+    #navigator-toolbox {
+        border: none !important;
+    }
+
+    /* Remove window drag space */
+    :root[tabsintitlebar] #toolbar-menubar {
+        min-height: 0 !important;
+    }
+
+    /* Make web content fill the window */
+    #browser {
+        margin-top: 0 !important;
+    }
+}

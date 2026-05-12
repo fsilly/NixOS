@@ -38,13 +38,14 @@
     };
     caelestia-cli = {
       url = "github:fsilly/caelestia-cli?ref=cute";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     hyprland = {
         #url = "github:hyprwm/Hyprland/6ec0228c38a6203e4789fe7e7e793a558521c109"; # 0.54.0
         url = "github:hyprwm/Hyprland/521ece4"; # 0.54.3
         #url = "github:hyprwm/Hyprland";
-        #inputs.nixpkgs.follows = "nixpkgs";
+        inputs.nixpkgs.follows = "nixpkgs";
         #follows = "hyprland-plugins/hyprland";
     };
     hyprland-plugins = {
