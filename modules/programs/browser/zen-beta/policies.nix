@@ -1,4 +1,7 @@
-{ inputs, lib, pkgs, ... }:
+{ lib, ... }:
+let
+  extensions = import ../extensions.nix { inherit lib; };
+in
 {
   AllowFileSelectionDialogs = true;
   AppAutoUpdate = false;
@@ -53,7 +56,6 @@
   NoDefaultBookmarks = false;
   OfferToSaveLogins = false;
   PasswordManagerEnabled = false;
-  ExtensionSettings = (import ./extensions.nix { inherit inputs pkgs lib; }).extensionSettings;
   PictureInPicture = {
     Enabled = true;
   };
@@ -74,4 +76,6 @@
     ExtensionRecommendations = false;
     SkipOnboarding = true;
   };
+  ExtensionSettings = extensions.extensionSettings;
+  "3rdparty".Extensions = extensions.extensionConfig;
 }

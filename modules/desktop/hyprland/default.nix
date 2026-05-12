@@ -9,13 +9,14 @@ let
   inherit (lib) getExe getExe';
   inherit (import ../../../hosts/${host}/variables.nix)
     bar
-    waybarTheme
     browser
     terminal
     fileManager
     kbdLayout
     kbdVariant
+    capslockAsESC
     defaultWallpaper
+    waybarTheme
     wsSwitchTimeOffset
     ;
 
@@ -42,10 +43,8 @@ let
 in
 {
   imports = [
-    ./programs/wlogout
-    ./programs/rofi
-    ./programs/hypridle
-    ./programs/hyprlock
+    ../../themes/Catppuccin # Catppuccin GTK and QT themes
+    ./programs/${bar}
   ]
   ++ lib.optionals (bar == "hyprpanel") [
     ./programs/hyprpanel
@@ -226,6 +225,9 @@ in
 
               sensitivity = 35.0; # -1.0 - 1.0, 0 means no modification.
               force_no_accel = true;
+            }
+            // lib.optionalAttrs capslockAsESC {
+              kb_options = "caps:swapescape";
             };
             general = {
               gaps_in = gapIn;
