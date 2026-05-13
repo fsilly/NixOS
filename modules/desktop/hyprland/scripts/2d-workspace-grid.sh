@@ -180,13 +180,14 @@ fi
 
 MAX_WS=$((WS_COL * WS_ROW - 1))
 
+log "Target coordinates: x=$TARGET_X y=$TARGET_Y"
+log "Target workspace: $TARGET_WS"
+
 if (( TARGET_WS < 0 || TARGET_WS > MAX_WS )); then
     log "Target workspace out of bounds"
     exit 1
 fi
 
-log "Target coordinates: x=$TARGET_X y=$TARGET_Y"
-log "Target workspace: $TARGET_WS"
 log "Switching to workspace ID: $((TARGET_WS + 1))"
 
 hyprctl dispatch workspace "$((TARGET_WS + 1))"

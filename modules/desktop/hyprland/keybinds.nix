@@ -16,6 +16,7 @@ let
     kbdLayout
     kbdVariant
     defaultWallpaper
+    ws_row
     wsSwitchTimeOffset
     ;
 
@@ -266,13 +267,7 @@ in
 
       # harpoon for workspaces (previously known as named-focus :P)
       # switch to named focus
-     "$mainMod, 1, exec, hyprkool switch-named-focus -n 1"
-     "$mainMod, 2, exec, hyprkool switch-named-focus -n 2"
-     "$mainMod, 3, exec, hyprkool switch-named-focus -n 3"
       # set / delete named focus
-     "$mainMod SHIFT, 1, exec, hyprkool set-named-focus -n 1"
-     "$mainMod SHIFT, 2, exec, hyprkool set-named-focus -n 2"
-     "$mainMod SHIFT, 3, exec, hyprkool set-named-focus -n 3"
     ]
     ++ (builtins.concatLists (
       builtins.genList (
@@ -285,9 +280,9 @@ in
             builtins.toString (x + 1 - (c * 10));
         in
         [
-          "$mainMod, ${ws}, workspace, ${toString (x + 1)}"
-          "$mainMod SHIFT, ${ws}, movetoworkspace, ${toString (x + 1)}"
-          "$mainMod CTRL, ${ws}, movetoworkspacesilent, ${toString (x + 1)}"
+          "$mainMod, ${ws}, workspace, ${toString (3*ws_row + x + 1)}"
+          "$mainMod SHIFT, ${ws}, movetoworkspace, ${toString (3*ws_row + x + 1)}"
+          "$mainMod CTRL, ${ws}, movetoworkspacesilent, ${toString (3*ws_row + x + 1)}"
         ]
       ) 10
     ));
