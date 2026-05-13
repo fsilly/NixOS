@@ -43,7 +43,11 @@ let
 in
 {
   imports = [
-    ../../themes/Catppuccin # Catppuccin GTK and QT themes
+    #../../themes/Catppuccin # Catppuccin GTK and QT themes
+    ./programs/wlogout
+    ./programs/rofi
+    #./programs/hypridle
+    #./programs/hyprlock
     ./programs/${bar}
   ]
   ++ lib.optionals (bar == "hyprpanel") [
@@ -59,7 +63,6 @@ in
   ++ lib.optionals (bar == "caelestia-shell") [
     ./programs/caelestia-shell
     ./programs/swaync
-    ./programs/dank-material-shell
   ]
   ++ lib.optionals (bar == "waybar") [
     # ./programs/dunst
@@ -193,7 +196,7 @@ in
             exec-once = hypr_session ++ [
               #"hyprsession"
               "librepods"
-              "caelestia scheme set -n rosepine -f cute"
+              "caelestia scheme set -n rosepine -f main && caelestia scheme set -n rosepine -f cute"
               "qs -c overview"
               #"hyprkool daemon"
               "hyprpm reload -n"
@@ -225,10 +228,10 @@ in
 
               sensitivity = 35.0; # -1.0 - 1.0, 0 means no modification.
               force_no_accel = true;
-            }
-            // lib.optionalAttrs capslockAsESC {
-              kb_options = "caps:swapescape";
             };
+#            // lib.optionalAttrs capslockAsESC {
+#              kb_options = "caps:swapescape";
+#            };
             general = {
               gaps_in = gapIn;
               gaps_out = 6;

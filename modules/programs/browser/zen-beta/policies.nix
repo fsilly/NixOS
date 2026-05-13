@@ -76,6 +76,6 @@ in
     ExtensionRecommendations = false;
     SkipOnboarding = true;
   };
-  ExtensionSettings = extensions.extensionSettings;
+  ExtensionSettings = extensions.extensionSettings.common // extensions.extensionSettings.zenBrowser;
   "3rdparty".Extensions = extensions.extensionConfig;
 }

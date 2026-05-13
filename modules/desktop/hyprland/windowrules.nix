@@ -32,6 +32,7 @@
     ];
     windowrule = [
       "opacity 1.00 1.00, match:class ^(firefox|Brave-browser|floorp|zen|zen-beta)$"
+      "opacity 0.80 0.70, match:class ^(firefox|Brave-browser|floorp)$"
       "opacity 0.90 0.80, match:class ^(Emacs)$"
       "opacity 0.90 0.80, match:class ^(gcr-prompter)$"
       "opacity 0.90 0.80, match:title ^(Hyprland Polkit Agent)$"

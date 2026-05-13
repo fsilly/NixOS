@@ -23,7 +23,7 @@
             settings = import ./settings.nix { inherit lib; };
             bookmarks = import ../bookmarks.nix;
             search = import ./search.nix { inherit pkgs; };
-            userChrome = builtins.readFile ./userChromeTinybar.css;
+            userChrome = builtins.readFile ./userChromeMinimal.css;
             # userContent = builtins.readFile ./userContent.css;
             extraConfig = ''
               ${builtins.readFile "${inputs.betterfox}/Fastfox.js"}

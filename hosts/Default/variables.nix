@@ -35,6 +35,7 @@
   clock24h = true;
   kbdLayout = "us";
   consoleKeymap = "us";
-  kbdVariant = "extd";
+  kbdVariant = "";
+  #kbdVariant = "extd";
   capslockAsESC = true;
 }

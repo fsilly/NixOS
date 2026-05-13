@@ -43,10 +43,6 @@ in
         source = config.lib.file.mkOutOfStoreSymlink "/home/${username}/NixOS/hosts/${host}/xdgconfig/quickshell/overview";
         recursive = true;
       };
-      xdg.configFile."hypr/hyprkool.toml" = {
-        source = config.lib.file.mkOutOfStoreSymlink "/home/${username}/NixOS/hosts/${host}/xdgconfig/hypr/hyprkool.toml";
-        recursive = true;
-      };
       programs.gh = {
         enable = true;
         gitCredentialHelper = {
@@ -81,7 +77,6 @@ in
           nixpkgs-fmt
           qt6.qtwayland
           #inputs.caelestia-shell.packages.${pkgs.system}.default
-          inputs.hyprkool.packages."${pkgs.stdenv.hostPlatform.system}".default
         ];
         sessionVariables = {
           EDITOR =

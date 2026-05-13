@@ -219,7 +219,7 @@ in
         # "developer-button"
         "downloads-button"
         "unified-extensions-button"
-      ] ++ extensions.nav-bar;
+      ];
       toolbar-menubar = [ "menubar-items" ];
       TabsToolbar = [
         "firefox-view-button"

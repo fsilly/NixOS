@@ -4,9 +4,6 @@
   pkgs,
   ...
 }:
-let
-  inherit (import ./extensions.nix { inherit pkgs inputs lib; }) extensionsNur;
-in
 {
   # environment.systemPackages = with pkgs; [inputs.zen-browser.packages.${stdenv.hostPlatform.system}.default];
   home-manager.sharedModules = [
@@ -30,8 +27,7 @@ in
             bookmarks = import ../bookmarks.nix;
             search = import ./search.nix { inherit pkgs; };
             userChrome = builtins.readFile ./userChrome.css;
-            userContent = builtins.readFile ./userContent.css;
-            extensions.packages = extensionsNur;
+            #userContent = builtins.readFile ./userContent.css;
             extraConfig = ''
               ${builtins.readFile "${inputs.betterfox}/Fastfox.js"}
               ${builtins.readFile "${inputs.betterfox}/Peskyfox.js"}

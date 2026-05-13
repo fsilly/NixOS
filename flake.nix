@@ -43,8 +43,8 @@
 
     hyprland = {
         #url = "github:hyprwm/Hyprland/6ec0228c38a6203e4789fe7e7e793a558521c109"; # 0.54.0
-        url = "github:hyprwm/Hyprland/521ece4"; # 0.54.3
-        #url = "github:hyprwm/Hyprland";
+        #url = "github:hyprwm/Hyprland/521ece4"; # 0.54.3
+        url = "github:hyprwm/Hyprland/v0.54.3";
         inputs.nixpkgs.follows = "nixpkgs";
         #follows = "hyprland-plugins/hyprland";
     };
@@ -53,15 +53,15 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.hyprland.follows = "hyprland";
     };
-    hyprkool = {
-      url = "github:shinkuan/hyprkool";
-      inputs.hyprland.follows = "hyprland";
-    };
-    hyprgrass = {
-       url = "github:horriblename/hyprgrass";
-       inputs.hyprland.follows = "hyprland"; 
-        inputs.nixpkgs.follows = "nixpkgs";
-    };
+#    hyprkool = {
+#      url = "github:shinkuan/hyprkool";
+#      inputs.hyprland.follows = "hyprland";
+#    };
+#    hyprgrass = {
+#       url = "github:horriblename/hyprgrass";
+#       inputs.hyprland.follows = "hyprland"; 
+#        inputs.nixpkgs.follows = "nixpkgs";
+#    };
 
     doom-config = {
       url = "github:Sly-Harvey/doom";
@@ -101,10 +101,6 @@
     };
     nvchad4nix = {
       url = "github:nix-community/nix4nvchad";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    firefox-addons = {
-      url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hyprsession = {

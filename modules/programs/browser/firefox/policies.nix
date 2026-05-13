@@ -76,6 +76,6 @@ in
     ExtensionRecommendations = false;
     SkipOnboarding = true;
   };
-  ExtensionSettings = extensions.extensionSettings;
+  ExtensionSettings = extensions.extensionSettings.common // extensions.extensionSettings.firefox;
   "3rdparty".Extensions = extensions.extensionConfig;
 }

@@ -135,10 +135,8 @@ in
   services.udev.extraHwdb = ''
     evdev:atkbd:*
       KEYBOARD_KEY_3a=esc
-      KEYBOARD_KEY_01=capslock
 
     evdev:input:b*v*p*e*:
       KEYBOARD_KEY_3a=esc
-      KEYBOARD_KEY_01=capslock
   '';
 }

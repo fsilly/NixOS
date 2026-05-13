@@ -103,7 +103,7 @@
 #           color14 #95e6cb
 #           color7  #c7c7c7
 #           color15 #ffffff
-           selection_foreground #212733
+#           selection_foreground #212733
         '';
         keybindings = {
           "ctrl+alt+n" = "launch --cwd=current";
