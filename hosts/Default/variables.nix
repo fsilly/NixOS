@@ -8,7 +8,7 @@
   bar = "caelestia-shell"; # waybar, hyprpanel, noctalia, caelestia-shell
   waybarTheme = "stylish"; # stylish, minimal
   sddmTheme = "hyprland_kath"; # astronaut, black_hole, purple_leaves, jake_the_dog, hyprland_kath
-  defaultWallpaper = "arknight-critical.gif"; # Change with SUPER + SHIFT + W (Hyprland)
+  defaultWallpaper = "cyber-gaming-1920.webp"; # Change with SUPER + SHIFT + W (Hyprland)
   hyprlockWallpaper = "Kath.png";
   # Default Applications
   terminal = "kitty"; # kitty, alacritty
