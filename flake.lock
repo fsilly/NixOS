@@ -850,11 +850,11 @@
         "nixvim": "nixvim_2"
       },
       "locked": {
-        "lastModified": 1778500841,
-        "narHash": "sha256-MAUxM4Yv6ouucAXZM2xkK8LQR0VYU5qgp+EMeodo5Fg=",
+        "lastModified": 1778796288,
+        "narHash": "sha256-aljWzp8DBZrs+LmX+oDedRPpuIEi5VAR9vNwMFmzSuk=",
         "owner": "fsilly",
         "repo": "nixvim",
-        "rev": "f4135d9213407ed63832e368d890f3fc5033cd18",
+        "rev": "1b1661c423ed7025f9a7efd8d0082fe7b5d528a1",
         "type": "github"
       },
       "original": {

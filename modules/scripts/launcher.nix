@@ -82,7 +82,7 @@ pkgs.writeShellScriptBin "launcher" ''
 
     CHOICE=$(${lib.getExe pkgs.fd} --type f . "''${WALLPAPER_DIR}" \
       | sed 's/.*\///' \
-      | while read -r A ; do echo -en "$A\x00icon\x1f""''${CACHE_DIR}"/"''${A%.*}.jpg\n" ; done \
+      | while read -r A ; do echo -en "$A\x00icon\x1f""''${CACHE_DIR}"/"''${A%.*}\n" ; done \
       | rofi_cmd)
     [ -z "$CHOICE" ] && exit 0
 

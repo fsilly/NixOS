@@ -104,6 +104,121 @@
 #           color7  #c7c7c7
 #           color15 #ffffff
 #           selection_foreground #212733
+
+# primary_paletteKeyColor #786fab
+# secondary_paletteKeyColor #79748e
+# tertiary_paletteKeyColor #a1638a
+# neutral_paletteKeyColor #79767b
+# neutral_variant_paletteKeyColor #787580
+# background #1a0920
+background #1a0920
+# onBackground #ebdcf1
+selection_foreground #ebdcf1
+# surface #1a0920
+# surfaceDim #1a0920
+# surfaceBright #3a383d
+# surfaceContainerLowest #0e0e11
+# surfaceContainerLow #211326
+# surfaceContainer #26182c
+# surfaceContainerHigh #312036
+# surfaceContainerHighest #3b2840
+# onSurface #ebdcf1
+# surfaceVariant #48454f
+# onSurfaceVariant #c9c4d0
+# inverseSurface #ebdcf1
+# inverseOnSurface #313034
+# outline #938f9a
+# outlineVariant #48454f
+# shadow #000000
+# scrim #000000
+# surfaceTint #c279db
+# primary #bda0c8
+# onPrimary #31285f
+# primaryContainer #786fab
+# onPrimaryContainer #ffffff
+# inversePrimary #5f5791
+# secondary #a77ab8
+# onSecondary #312e44
+# secondaryContainer #48445b
+# onSecondaryContainer #b7b1ce
+# tertiary #6f218b
+cursor #6f218b
+cursor #6f218b
+# onTertiary #501d41
+# tertiaryContainer #be7ca5
+# onTertiaryContainer #000000
+# error #ffb4ab
+# onError #690005
+# errorContainer #93000a
+# onErrorContainer #ffdad6
+# primaryFixed #e5deff
+# primaryFixedDim #c9bfff
+# onPrimaryFixed #1b1149
+# onPrimaryFixedVariant #473f77
+# secondaryFixed #e5dffc
+# secondaryFixedDim #c9c3e0
+# onSecondaryFixed #1c192e
+# onSecondaryFixedVariant #48445b
+# tertiaryFixed #ffd8ec
+# tertiaryFixedDim #f9b1dc
+# onTertiaryFixed #37072b
+# onTertiaryFixedVariant #6a3458
+color0 #353434
+color1 #b96cff
+color2 #ffbac2
+color3 #ffdcf2
+color4 #9da8d8
+color5 #bb9de8
+color6 #9dceff
+color7 #e8d3de
+color8 #ac9fa9
+color9 #cb8fff
+color10 #ffd2d5
+color11 #fff0f6
+color12 #b7c0dd
+color13 #cfb3f2
+color14 #bae0ff
+color15 #ffffff
+# rosewater #f8eff8
+# flamingo #ebddf2
+# pink #e6d6ff
+# mauve #c6b6ff
+# red #c9a3fa
+# maroon #ceb4eb
+# peach #e5c1f6
+# yellow #ffecf3
+# green #c8e3ff
+# teal #d7dfff
+# sky #d3d9ff
+# sapphire #bdc3ff
+# blue #b7b6ff
+# lavender #ccc6ff
+# klink #7b80d1
+# klinkSelection #7b80d1
+# kvisited #8a6fd7
+# kvisitedSelection #8a6fd7
+# knegative #ac62fa
+# knegativeSelection #ac62fa
+# kneutral #d48dff
+# kneutralSelection #d48eff
+# kpositive #60adff
+# kpositiveSelection #60adff
+# text #ebdcf1
+# subtext1 #c9c4d0
+# subtext0 #938f9a
+# overlay2 #807c86
+# overlay1 #6c6972
+# overlay0 #5b5860
+# surface2 #4a474e
+# surface1 #39373d
+# surface0 #262529
+# base #1a0920
+# mantle #1a0920
+# crust #131216
+# success #B5CCBA
+# onSuccess #213528
+# successContainer #374B3E
+# onSuccessContainer #D1E9D6
         '';
         keybindings = {
           "ctrl+alt+n" = "launch --cwd=current";
