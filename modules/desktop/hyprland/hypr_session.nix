@@ -13,24 +13,24 @@ let
     defaultWallpaper
     wsSwitchTimeOffset
     ;
-  evaluation_ws_position = x: y: (y - 1)*ws_row + (x -1) + 1;
+  evaluation_ws_position = x: y: (y - 1)*ws_col + (x -1) + 1;
   dispatch = { x, y, shell, clientX ? "", clientY ? "" }@client: "[workspace ${toString (evaluation_ws_position x y)} silent] ${shell}";
 in
   [
-    (dispatch { x =  1; y =  1; shell = "${terminal} ~/NixOS"; })
-    (dispatch { x =  1; y =  1; shell = "${terminal} ~/NixOS"; })
+    (dispatch { x =  1; y =  2; shell = "${terminal} ~/NixOS"; })
+    (dispatch { x =  1; y =  2; shell = "${terminal} ~/NixOS"; })
     (dispatch { x =  1; y =  2; shell = "firefox"; })
     (dispatch { x =  2; y =  2; shell = "${browser}"; })
-    (dispatch { x =  5; y =  1; shell = "vesktop"; })
-    (dispatch { x =  5; y =  5; shell = "spotify"; })
+    (dispatch { x =  5; y =  2; shell = "vesktop"; })
+    (dispatch { x =  5; y =  2; shell = "spotify"; })
     (dispatch { x =  2; y =  3; shell = "obsidian"; })
     (dispatch { x =  2; y =  3; shell = "${terminal} ~/'Here on earth'"; })
     #(dispatch { x =  3; y =  3; shell = "${terminal}"; })
     #(dispatch { x =  3; y =  3; shell = "${terminal}"; })
     (dispatch { x =  1; y =  1; shell = "${terminal}"; })
     (dispatch { x =  1; y =  1; shell = "${terminal}"; })
-    (dispatch { x =  1; y =  2; shell = "${terminal}"; })
-    (dispatch { x =  1; y =  2; shell = "${terminal}"; })
+    #(dispatch { x =  1; y =  2; shell = "${terminal}"; })
+    #(dispatch { x =  1; y =  2; shell = "${terminal}"; })
     (dispatch { x =  1; y =  3; shell = "${terminal}"; })
     (dispatch { x =  1; y =  3; shell = "${terminal}"; })
     #(dispatch { x =  1; y =  5; shell = "${terminal}"; })

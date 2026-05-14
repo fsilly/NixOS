@@ -245,14 +245,14 @@ in
       #"$mainMod CTRL, down, exec,  qs ipc -c overview call overview quickShow && sleep ${wsSwitchTimeOffset} &&  hyprkool move-down -c "
       #"$mainMod CTRL, up, exec,  qs ipc -c overview call overview quickShow && sleep ${wsSwitchTimeOffset} &&  hyprkool move-up -c "
 
-      "$mainMod CTRL, h, exec,  qs ipc -c overview call overview quickShow  && ${getExe workspace-movements} move -r"
-      "$mainMod CTRL, l, exec,  qs ipc -c overview call overview quickShow  && ${getExe workspace-movements} move -l"
-      "$mainMod CTRL, j, exec,  qs ipc -c overview call overview quickShow  && ${getExe workspace-movements} move -b"
-      "$mainMod CTRL, k, exec,  qs ipc -c overview call overview quickShow  && ${getExe workspace-movements} move -t"
+      "$mainMod CTRL, h, exec,  qs ipc -c overview call overview quickShow  && ${getExe workspace-movements} move -l"
+      "$mainMod CTRL, l, exec,  qs ipc -c overview call overview quickShow  && ${getExe workspace-movements} move -r"
+      "$mainMod CTRL, j, exec,  qs ipc -c overview call overview quickShow  && ${getExe workspace-movements} move -d"
+      "$mainMod CTRL, k, exec,  qs ipc -c overview call overview quickShow  && ${getExe workspace-movements} move -u"
       "$mainMod CTRL, left, exec,  qs ipc -c overview call overview quickShow  && ${getExe workspace-movements} move -l"
       "$mainMod CTRL, right, exec,  qs ipc -c overview call overview quickShow  && ${getExe workspace-movements} move -r"
-      "$mainMod CTRL, down, exec,  qs ipc -c overview call overview quickShow  && ${getExe workspace-movements} move -b"
-      "$mainMod CTRL, up, exec,  qs ipc -c overview call overview quickShow  && ${getExe workspace-movements} move -t"
+      "$mainMod CTRL, down, exec,  qs ipc -c overview call overview quickShow  && ${getExe workspace-movements} move -d"
+      "$mainMod CTRL, up, exec,  qs ipc -c overview call overview quickShow  && ${getExe workspace-movements} move -u"
 
       # Move active window to a workspace
       "$mainMod ALT CTRL, h, exec, hyprkool move-left -c -w"

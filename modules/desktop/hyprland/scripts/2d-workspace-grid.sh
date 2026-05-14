@@ -13,7 +13,7 @@ log() {
 
 usage() {
     echo "Usage:"
-    echo "  $0 move [-l|-r|-t|-b]"
+    echo "  $0 move [-l|-r|-u|-d]"
     echo "  $0 teleport [00-99]"
     exit 1
 }
@@ -31,7 +31,7 @@ esac
 case "$COMMAND" in
     move)
         case "$ARG" in
-            -l|-r|-t|-b)
+            -l|-r|-u|-d)
                 ;;
             *)
                 log "Invalid direction for move: $ARG"
@@ -76,7 +76,7 @@ WS=$((RAW_WS_ID - 1))
 
 # Current coordinates
 X=$((WS % WS_COL))
-Y=$((WS / WS_ROW))
+Y=$(((WS / WS_COL) % WS_ROW))
 
 log "Workspace: $WS"
 log "Coordinates: x=$X y=$Y"
@@ -129,7 +129,7 @@ resolve_new_position() {
 
 if [[ "$COMMAND" == "move" ]]; then
     case "$ARG" in
-        -l)
+        -r)
             set_animation right
 
             TARGET_X=$(resolve_new_position "$X" 1 "$WS_COL")
@@ -138,7 +138,7 @@ if [[ "$COMMAND" == "move" ]]; then
             log "Move LEFT"
             ;;
 
-        -r)
+        -l)
             set_animation left
 
             TARGET_X=$(resolve_new_position "$X" -1 "$WS_COL")
@@ -147,20 +147,20 @@ if [[ "$COMMAND" == "move" ]]; then
             log "Move RIGHT"
             ;;
 
-        -t)
+        -d)
             set_animation down
 
             TARGET_X="$X"
-            TARGET_Y=$(resolve_new_position "$Y" -1 "$WS_ROW")
+            TARGET_Y=$(resolve_new_position "$Y" 1 "$WS_ROW")
 
             log "Move UP"
             ;;
 
-        -b)
+        -u)
             set_animation up
 
             TARGET_X="$X"
-            TARGET_Y=$(resolve_new_position "$Y" 1 "$WS_ROW")
+            TARGET_Y=$(resolve_new_position "$Y" -1 "$WS_ROW")
 
             log "Move DOWN"
             ;;

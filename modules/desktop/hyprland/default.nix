@@ -77,6 +77,7 @@ in
     cliphist
     wl-clipboard
     swayimg
+    #inputs.awww.packages.${pkgs.stdenv.hostPlatform.system}.awww
     #inputs.hyprsession.packages.${pkgs.stdenv.hostPlatform.system}.default
     bc # this should probably go elsewhere since its math but it is required here
   ];

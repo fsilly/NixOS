@@ -8,8 +8,8 @@
   bar = "caelestia-shell"; # waybar, hyprpanel, noctalia, caelestia-shell
   waybarTheme = "stylish"; # stylish, minimal
   sddmTheme = "hyprland_kath"; # astronaut, black_hole, purple_leaves, jake_the_dog, hyprland_kath
-  defaultWallpaper = "girlsleepdesk.webp"; # Change with SUPER + SHIFT + W (Hyprland)
-  hyprlockWallpaper = "girlsleepdesk.webp";
+  defaultWallpaper = "arknight-critical.gif"; # Change with SUPER + SHIFT + W (Hyprland)
+  hyprlockWallpaper = "Kath.png";
   # Default Applications
   terminal = "kitty"; # kitty, alacritty
   editor = "nixvim"; # nixvim, vscode, helix, doom-emacs, nvchad, neovim
@@ -25,7 +25,7 @@
   nvidiaChannel = "legacy_580"; # stable, latest, beta, legacy_xxx
 
   wsSwitchTimeOffset = "0";
-  ws_row = 5;
+  ws_row = 3;
   ws_col = 5;
   ws_topology = "plane";
 
