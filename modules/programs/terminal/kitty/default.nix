@@ -142,9 +142,11 @@ selection_foreground #ebdcf1
 # secondaryContainer #48445b
 # onSecondaryContainer #b7b1ce
 # tertiary #6f218b
-cursor #6f218b
-cursor #6f218b
+#cursor #6f218b
+cursor #F5C2E7
+#cursor #ebdcf1
 # onTertiary #501d41
+selection_foreground #501d41
 # tertiaryContainer #be7ca5
 # onTertiaryContainer #000000
 # error #ffb4ab
