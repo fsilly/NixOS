@@ -39,7 +39,7 @@ let
   border-animation = pkgs.callPackage ./scripts/border-animation.nix { };
   keybinds = import ./keybinds.nix { inherit host lib pkgs inputs; };
   hypr_session = import ./hypr_session.nix { inherit host; };
-  gapIn = 3;
+  gapIn = 4;
 in
 {
   imports = [
@@ -235,7 +235,7 @@ in
 #            };
             general = {
               gaps_in = gapIn;
-              gaps_out = 6;
+              gaps_out = 8;
               border_size = 3;
               #"col.active_border" = "rgba(ca9ee6ff) rgba(f2d5cfff) 45deg";
               #"col.inactive_border" = "rgba(b4befecc) rgba(6c7086cc) 45deg";
@@ -248,8 +248,8 @@ in
             decoration = {
               shadow = {
                 enabled = true;
-                range = 20;
-                render_power = 283;
+                range = 30;
+                render_power = 483;
                 sharp = false;
                 color = "rgba(0,0,0,1)";
                 color_inactive = "rgba(0,0,0,0.8)";
