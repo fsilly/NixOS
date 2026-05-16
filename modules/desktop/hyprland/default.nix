@@ -249,14 +249,14 @@ in
               shadow = {
                 enabled = true;
                 range = 26;
-                render_power = 183;
+                render_power = 89;
                 sharp = false;
                 color = "rgba(0,0,0,1)";
-                color_inactive = "rgba(0,0,0,0.6)";
+                color_inactive = "rgba(0,0,0,0.9)";
                 #shadow_ignore_window = true;
               };
 
-              rounding = 6;
+              rounding = 8;
               dim_special = 0.3;
               blur = {
                 enabled = true;
@@ -295,13 +295,13 @@ in
                 "windows, 1, 3, md3_decel, popin 60%"
                 "border, 1, 7, md3_decel"
                 #"fade, 1, 2.5, md3_decel"
-                "workspaces, 1, 3.5, md3_decel, fade"
+                "workspaces, 1, 2, fluent_decel, fade"
                 #"workspaces, 0.4, 3.5, easeOutExpo, slide"
                 #"workspaces, 1, 7, fluent_decel, slidefade 15%"
                 #"workspaces, 1, 7, fluent_decel, slide up%"
                 #"workspaces, -1, 7, fluent_decel, slidefade 15%"
                 # "specialWorkspace, 1, 3, md3_decel, slidefadevert 15%"
-                "specialWorkspace, 0.6, 3, md3_decel, slidevert"
+                "specialWorkspace, 0.6, 2, easeOutCirc, slidevert"
               ];
             };
             render = {
