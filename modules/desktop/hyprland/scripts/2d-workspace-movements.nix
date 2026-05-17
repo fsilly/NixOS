@@ -16,5 +16,7 @@ pkgs.writeShellScriptBin "file-manager" ''
   WS_COL=${toString ws_col}
   WS_ROW=${toString ws_row}
   WS_TOPOLOGY=${ws_topology}
+  WS_SPEED=1
+  WS_FUNCTION=default
   ${script}
 ''

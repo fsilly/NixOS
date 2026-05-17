@@ -296,11 +296,8 @@ in
                 "windows, 1, 3, md3_decel, popin 60%"
                 "border, 1, 7, md3_decel"
                 #"fade, 1, 2.5, md3_decel"
-                "workspaces, 1, 2, fluent_decel, fade"
-                #"workspaces, 0.4, 3.5, easeOutExpo, slide"
                 #"workspaces, 1, 7, fluent_decel, slidefade 15%"
                 #"workspaces, 1, 7, fluent_decel, slide up%"
-                #"workspaces, -1, 7, fluent_decel, slidefade 15%"
                 # "specialWorkspace, 1, 3, md3_decel, slidefadevert 15%"
                 "specialWorkspace, 0.6, 2, easeOutCirc, slidevert"
               ];

@@ -82,7 +82,7 @@ log "Workspace: $WS"
 log "Coordinates: x=$X y=$Y"
 log "Topology: $TOPOLOGY"
 
-WORKSPACE_ANIMATION="workspaces, 1, 2, default"
+WORKSPACE_ANIMATION="workspaces, 1, $WS_SPEED, $WS_FUNCTION"
 
 set_animation() {
     case "$1" in

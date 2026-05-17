@@ -21,6 +21,7 @@ in
     (dispatch { x =  1; y =  2; shell = "${terminal} ~/NixOS"; })
     (dispatch { x =  1; y =  2; shell = "firefox"; })
     (dispatch { x =  2; y =  2; shell = "${browser}"; })
+    (dispatch { x =  2; y =  1; shell = "${browser} -P googleised"; })
     (dispatch { x =  5; y =  2; shell = "vesktop"; })
     (dispatch { x =  5; y =  2; shell = "spotify"; })
     (dispatch { x =  2; y =  3; shell = "obsidian"; })
