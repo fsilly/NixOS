@@ -280,17 +280,17 @@ in
             builtins.toString (x + 1 - (c * 10));
         in
         [
-          "$mainMod, ${ws}, workspace, ${toString (3*ws_row + x + 1)}"
-          "$mainMod SHIFT, ${ws}, movetoworkspace, ${toString (3*ws_row + x + 1)}"
-          "$mainMod CTRL, ${ws}, movetoworkspacesilent, ${toString (3*ws_row + x + 1)}"
+          "$mainMod, ${ws}, exec, ${getExe workspace-movements} teleport ${ws}2"
+          "$mainMod SHIFT, ${ws}, exec, ${getExe workspace-movements} teleport ${ws}2"
+          "$mainMod CTRL, ${ws}, exec, ${getExe workspace-movements} teleport ${ws}2"
         ]
       ) 10
     ));
     gesture = [
-      "3, right, dispatcher, exec, qs ipc -c overview call overview quickShow && sleep ${wsSwitchTimeOffset} && hyprkool move-left -c"
-      "3, left, dispatcher, exec, qs ipc -c overview call overview quickShow && sleep ${wsSwitchTimeOffset} && hyprkool move-right -c"
-      "3, down, dispatcher, exec, qs ipc -c overview call overview quickShow && sleep ${wsSwitchTimeOffset} && hyprkool move-up -c"
-      "3, up, dispatcher, exec, qs ipc -c overview call overview quickShow && sleep ${wsSwitchTimeOffset} && hyprkool move-down -c"
+      "3, right, dispatcher, exec,  qs ipc -c overview call overview quickShow  && ${getExe workspace-movements} move -l"
+      "3, left, dispatcher, exec,  qs ipc -c overview call overview quickShow  && ${getExe workspace-movements} move -r"
+      "3, up, dispatcher, exec,  qs ipc -c overview call overview quickShow  && ${getExe workspace-movements} move -d"
+      "3, down, dispatcher, exec,  qs ipc -c overview call overview quickShow  && ${getExe workspace-movements} move -u"
       #''3, left, function() os.execute("qs ipc -c overview call overview quickShow && sleep ${wsSwitchTimeOffset} && hyprkool move-left -c") end''
       #''3, right, function() os.execute("qs ipc -c overview call overview quickShow && sleep ${wsSwitchTimeOffset} && hyprkool move-right -c") end''
       #''3, up, function() os.execute("qs ipc -c overview call overview quickShow && sleep ${wsSwitchTimeOffset} && hyprkool move-up -c") end''

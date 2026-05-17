@@ -92,6 +92,9 @@ set_animation() {
         up|down)
             hyprctl keyword animation "$WORKSPACE_ANIMATION, slidevert"
             ;;
+        teleport)
+            hyprctl keyword animation "$WORKSPACE_ANIMATION, fade"
+            ;;
     esac
 }
 
@@ -165,19 +168,16 @@ if [[ "$COMMAND" == "move" ]]; then
             log "Move DOWN"
             ;;
     esac
-
-    TARGET_WS=$((TARGET_Y * WS_COL + TARGET_X))
 fi
 
 if [[ "$COMMAND" == "teleport" ]]; then
-    TARGET_X="$TP_X"
-    TARGET_Y="$TP_Y"
-
-    TARGET_WS=$((TARGET_Y * WS_COL + TARGET_X))
-
+    TARGET_X="$TP_X -1"
+    TARGET_Y="$TP_Y -1"
+    set_animation teleport
     log "Teleport -> x=$TARGET_X y=$TARGET_Y"
 fi
 
+TARGET_WS=$((TARGET_Y * WS_COL + TARGET_X))
 MAX_WS=$((WS_COL * WS_ROW - 1))
 
 log "Target coordinates: x=$TARGET_X y=$TARGET_Y"
