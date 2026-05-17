@@ -50,7 +50,19 @@ in
      #     };
      #   '';
      # };
-      variant = "${kbdVariant}";
+     xkb.extraLayouts.disablePgKeys = {
+        description = "Disable PageUp/PageDown";
+
+        symbolsFile = pkgs.writeText "disable-pgkeys" ''
+          xkb_symbols "basic" {
+            key <PGUP> { [ NoSymbol ] };
+            key <PGDN> { [ NoSymbol ] };
+          };
+        '';
+
+        languages = [ "eng" ];
+      };
+      variant = "${kbdVariant},disablePgKeys";
       options = "caps:swapescape";
     };
   };

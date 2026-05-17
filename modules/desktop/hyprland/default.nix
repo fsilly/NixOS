@@ -239,8 +239,8 @@ in
               border_size = 3;
               #"col.active_border" = "rgba(ca9ee6ff) rgba(f2d5cfff) 45deg";
               #"col.inactive_border" = "rgba(b4befecc) rgba(6c7086cc) 45deg";
-              "col.inactive_border" = "rgba(120,10,70,0.3) rgba(90,0,110,0.4) 45deg";
-              "col.active_border" = "rgba(250,120,220,0.6) rgba(210,120,250,0.6) rgba(229,108,202,0.4) rgba(210,29,244,0.4) rgba(173,29,244,0.3) rgba(244,29,194,0.5) rgba(234,90,200,0.6) 45deg"; ##fa78dc99 #d3eeff  #e56cca #be1df4 #851df4 #ffd3f8 #f41dc2 #ea5ac8 #rgba(211,238,255,0.8) #rgba(255,211,248,0.8)
+              "col.inactive_border" = "rgba(120,10,70,0.2) rgba(90,0,110,0.1) 45deg";
+              "col.active_border" = "rgba(250,120,220,0.7) rgba(210,120,250,0.6) rgba(229,108,202,0.3) rgba(210,29,244,0.4) rgba(173,29,244,0.3) rgba(244,29,194,0.6) rgba(234,90,200,0.6) 45deg"; ##fa78dc99 #d3eeff  #e56cca #be1df4 #851df4 #ffd3f8 #f41dc2 #ea5ac8 #rgba(211,238,255,0.8) #rgba(255,211,248,0.8)
               resize_on_border = true;
               layout = "dwindle"; # dwindle, master, scrolling, monocle
               # allow_tearing = true; # Allow tearing for games (use immediate window rules for specific games or all titles)
@@ -251,8 +251,8 @@ in
                 range = 26;
                 render_power = 89;
                 sharp = false;
-                color = "rgba(0,0,0,1)";
-                color_inactive = "rgba(0,0,0,0.9)";
+                color = "rgba(50,10,30,1)";
+                color_inactive = "rgba(0,0,0,0.7)";
                 #shadow_ignore_window = true;
               };
 
