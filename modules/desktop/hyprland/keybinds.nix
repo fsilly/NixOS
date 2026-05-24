@@ -245,14 +245,14 @@ in
       #"$mainMod CTRL, down, exec,  qs ipc -c overview call overview quickShow && sleep ${wsSwitchTimeOffset} &&  hyprkool move-down -c "
       #"$mainMod CTRL, up, exec,  qs ipc -c overview call overview quickShow && sleep ${wsSwitchTimeOffset} &&  hyprkool move-up -c "
 
-      "$mainMod CTRL, h, exec,  qs ipc -c overview call overview quickShow  && ${getExe workspace-movements} move -l"
-      "$mainMod CTRL, l, exec,  qs ipc -c overview call overview quickShow  && ${getExe workspace-movements} move -r"
-      "$mainMod CTRL, j, exec,  qs ipc -c overview call overview quickShow  && ${getExe workspace-movements} move -d"
-      "$mainMod CTRL, k, exec,  qs ipc -c overview call overview quickShow  && ${getExe workspace-movements} move -u"
-      "$mainMod CTRL, left, exec,  qs ipc -c overview call overview quickShow  && ${getExe workspace-movements} move -l"
-      "$mainMod CTRL, right, exec,  qs ipc -c overview call overview quickShow  && ${getExe workspace-movements} move -r"
-      "$mainMod CTRL, down, exec,  qs ipc -c overview call overview quickShow  && ${getExe workspace-movements} move -d"
-      "$mainMod CTRL, up, exec,  qs ipc -c overview call overview quickShow  && ${getExe workspace-movements} move -u"
+      "$mainMod CTRL, h, exec,  ${getExe workspace-movements} move -l && qs ipc -c overview call overview quickShow"
+      "$mainMod CTRL, l, exec,  ${getExe workspace-movements} move -r && qs ipc -c overview call overview quickShow"
+      "$mainMod CTRL, j, exec,  ${getExe workspace-movements} move -d && qs ipc -c overview call overview quickShow"
+      "$mainMod CTRL, k, exec,  ${getExe workspace-movements} move -u && qs ipc -c overview call overview quickShow"
+      "$mainMod CTRL, left, exec,  ${getExe workspace-movements} move -l && qs ipc -c overview call overview quickShow"
+      "$mainMod CTRL, right, exec,  ${getExe workspace-movements} move -r && qs ipc -c overview call overview quickShow"
+      "$mainMod CTRL, down, exec,  ${getExe workspace-movements} move -d && qs ipc -c overview call overview quickShow"
+      "$mainMod CTRL, up, exec,  ${getExe workspace-movements} move -u && qs ipc -c overview call overview quickShow"
 
       # Move active window to a workspace
       "$mainMod ALT CTRL, h, exec, hyprkool move-left -c -w"

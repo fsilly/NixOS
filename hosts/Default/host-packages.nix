@@ -13,6 +13,8 @@
     baobab
 
     proton-vpn-cli
+    bitwarden-desktop
+    bitwarden-menu
 
     vim
     #neovim
