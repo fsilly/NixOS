@@ -49,11 +49,11 @@
         inputs.nixpkgs.follows = "nixpkgs";
         #follows = "hyprland-plugins/hyprland";
     };
-    hyprland-plugins = {
-      url = "github:hyprwm/hyprland-plugins";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.hyprland.follows = "hyprland";
-    };
+#    hyprland-plugins = {
+#      url = "github:hyprwm/hyprland-plugins";
+#      inputs.nixpkgs.follows = "nixpkgs";
+#      inputs.hyprland.follows = "hyprland";
+#    };
 #    hyprgrass = {
 #       url = "github:horriblename/hyprgrass";
 #       inputs.hyprland.follows = "hyprland"; 
