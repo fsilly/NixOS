@@ -37,10 +37,10 @@ in
     ../../modules/programs/browser/${vars.browser} # Set browser defined in variables.nix
     ../../modules/programs/browser/firefox # Set browser defined in variables.nix
     ../../modules/programs/terminal/${vars.terminal} # Set terminal defined in variables.nix
-    ../../modules/programs/terminal/ghostty # Set terminal defined in variables.nix
     ../../modules/programs/editor/${vars.editor} # Set editor defined in variables.nix
     ../../modules/programs/file-manager/${vars.fileManager} # Set file-manager defined in variables.nix
     ../../modules/programs/cli/tmux
+    ../../modules/programs/cli/fabric
     ../../modules/programs/cli/direnv
     ../../modules/programs/cli/lazygit
     # ../../modules/programs/cli/fastfetch
