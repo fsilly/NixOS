@@ -163,7 +163,7 @@ in
   "dom.security.https_only_mode_ever_enabled" = lock-true;
   "identity.fxaccounts.enabled" = lock-false;
   "app.update.auto" = false;
-  "browser.startup.homepage" = "";
+  "browser.startup.homepage" = 1;
   "browser.bookmarks.restore_default_bookmarks" = false;
   "browser.ctrlTab.recentlyUsedOrder" = false;
   "browser.discovery.enabled" = false;
