@@ -9,6 +9,8 @@ dev-shells/*/flake.lock
 *.log
 *.tmp
 
+hosts/Default/xdgconfig/**
+
 [Bb]ackup
 [Bb]ackup/*
 
