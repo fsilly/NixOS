@@ -72,6 +72,12 @@
       url = "github:fsilly/nixvim/fsilly-changes";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    fabric = {
+      url = "github:danielmiessler/Fabric";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    
     #neovim = {
     #  url = "github:Sly-Harvey/nvim";
     #  flake = false;
@@ -104,10 +110,6 @@
       url = "github:nix-community/nix4nvchad";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    hyprsession = {
-		url = "github:joshurtree/hyprsession";
-        inputs.nixpkgs.follows = "nixpkgs";
-	};
     nixos-grub-themes = {
 		url = "github:jeslie0/nixos-grub-themes";
         inputs.nixpkgs.follows = "nixpkgs";
