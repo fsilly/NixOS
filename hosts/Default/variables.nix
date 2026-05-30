@@ -11,7 +11,7 @@
   defaultWallpaper = "cyber-gaming-1920.webp"; # Change with SUPER + SHIFT + W (Hyprland)
   hyprlockWallpaper = "Kath.png";
   # Default Applications
-  terminal = "kitty"; # kitty, alacritty
+  terminal = "ghostty"; # kitty, alacritty
   editor = "nixvim"; # nixvim, vscode, helix, doom-emacs, nvchad, neovim
   browser = "zen-beta"; # zen-beta, firefox, floorp
   fileManager = "yazi"; # yazi, lf, thunar
