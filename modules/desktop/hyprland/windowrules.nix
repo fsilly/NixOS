@@ -41,7 +41,7 @@
       "opacity 0.90 0.80, match:class ^(heroic)$"
       "opacity 0.90 0.80, match:class ^(Lutris|lutris|net.lutris.Lutris)$"
 
-      "opacity 0.80 0.70, match:class ^(kitty|alacritty|Alacritty|org.wezfurlong.wezterm)$"
+      "opacity 0.80 0.70, match:class ^(kitty|com.mitchellh.ghostty|ghostty|alacritty|Alacritty|org.wezfurlong.wezterm)$"
       "opacity 0.80 0.70, match:class ^(nvim-wrapper)$"
       "opacity 0.80 0.70, match:class ^(gnome-disks)$"
       "opacity 0.80 0.70, match:class ^(org.gnome.Nautilus|Thunar|thunar|pcmanfm)$"
