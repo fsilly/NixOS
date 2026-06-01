@@ -38,6 +38,7 @@ in
     ../../modules/programs/browser/firefox # Set browser defined in variables.nix
     ../../modules/programs/terminal/${vars.terminal} # Set terminal defined in variables.nix
     ../../modules/programs/editor/${vars.editor} # Set editor defined in variables.nix
+    ../../modules/programs/editor/opencode # Set editor defined in variables.nix
     ../../modules/programs/file-manager/${vars.fileManager} # Set file-manager defined in variables.nix
     ../../modules/programs/cli/tmux
     ../../modules/programs/cli/fabric
