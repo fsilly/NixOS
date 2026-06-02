@@ -6,8 +6,9 @@
   programs.ghostty = {
     enable = true;
         settings = {
-          font-family = "monospace";
-          font-size = 12;
+          font-family = "JetBrainsMono Nerd Font";
+          font-family-bold = true;
+          font-size = 14;
 
           background = "#1a0920";
           foreground = "#ebdcf1";
@@ -18,7 +19,7 @@
           window-padding-x = 10;
           window-padding-y = 10;
 
-          clipboard-copy-on-select = true;
+          #clipboard-copy-on-select = true;
           quit-after-last-window-closed = true;
 
           scrollback-limit = 10000;
