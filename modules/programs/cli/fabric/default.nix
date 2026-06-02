@@ -29,50 +29,39 @@ in
         fd
       ];
 
-      home.sessionVariables = {
-        ########################################
-        # Providers
-        ########################################
+# TODO
+# DEFAULT_VENDOR=OpenRouter
+# DEFAULT_MODEL=openrouter/owl-alpha
+# DEFAULT_MODEL_CONTEXT_LENGTH=1.05M
+# PATTERNS_LOADER_GIT_REPO_URL=https://github.com/danielmiessler/fabric.git
+# PATTERNS_LOADER_GIT_REPO_PATTERNS_FOLDER=data/patterns
+# PROMPT_STRATEGIES_GIT_REPO_URL=https://github.com/danielmiessler/fabric.git
+# PROMPT_STRATEGIES_GIT_REPO_STRATEGIES_FOLDER=data/strategies
+# OPENROUTER_API_KEY=
+# OPENROUTER_API_BASE_URL=https://openrouter.ai/api/v1
 
-        DEFAULT_VENDOR = "openai";
-        DEFAULT_MODEL = "gpt-4o";
-
-        ########################################
-        # Ollama
-        ########################################
-
-        OLLAMA_HOST = "http://127.0.0.1:11434";
-
-        ########################################
-        # Fabric defaults
-        ########################################
-
-        FABRIC_DEFAULT_MODEL = "gpt-4o";
-        FABRIC_DEFAULT_VENDOR = "openai";
-      };
-
-      xdg.configFile."fabric/config.yaml".text = ''
-        version: 1
-
-        defaults:
-          vendor: openai
-          model: gpt-4o
-
-        patterns:
-          model: gpt-4o
-
-        transcription:
-          model: whisper-1
-
-        youtube:
-          enabled: true
-
-        cache:
-          enabled: true
-
-        logging:
-          level: info
-      '';
+#      xdg.configFile."fabric/config.yaml".text = ''
+#        version: 1
+#
+#        defaults:
+#          vendor: openai
+#          model: gpt-4o
+#
+#        patterns:
+#          model: gpt-4o
+#
+#        transcription:
+#          model: whisper-1
+#
+#        youtube:
+#          enabled: true
+#
+#        cache:
+#          enabled: true
+#
+#        logging:
+#          level: info
+#      '';
 
       xdg.configFile."fabric/patterns/.keep".text = "";
       xdg.configFile."fabric/plugins/.keep".text = "";
