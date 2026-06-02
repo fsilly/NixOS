@@ -1,12 +1,19 @@
 
 /* Custom Purple System userChrome.css */
 
-@media (prefers-color-scheme: dark) {
+/*@media (prefers-color-scheme: dark) { */
 :root {
---zen-colors-primary: #1a0920 !important; /* surfaceContainer */
 --zen-primary-color: #c9a3fa !important; /* primary */
---zen-colors-secondary: #1a0920 !important; /* surfaceContainerLow */
---zen-colors-tertiary: #1a0920 !important; /* crust */
+/* --zen-colors-secondary: #1a0920 !important; 
+--zen-colors-primary: #1a0920 !important; 
+--zen-colors-tertiary: #1a0920 !important; 
+--lwt-sidebar-background-color: #1a0920 !important; 
+--toolbar-bgcolor: #1a0920 !important; 
+--newtab-background-color: #1a0920 !important; 
+--zen-themed-toolbar-bg: #1a0920 !important; 
+--zen-main-browser-background: #1a0920 !important;
+--toolbox-bgcolor-inactive: #1a0920 !important;
+--arrowpanel-background: #1a0920 !important; */
 --zen-colors-border: #c9a3fa !important; /* outline */
 --toolbarbutton-icon-fill: #c279db !important; /* surfaceTint */
 --lwt-text-color: #ebdcf1 !important; /* text */
@@ -16,18 +23,11 @@
 --toolbar-color: #ebdcf1 !important;
 --newtab-text-primary-color: #ebdcf1 !important;
 --arrowpanel-color: #ebdcf1 !important;
---arrowpanel-background: #1a0920 !important; /* surfaceContainer */
 --sidebar-text-color: #ebdcf1 !important;
 --lwt-sidebar-text-color: #ebdcf1 !important;
---lwt-sidebar-background-color: #1a0920 !important; /* surfaceContainerLowest */
---toolbar-bgcolor: #1a0920 !important; /* surfaceContainerHigh */
---newtab-background-color: #1a0920 !important; /* background */
---zen-themed-toolbar-bg: #1a0920 !important; /* crust */
---zen-main-browser-background: #1a0920 !important;
---toolbox-bgcolor-inactive: #1a0920 !important;
 }
 
-#permissions-granted-icon {
+/* #permissions-granted-icon {
 color: #1a0920!important;
 }
 
@@ -63,10 +63,19 @@ background: #1a0920 !important;
 #zen-media-controls-toolbar {
 & #zen-media-progress-bar {
 &::-moz-range-track {
-background: #1a0920 !important; /* surface1 */
+background: #1a0920 !important; 
 }
 }
 }
+
+hbox#titlebar {
+background-color: #1a0920 !important;
+}
+
+#zen-appcontent-navbar-container {
+background-color: #1a0920 !important;
+} 
+
 
 toolbar .toolbarbutton-1 {
 &:not([disabled]) {
@@ -79,7 +88,7 @@ toolbar .toolbarbutton-1 {
 fill: #1a0920;
 }
 }
-}
+} */
 
 /* Identity colors — still distinct but purple-biased */
 
@@ -123,11 +132,6 @@ fill: #1a0920;
 --identity-icon-color: #c6b6ff !important;
 }
 
-hbox#titlebar {
-background-color: #1a0920 !important;
-}
-
-#zen-appcontent-navbar-container {
-background-color: #1a0920 !important;
-}
-}
+#tabbrowser-tabbox > #zen-sidebar-web-panel-wrapper {
+  order: 5 !important;
+} 

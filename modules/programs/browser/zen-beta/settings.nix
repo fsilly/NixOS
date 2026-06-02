@@ -16,6 +16,9 @@ in
 
   "zen.view.compact.hide-toolbar" = true;
   "zen.view.compact.hide-tabbar" = true;
+  "browser.ai.control.sidebarChatbot" = "blocked";
+  "browser.ml.chat.enabled" = false;
+  "browser.ml.chat.menu" = false;
 
   "zen.watermark.enabled" = false;
   "zen.welcome-screen.seen" = true;
@@ -150,6 +153,8 @@ in
   "browser.aboutwelcome.enabled" = lock-false;
   "browser.tabs.firefox-view" = lock-false;
   "browser.startup.homepage_override.mstone" = "ignore";
+  "browser.startup.couldRestoreSession.count" = 1;
+  "browser.startup.couldRestoreSession" = false;
   "trailhead.firstrun.didSeeAboutWelcome" = lock-true; # Disable welcome splash
   "browser.newtab.url" = "about:blank";
   "browser.newtabpage.activity-stream.enabled" = lock-false;
@@ -157,13 +162,13 @@ in
   "browser.newtabpage.introShown" = lock-true;
   "browser.newtabpage.pinned" = false;
   "browser.bookmarks.defaultLocation" = "toolbar";
-  "browser.startup.page" = 3;
+  "browser.startup.page" = 1;
   "app.shield.optoutstudies.enabled" = lock-false;
   "dom.security.https_only_mode" = lock-true;
   "dom.security.https_only_mode_ever_enabled" = lock-true;
   "identity.fxaccounts.enabled" = lock-false;
   "app.update.auto" = false;
-  "browser.startup.homepage" = 1;
+  "browser.startup.homepage" = "homepage";
   "browser.bookmarks.restore_default_bookmarks" = false;
   "browser.ctrlTab.recentlyUsedOrder" = false;
   "browser.discovery.enabled" = false;

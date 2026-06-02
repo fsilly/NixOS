@@ -59,6 +59,11 @@
         installation_mode = "force_installed";
         install_url = "https://addons.mozilla.org/firefox/downloads/latest/return-youtube-dislikes/latest.xpi";
       };
+      "{91aa3897-2634-4a8a-9092-279db23a7689}" = {
+        private_browsing = true;
+        installation_mode = "force_installed";
+        install_url = "https://addons.mozilla.org/firefox/downloads/latest/zen-internet/latest.xpi";
+      };
     };
     zenBrowser = {
       "{446900e4-71c2-419f-a6a7-df9c091e268b}" = {
