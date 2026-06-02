@@ -277,12 +277,13 @@ in
             let
               c = (x + 1) / 10;
             in
-            builtins.toString (x + 1 - (c * 10));
+            #builtins.toString (x + 1 - (c * 10));
+            builtins.toString (x);
         in
         [
-          "$mainMod, ${ws}, exec, ${getExe workspace-movements} teleport ${ws}2"
-          "$mainMod SHIFT, ${ws}, exec, ${getExe workspace-movements} teleport ${ws}2"
-          "$mainMod CTRL, ${ws}, exec, ${getExe workspace-movements} teleport ${ws}2"
+          "$mainMod, ${ws}, exec, ${getExe workspace-movements} teleportX ${ws}"
+          "$mainMod SHIFT, ${ws}, exec, ${getExe workspace-movements} teleportX ${ws}"
+          "$mainMod CTRL, ${ws}, exec, ${getExe workspace-movements} teleportX ${ws}"
         ]
       ) 10
     ));

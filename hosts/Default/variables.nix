@@ -25,8 +25,8 @@
   nvidiaChannel = "legacy_580"; # stable, latest, beta, legacy_xxx
 
   wsSwitchTimeOffset = "0";
-  ws_row = 3;
-  ws_col = 5;
+  ws_row = 5;
+  ws_col = 6;
   ws_topology = "plane";
 
   # Localization

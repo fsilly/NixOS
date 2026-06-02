@@ -8,13 +8,13 @@ COMMAND="${1:-move}"
 ARG="${2:-}"
 
 log() {
-    echo "[workspace-nav] $*"
+    echo "[workspace-nav] $*" >&2
 }
 
 usage() {
     echo "Usage:"
     echo "  $0 move [-l|-r|-u|-d]"
-    echo "  $0 teleport [00-99]"
+    echo "  $0 teleport [11-99]"
     exit 1
 }
 
@@ -42,8 +42,8 @@ case "$COMMAND" in
     teleport)
         case "$ARG" in
             [0-9][0-9])
-                TP_X=$((10#${ARG:0:1}))
-                TP_Y=$((10#${ARG:1:1}))
+                TP_X=$((10#${ARG:0:1} -1))
+                TP_Y=$((10#${ARG:1:1} -1))
 
                 if (( TP_X >= WS_COL || TP_Y >= WS_ROW )); then
                     log "Teleport target out of bounds"
@@ -56,6 +56,22 @@ case "$COMMAND" in
                 ;;
         esac
         ;;
+    teleportX)
+        case "$ARG" in
+            [1-9])
+                TPX_X=$((10#$ARG - 1))
+
+                if (( TPX_X >= WS_COL )); then
+                    log "TeleportX target out of bounds"
+                    exit 1
+                fi
+                ;;
+            *)
+                log "Invalid X coordinate for teleportX: $ARG"
+                usage
+                ;;
+        esac
+        ;;
     *)
         log "Invalid command: $COMMAND"
         usage
@@ -63,6 +79,52 @@ case "$COMMAND" in
 esac
 
 [[ -z "$ARG" ]] && usage
+
+CACHE_FILE="/tmp/workspace-nav-y-cache"
+
+get_cached_y() {
+    local x="$1"
+
+    log "get_cached_y(x=$x)"
+
+    if [[ ! -f "$CACHE_FILE" ]]; then
+        log "Cache file does not exist: $CACHE_FILE"
+        return 0
+    fi
+
+    log "Cache contents:"
+    sed 's/^/[workspace-nav]   /' "$CACHE_FILE" >&2
+
+    local y
+    y=$(grep "^${x}=" "$CACHE_FILE" 2>/dev/null | tail -n1 | cut -d= -f2 || true)
+
+    log "Lookup result for x=$x -> y=<$y>"
+
+    echo "$y"
+}
+
+set_cached_y() {
+    local x="$1"
+    local y="$2"
+
+    log "set_cached_y(x=$x, y=$y)"
+
+    mkdir -p "$(dirname "$CACHE_FILE")"
+
+    if [[ -f "$CACHE_FILE" ]]; then
+        log "Removing previous entry for x=$x"
+        grep -v "^${x}=" "$CACHE_FILE" > "${CACHE_FILE}.tmp" || true
+    else
+        log "Creating cache file"
+        : > "${CACHE_FILE}.tmp"
+    fi
+
+    echo "${x}=${y}" >> "${CACHE_FILE}.tmp"
+    mv "${CACHE_FILE}.tmp" "$CACHE_FILE"
+
+    log "Cache after update:"
+    sed 's/^/[workspace-nav]   /' "$CACHE_FILE"
+}
 
 RAW_WS_ID=$(hyprctl activeworkspace -j | jq '.id')
 
@@ -170,18 +232,39 @@ if [[ "$COMMAND" == "move" ]]; then
     esac
 fi
 
+if [[ "$COMMAND" == "teleportX" ]]; then
+    TARGET_X="$TPX_X"
+
+    log "teleportX requested: x=$TARGET_X"
+
+    CACHED_Y=$(get_cached_y "$TARGET_X")
+
+    printf 'CACHED_Y=<%s>\n' "$CACHED_Y" >&2
+
+    if [[ -n "$CACHED_Y" ]]; then
+        TARGET_Y="$CACHED_Y"
+        log "Using cached y=$TARGET_Y"
+    else
+        TARGET_Y=1
+        log "No cached value found, defaulting to y=$TARGET_Y"
+    fi
+
+    set_animation teleport
+fi
+
 if [[ "$COMMAND" == "teleport" ]]; then
-    TARGET_X="$TP_X -1"
-    TARGET_Y="$TP_Y -1"
+    TARGET_X=($TP_X)
+    TARGET_Y=($TP_Y)
     set_animation teleport
     log "Teleport -> x=$TARGET_X y=$TARGET_Y"
 fi
 
-TARGET_WS=$((TARGET_Y * WS_COL + TARGET_X))
-MAX_WS=$((WS_COL * WS_ROW - 1))
-
 log "Target coordinates: x=$TARGET_X y=$TARGET_Y"
+TARGET_WS=$((TARGET_Y * WS_COL + TARGET_X))
 log "Target workspace: $TARGET_WS"
+MAX_WS=$((WS_COL * WS_ROW - 1))
+set_cached_y "$TARGET_X" "$TARGET_Y"
+
 
 if (( TARGET_WS < 0 || TARGET_WS > MAX_WS )); then
     log "Target workspace out of bounds"
