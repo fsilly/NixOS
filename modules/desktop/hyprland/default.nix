@@ -236,8 +236,8 @@ in
 #            };
             general = {
               gaps_in = gapIn;
-              gaps_out = 6;
-              border_size = 3;
+              gaps_out = 9;
+              border_size = 6;
               #"col.active_border" = "rgba(ca9ee6ff) rgba(f2d5cfff) 45deg";
               #"col.inactive_border" = "rgba(b4befecc) rgba(6c7086cc) 45deg";
               "col.inactive_border" = "rgba(120,10,70,0.2) rgba(90,0,110,0.1) 45deg";
@@ -342,7 +342,7 @@ in
               # Easily plug in any monitor
               #"eDP-1, preferred, 0x0, 1.2"
               #"DP-2, preferred, -1920x0, 1, transform, 1"
-              "eDP-1, preferred, 0x0, 1.2"
+              "eDP-1, preferred, 0x0, 1.0"
               #"DP-2, preferred, -1080x-600, 1, transform, 1" # dont ask me why 1600 instead of 1920
               "DP-2, preferred, auto, 1"
               #"HDMI-A-1, preferred, auto, 1, transform, 1"
