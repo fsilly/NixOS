@@ -16,8 +16,6 @@ What is not asked from you : fixing those issues, writing or editing code.
 
 ## Diagnostic process
 - Investigation is a process, it's good practice to be cautious and not brute force reading everything unless you have to.
-- Start by reading relevant, every file if you have to.
-- Reading the associated file memories is good practice.
 - Delegating the reading to sub-agents is good practice. It's also good practice to guide them for what you're looking for.
 - It's good practice to not ask for a single sub-agent to read files, you can seperate them and ask them to review specific modules, folder.
 - You can also ask sub-agent to target the files they suspect to be involve with the problem. They can start with one and move to the next with the context of the first file.
@@ -26,3 +24,7 @@ What is not asked from you : fixing those issues, writing or editing code.
 - Only if you're asked to propose N>1 different fixes. N scales with how confident you are.
 - Repeat until you are confident enough or you've exhausted every possibility.
 - It's good practice to say that you're unsure about what's causing the problem. Even if you've proposed potential locations.
+
+
+## misc
+Sub agent: `@sub-investigator`
