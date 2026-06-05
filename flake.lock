@@ -1053,6 +1053,27 @@
         "url": "https://git.outfoxxed.me/outfoxxed/quickshell"
       }
     },
+    "quickshell-overview": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1780493292,
+        "narHash": "sha256-mLsrdMpVoHLiSPVc6G2IbQ8IJvgIVgL+pobXaBsQcdk=",
+        "owner": "fsilly",
+        "repo": "quickshell-overview",
+        "rev": "66c0e4adcad70076650876f523e45a044c969b6f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "fsilly",
+        "ref": "2d-ws-fsilly",
+        "repo": "quickshell-overview",
+        "type": "github"
+      }
+    },
     "quickshell_2": {
       "inputs": {
         "nixpkgs": [
@@ -1095,6 +1116,7 @@
         "nur": "nur",
         "nvchad4nix": "nvchad4nix",
         "plasma-manager": "plasma-manager",
+        "quickshell-overview": "quickshell-overview",
         "spicetify-nix": "spicetify-nix",
         "thunderbird-catppuccin": "thunderbird-catppuccin",
         "zen-browser": "zen-browser"

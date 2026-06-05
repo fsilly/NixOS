@@ -36,6 +36,10 @@
         caelestia-cli.follows = "caelestia-cli";
       };
     };
+    quickshell-overview = {
+      url = "github:fsilly/quickshell-overview?ref=2d-ws-fsilly";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     caelestia-cli = {
       url = "github:fsilly/caelestia-cli?ref=cute";
       inputs.nixpkgs.follows = "nixpkgs";
