@@ -1,6 +1,6 @@
 { lib, ... }:
 let
-  extensions = import ../extensions.nix { inherit lib; };
+  extensions = import ../extensions.nix { inherit lib; transparent-zen = true; };
 in
 {
   AllowFileSelectionDialogs = true;
