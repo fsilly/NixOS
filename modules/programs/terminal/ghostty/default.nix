@@ -8,7 +8,7 @@
         settings = {
           font-family = "JetBrainsMono Nerd Font";
           font-family-bold = true;
-          font-size = 14;
+          font-size = 16;
 
           background = "#1a0920";
           foreground = "#ebdcf1";
