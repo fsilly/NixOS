@@ -18,13 +18,13 @@
             }
         },
         "padding": {
-            "scale": 0.7
+            "scale": 1
         },
         "rounding": {
-            "scale": 0.6
+            "scale": 1
         },
         "spacing": {
-            "scale": 0.8
+            "scale": 1
         },
         "transparency": {
             "base": 0.85,
@@ -148,7 +148,7 @@
             "occupiedLabel": "󰮯",
             "perMonitorWorkspaces": true,
             "showWindows": false,
-            "shown": 5,
+            "shown": 6,
             "specialWorkspaceIcons": [
                 {
                     "icon": "sports_esports",
@@ -438,8 +438,8 @@
         "clearThreshold": 0.3,
         "defaultExpireTimeout": 5000,
         "expandThreshold": 20,
-        "expire": false,
-        "openExpanded": false
+        "expire": true,
+        "openExpanded": true
     },
     "osd": {
         "enableBrightness": true,

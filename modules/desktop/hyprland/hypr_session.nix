@@ -19,17 +19,17 @@ in
   [
 #    (dispatch { x =  1; y =  3; shell = "cd ~/NixOS && ${terminal}"; })
 #    (dispatch { x =  1; y =  3; shell = "cd ~/NixOS && ${terminal}"; })
-    (dispatch { x =  1; y =  3; shell = "${terminal} ~/NixOS &"; })
-    (dispatch { x =  1; y =  3; shell = "${terminal} ~/Nixos &"; })
+    (dispatch { x =  1; y =  3; shell = "${terminal} -e cd ~/NixOS &"; })
+    (dispatch { x =  1; y =  3; shell = "${terminal} -e cd ~/Nixos &"; })
     #(dispatch { x =  1; y =  3; shell = "firefox"; })
     (dispatch { x =  2; y =  3; shell = "${browser} -P default"; })
     (dispatch { x =  2; y =  2; shell = "${browser} -P googleised"; })
     (dispatch { x =  5; y =  3; shell = "vesktop"; })
     (dispatch { x =  5; y =  3; shell = "spotify"; })
     (dispatch { x =  3; y =  3; shell = "obsidian"; })
-    #(dispatch { x =  3; y =  3; shell = "cd ~/Here on earth/ && ${terminal}"; })
-    (dispatch { x =  2; y =  4; shell = "${terminal}"; })
-    (dispatch { x =  2; y =  4; shell = "${terminal}"; })
+    (dispatch { x =  3; y =  3; shell = "${terminal} -e cd ~/Here on earth/"; })
+    (dispatch { x =  2; y =  4; shell = "${terminal} -e fabric --help"; })
+    (dispatch { x =  2; y =  4; shell = "${terminal} -e fabric --help"; })
     (dispatch { x =  1; y =  2; shell = "${terminal}"; })
     (dispatch { x =  1; y =  2; shell = "${terminal}"; })
     #(dispatch { x =  1; y =  2; shell = "${terminal}"; })
@@ -38,4 +38,7 @@ in
     (dispatch { x =  1; y =  4; shell = "${terminal}"; })
     #(dispatch { x =  1; y =  5; shell = "${terminal}"; })
     #(dispatch { x =  1; y =  5; shell = "${terminal}"; })
+    "[workspace special:1 silent] firefox addy.io"
+    "[workspace special:1 silent] Bitwarden"
+    "[workspace special:1 silent] io.ente.auth"
   ]

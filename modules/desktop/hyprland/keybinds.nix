@@ -187,8 +187,8 @@ in
       "$mainMod CTRL, mouse:275, movetoworkspacesilent, 6"
       "$mainMod CTRL ALT, mouse:275, movetoworkspacesilent, 7"
 
-      # Rebuild NixOS with a KeyBind
-      "$mainMod, U, exec, $term -e rebuild"
+      # Rebuild NixOS with a KeyBind openrouter/owl-alpha
+      "$mainMod, U, exec, $term -e (sudo nixos-rebuild switch --flake ~/NixOS#Default 2>&1) > >(less) > >(fabric \" Hello there I need you to be swift and simple. I just gave you the input of a nixos rebuild command. Print a smile if everything worked and print the few warnings. That's it. If there are errors though, print them and explain them a bit. Your output should as minimal as possible but also self-contained. Finaly I need you to embed it all into nice markdown as much as possible.\" -s)"
 
       # Scroll through existing workspaces with mainMod + scroll
       "$mainMod, mouse_down, workspace, e+1"

@@ -49,6 +49,7 @@ in
     #./programs/hypridle
     #./programs/hyprlock
     ./programs/${bar}
+    ./programs/quickshell-overview.nix
   ]
   ++ lib.optionals (bar == "hyprpanel") [
     ./programs/hyprpanel
@@ -263,9 +264,9 @@ in
                 enabled = true;
                 special = true;
                 size = 6; # 6
-                passes = 2; # 3
+                passes = 3; # 3
                 new_optimizations = true;
-                ignore_opacity = true;
+                ignore_opacity = false;
                 xray = false;
               };
             };
