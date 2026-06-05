@@ -34,6 +34,8 @@
     yt-dlp
     cheese
     pandoc
+    glow
+    w3m
 
     waycorner
     #inputs.hyprsession.packages.${pkgs.system}.default
@@ -41,7 +43,6 @@
 
     zip
     ffmpeg
-    fastfetch
     thunderbird
     ente-auth
     # (pkgs.callPackage ../../overlays/hyprsession.nix { inherit pkgs; })
