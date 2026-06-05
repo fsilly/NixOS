@@ -31,14 +31,6 @@ in
       programs.home-manager.enable = true;
       xdg.enable = true;
 
-      xdg.configFile."nvim" = {
-        source = config.lib.file.mkOutOfStoreSymlink "/home/${username}/NixOS/hosts/${host}/xdgconfig/nvim/";
-        recursive = true;
-      };
-      xdg.configFile."quickshell/overview" = {
-        source = config.lib.file.mkOutOfStoreSymlink "/home/${username}/NixOS/hosts/${host}/xdgconfig/quickshell/overview";
-        recursive = true;
-      };
       programs.gh = {
         enable = true;
         gitCredentialHelper = {
@@ -57,10 +49,6 @@ in
       programs.quickshell = {
         enable = true;
         activeConfig = null;
-        configs = {
-            #caelestia-shell = (inputs.caelestia-shell.packages.${pkgs.system}.default.override { withCli = true; });
-
-        };
       };
       home = {
         username = "${username}";
@@ -70,7 +58,6 @@ in
           ripgrep
           nil
           nixpkgs-fmt
-          qt6.qtwayland
           #inputs.caelestia-shell.packages.${pkgs.system}.default
         ];
         sessionVariables = {
