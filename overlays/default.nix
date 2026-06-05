@@ -18,10 +18,10 @@ in
       system = final.stdenv.hostPlatform.system;
       config.allowUnfree = true;
     };
-    vesktop = prev.vesktop.override {
-      withSystemVencord = false;
-      withMiddleClickScroll = true;
-    };
+#    vesktop = prev.vesktop.override {
+#      withSystemVencord = false;
+#      withMiddleClickScroll = true;
+#    };
     discord = prev.discord.override {
       withVencord = true;
       withOpenASAR = true;

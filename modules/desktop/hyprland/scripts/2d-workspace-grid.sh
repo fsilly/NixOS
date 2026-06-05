@@ -245,7 +245,7 @@ if [[ "$COMMAND" == "teleportX" ]]; then
         TARGET_Y="$CACHED_Y"
         log "Using cached y=$TARGET_Y"
     else
-        TARGET_Y=1
+        TARGET_Y=2
         log "No cached value found, defaulting to y=$TARGET_Y"
     fi
 

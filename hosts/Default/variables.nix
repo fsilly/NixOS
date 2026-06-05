@@ -28,6 +28,7 @@
   ws_row = 5;
   ws_col = 6;
   ws_topology = "plane";
+  batterySupport = true; # Whether device has a battery (laptop)
 
   # Localization
   timezone = "Europe/Paris";

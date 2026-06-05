@@ -1,14 +1,12 @@
 { lib, transparent-zen, ... }:
 let
-  chars = ["@" "-" "." "{" "}"];
+  unwanted = [ "@" "." "{" "}" ];
 
-  unwantedChars = [ "@" "." "{" "}" ];
+  extIds = lib.attrNames (lib.filterAttrs (_: ext: ext.navbar) extensionSettings.common // extensionSettings.zenBrowser);
 
-  extensionNames = lib.attrNames (lib.filterAttrs (_: ext: ext.navbar) extensionSettings.common // extensionSettings.zenBrowser);
+  toNavbar = name: ((lib.replaceStrings unwanted (lib.replicate (builtins.length unwanted) "_")) name) + "-browser-action";
 
-  sanatizeName = name: ((lib.replaceStrings unwantedChars (lib.replicate (builtins.length unwantedChars) "_")) name) + "-browser-action";
-
-  navbarList = map sanatizeName extensionNames;
+  navbarIds = map toNavbar extIds;
 
   extensionSettings = { # TODO: add firefox one tab ext
     common = {
@@ -122,7 +120,46 @@ let
 
     };
     floorp = {
-
+      "{8454caa8-cebc-4486-8b23-9771f187ed6c}" = {
+        private_browsing = true;
+        default_area = "navbar";
+        installation_mode = "force_installed";
+        install_url = "https://addons.mozilla.org/firefox/downloads/latest/600-sound-volume-privacy/latest.xpi";
+      };
+      "extension@one-tab.com" = {
+        private_browsing = true;
+        default_area = "navbar";
+        installation_mode = "force_installed";
+        install_url = "https://addons.mozilla.org/firefox/downloads/latest/onetab/latest.xpi";
+      };
+      "addon@darkreader.org" = {
+        private_browsing = true;
+        # default_area = "navbar";
+        installation_mode = "force_installed";
+        install_url = "https://addons.mozilla.org/firefox/downloads/latest/darkreader/latest.xpi";
+      };
+      "sponsorBlocker@ajay.app" = {
+        private_browsing = true;
+        default_area = "menupanel";
+        installation_mode = "force_installed";
+        install_url = "https://addons.mozilla.org/firefox/downloads/latest/sponsorblock/latest.xpi";
+      };
+      "{762f9885-5a13-4abd-9c77-433dcd38b8fd}" = {
+        private_browsing = true;
+        installation_mode = "force_installed";
+        install_url = "https://addons.mozilla.org/firefox/downloads/latest/return-youtube-dislikes/latest.xpi";
+      };
+      "frankerfacez@frankerfacez.com" = {
+        private_browsing = true;
+        installation_mode = "force_installed";
+        install_url = "https://addons.mozilla.org/firefox/downloads/latest/frankerfacez/latest.xpi";
+      };
+      # View Xpi Id's in Firefox Extension Store
+      "queryamoid@kaply.com" = {
+        private_browsing = true;
+        installation_mode = "force_installed";
+        install_url = "https://github.com/mkaply/queryamoid/releases/download/v0.2/query_amo_addon_id-0.2-fx.xpi";
+      };
     };
   };
 in
@@ -139,7 +176,7 @@ in
     #"_c4b582ec-4343-438c-bda2-2f691c16c262_-browser-action" #open subtitles
     #"_446900e4-71c2-419f-a6a7-df9c091e268b_-browser-action" #bitwarden
     # "_aecec67f-0d10-4fa7-b7c7-609a2db280cf_-browser-action"
-  ] ++ navbarList;
+  ] ++ navbarIds;
 
   unified-extensions-area = [
 #    #"_c4b582ec-4343-438c-bda2-2f691c16c262_-browser-action"
@@ -151,7 +188,7 @@ in
 #    "_c4b582ec-4343-438c-bda2-2f691c16c262_-browser-action" #open subtitles
 #    "_446900e4-71c2-419f-a6a7-df9c091e268b_-browser-action" #bitwarden
 #    # "_aecec67f-0d10-4fa7-b7c7-609a2db280cf_-browser-action"
-  ] ++ navbarList;
+  ] ++ navbarIds;
 
   inherit extensionSettings;
 
