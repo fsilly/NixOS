@@ -5,14 +5,14 @@
   desktop = "hyprland"; # hyprland, i3, gnome, plasma6
 
   # Theme & Appearance
-  bar = "waybar"; # waybar, hyprpanel, noctalia-shell, caelestia-shell
+  bar = "waybar"; # waybar, wayle, hyprpanel, noctalia-shell, caelestia-shell
   waybarTheme = "minimal"; # stylish, minimal
   sddmTheme = "astronaut"; # astronaut, black_hole, purple_leaves, jake_the_dog, hyprland_kath
   defaultWallpaper = "galaxy.webp"; # Change with SUPER + SHIFT + W (Hyprland)
   hyprlockWallpaper = "galaxy.webp";
 
   # Default Applications
-  terminal = "kitty"; # kitty, alacritty
+  terminal = "kitty"; # kitty, alacritty, wezterm
   editor = "nixvim"; # nixvim, vscode, helix, doom-emacs, nvchad, neovim
   browser = "zen-beta"; # zen-beta, firefox, floorp
   fileManager = "yazi"; # yazi, lf, thunar
@@ -24,6 +24,7 @@
   videoDriver = "nvidia"; # nvidia, amdgpu, intel
   nvidiaChannel = "legacy_580"; # stable, latest, beta, legacy_xxx
   bluetoothSupport = false; # Whether your motherboard supports bluetooth
+  batterySupport = false; # Whether device has a battery (laptop)
 
   # Localization
   timezone = "Europe/London";
@@ -32,4 +33,5 @@
   kbdLayout = "gb";
   kbdVariant = "extd";
   consoleKeymap = "uk";
+  capslockAsESC = false;
 }
