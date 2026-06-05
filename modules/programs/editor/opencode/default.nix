@@ -39,26 +39,26 @@ in
             };
           };
           agent = {
-            investigator = {
+            investigation = {
               #mode = "subagent";
               reasoningEffort = "high";
               textVerbosity = "high";
               mode = "primary";
-              prompt = builtins.readFile ./agents/investigator.md;
+              prompt = builtins.readFile ./agents/personality.md + (builtins.readFile ./agents/investigator.md);
               #permission = ''edit = "deny"'';
             };
-            investigator-sub = {
+            investigation-sub = {
               mode = "subagent";
               reasoningEffort = "high";
               textVerbosity = "low";
-              prompt = builtins.readFile ./agents/sub-investigator.md;
+              prompt = (builtins.readFile ./agents/personality.md) + (builtins.readFile ./agents/sub-investigator.md);
               #permission = ''edit = "deny"'';
             };
-            code-reviewer = {
+            code-review = {
               mode = "subagent";
               reasoningEffort = "high";
               textVerbosity = "low";
-              prompt = builtins.readFile ./agents/code-reviewer.md;
+              prompt = (builtins.readFile ./agents/personality.md) + (builtins.readFile ./agents/code-reviewer.md);
               #permission = ''edit = "deny"'';
             };
 #            tester = {
