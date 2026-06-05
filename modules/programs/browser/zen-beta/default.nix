@@ -5,24 +5,29 @@
   ...
 }:
 let
-  defaultProfile = {
-    settings = import ./settings.nix { inherit lib; };
+  defaultProfile = { transparent ? false }: {
+    settings = import ./settings.nix { inherit lib; transparent-zen = transparent; };
     bookmarks = import ../bookmarks.nix;
     search = import ./search.nix { inherit pkgs; };
     userChrome = builtins.readFile ./userChrome.css;
     #userContent = builtins.readFile ./userContent.css;
-    mods = [
-      "72f8f48d-86b9-4487-acea-eb4977b18f21" # better CtrlTab
-      "253a3a74-0cc4-47b7-8b82-996a64f030d5" #floating history
-      "7190e4e9-bead-4b40-8f57-95d852ddc941" #tab title
-      "906c6915-5677-48ff-9bfc-096a02a72379" #floating status
-      "a5f6a231-e3c8-4ce8-8a8e-3e93efd6adec" #cleaned url bar
-      "6c122084-c4ec-4c9e-8cc5-3d87c3a089cb" #margin better
-      "d8b79d4a-6cba-4495-9ff6-d6d30b0e94fe" #better something
-      "cb5efa80-f1e1-43ce-8c0b-fece8462d225" #highl something
-      "ad97bb70-0066-4e42-9b5f-173a5e42c6fc" #pins hihglight
-      "642854b5-88b4-4c40-b256-e035532109df" #transparent zen
-    ];
+    sine = {
+      enable = true;
+      mods = [
+        "72f8f48d-86b9-4487-acea-eb4977b18f21" # better CtrlTab UI
+        "7190e4e9-bead-4b40-8f57-95d852ddc941" #tab title
+        "906c6915-5677-48ff-9bfc-096a02a72379" #floating status
+        "6c122084-c4ec-4c9e-8cc5-3d87c3a089cb" #margin better
+        "d8b79d4a-6cba-4495-9ff6-d6d30b0e94fe" #better something
+        "cb5efa80-f1e1-43ce-8c0b-fece8462d225" #highl something
+        "ad97bb70-0066-4e42-9b5f-173a5e42c6fc" #pins hihglight
+      ] ++ lib.optionals transparent [
+        "253a3a74-0cc4-47b7-8b82-996a64f030d5" #floating history
+        "a5f6a231-e3c8-4ce8-8a8e-3e93efd6adec" #cleaned url bar
+        "642854b5-88b4-4c40-b256-e035532109df" #transparent zen
+        #"https://github.com/YashjitPal/Arc-2.0" #arc 2.0
+      ];
+    };
      #browser.tabs.groups.enabled
     extraConfig = ''
       ${builtins.readFile "${inputs.betterfox}/Fastfox.js"}
@@ -74,12 +79,12 @@ in
             id = 0; # 0 is the default profile; see also option "isDefault"
             name = "default"; # name as listed in about:profiles
             isDefault = true; # can be omitted; true if profile ID is 0
-          } // defaultProfile;
+          } // (defaultProfile { transparent = true; });
           googleised = {
             id = 1; # 0 is the default profile; see also option "isDefault"
             name = "googleised"; # name as listed in about:profiles
             isDefault = false; # can be omitted; true if profile ID is 0
-          } // defaultProfile;
+          } // (defaultProfile { transparent = false; });
         };
       };
     })

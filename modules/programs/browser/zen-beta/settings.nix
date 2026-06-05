@@ -8,10 +8,10 @@ let
     Value = true;
     Status = "locked";
   };
-  extensions = import ../extensions.nix { inherit lib; };
+  extensions = import ../extensions.nix { inherit lib; transparent-zen = true; };
 in
 {
-  "zen.view.use-single-toolbar" = false;
+  "zen.view.use-single-toolbar" = true;
   "zen.view.sidebar-expanded" = true;
 
   "zen.view.compact.hide-toolbar" = true;
@@ -234,8 +234,6 @@ in
         # "developer-button"
         "downloads-button"
         "unified-extensions-button"
-        # Extensions
-       # "_aecec67f-0d10-4fa7-b7c7-609a2db280cf_-browser-action"
       ] ++ extensions.navbar;
       toolbar-menubar = [ "menubar-items" ];
       TabsToolbar = [
