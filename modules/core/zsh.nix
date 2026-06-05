@@ -21,6 +21,11 @@
               name = "nix-zsh-completions";
               src = pkgs.nix-zsh-completions;
             }
+            {
+              name = "vi-mode";
+              src = pkgs.zsh-vi-mode;
+              file = "share/zsh-vi-mode/zsh-vi-mode.plugin.zsh";
+            }
           ];
 
           initContent = ''
@@ -54,24 +59,25 @@
             # Key Bindings
             #bindkey '^a' beginning-of-line
             #bindkey '^e' end-of-line
-            bindkey -v
-            bindkey -M vicmd 'k' history-substring-search-up
-            bindkey -M vicmd 'j' history-substring-search
             zsh-defer -c 'source ${pkgs.fzf}/share/fzf/key-bindings.zsh'
             zsh-defer -c 'bindkey "^R" fzf-history-widget'
+
             # Remove unwanted key interactions
-            #bindkey -r "^?"        # DEL
-            #bindkey -r "^[[3~"     # Delete key
-            #bindkey -r "^[[5~"     # Page Up
-            #bindkey -r "^[[6~"     # Page Down
+            bindkey -r "^?"        # DEL
+            bindkey -r "^[[3~"     # Delete key
+            bindkey -r "^[[5~"     # Page Up
+            bindkey -r "^[[6~"     # Page Down
 
             # Also ensure they do nothing in both modes
+            #bindkey -v
             #bindkey -M viins "^[[5~" undefined-key
             #bindkey -M viins "^[[6~" undefined-key
             #bindkey -M vicmd "^[[5~" undefined-key
             #bindkey -M vicmd "^[[6~" undefined-key
             #bindkey -M viins "^[[3~" undefined-key
             #bindkey -M vicmd "^[[3~" undefined-key
+            #bindkey -M vicmd 'k' history-substring-search-up
+            #bindkey -M vicmd 'j' history-substring-search
 
             # Hard-disable problematic navigation keys
             for key in "^[[3~" "^[[5~" "^[[6~" "^[3~" "^[5~" "^[6~"; do
@@ -201,6 +207,7 @@
             find-store-path = ''function { nix-shell -p $1 --command "nix eval -f \"<nixpkgs>\" --raw $1" }'';
             update-input = "nix flake update $@";
             sysup = "nix flake update --flake ~/NixOS && rebuild";
+            sysrebuild = "(sudo nixos-rebuild switch --flake ~/NixOS#Default 2>&1) > >(less)";
 
             # Directory Shortcuts.
             dots = "cd ~/NixOS/";
@@ -211,6 +218,7 @@
             proj = "cd /mnt/work/Projects/";
             dev = "cd /mnt/work/Projects/";
             briar = "echo \"*licks armpit*\"";
+            pbcopy= "xclip -selection clipboard";
             pbpaste="xclip -selection clipboard -o";
           };
         };
