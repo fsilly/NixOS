@@ -1,13 +1,12 @@
-#{
-#  host,
-#  inputs,
-#  config,
-#  lib,
-#  pkgs,
-#  inputs,
-#  ...
-#}:
-#let
+{
+  host,
+  inputs,
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+let
 #<<<<<<< HEAD
 #  inherit (lib) getExe getExe';
 #  inherit (import ../../../hosts/${host}/variables.nix)
@@ -48,22 +47,22 @@
 #  imports = [
 #    #../../themes/Catppuccin # Catppuccin GTK and QT themes
 #=======
-#  inherit (lib) optional;
-#  inherit (import ../../../hosts/${host}/variables.nix) bar;
-#in
-#{
-#  imports = [
-#    ../../themes/Catppuccin # Catppuccin GTK and QT themes
-#    ./variables.nix
-#    ./programs/${bar}
+  inherit (lib) optional;
+  inherit (import ../../../hosts/${host}/variables.nix) bar;
+in
+{
+  imports = [
+    ../../themes/Catppuccin # Catppuccin GTK and QT themes
+    ./variables.nix
+    ./programs/${bar}
 #>>>>>>> master
-#    ./programs/wlogout
-#    ./programs/rofi
-#    #./programs/hypridle
-#    #./programs/hyprlock
-#    ./programs/${bar}
-#    ./programs/quickshell-overview.nix
-#  ]
+    ./programs/wlogout
+    ./programs/rofi
+    #./programs/hypridle
+    #./programs/hyprlock
+    ./programs/${bar}
+    ./programs/quickshell-overview.nix
+  ]
 #<<<<<<< HEAD
 #  ++ lib.optionals (bar == "hyprpanel") [
 #    ./programs/hyprpanel
@@ -75,10 +74,10 @@
 #    ./programs/swaync
 #    ./programs/noctalia
 #  ]
-#  ++ lib.optionals (bar == "caelestia-shell") [
-#    ./programs/caelestia-shell
-#    ./programs/swaync
-#  ]
+  ++ lib.optionals (bar == "caelestia-shell") [
+    ./programs/caelestia-shell
+    ./programs/swaync
+  ]
 #  ++ lib.optionals (bar == "waybar") [
 #    # ./programs/dunst
 #    ../../themes/rose-pine # Catppuccin GTK and QT themes
@@ -86,125 +85,110 @@
 #    ./programs/waybar/${waybarTheme}.nix
 #  ];
 #=======
-#  ++ optional (bar != "hyprpanel" && bar != "wayle") ./programs/swaync;
+  ++ optional (bar != "hyprpanel" && bar != "wayle") ./programs/swaync;
 #>>>>>>> master
-#
-#  environment.systemPackages = with pkgs; [
-#    pavucontrol
-#    swappy
-#    cliphist
-#    wl-clipboard
+
+  environment.systemPackages = with pkgs; [
+    pavucontrol
+    swappy
+    cliphist
+    wl-clipboard
 #<<<<<<< HEAD
 #    swayimg
 #    #inputs.awww.packages.${pkgs.stdenv.hostPlatform.system}.awww
 #    #inputs.hyprsession.packages.${pkgs.stdenv.hostPlatform.system}.default
-#    bc # this should probably go elsewhere since its math but it is required here
+    bc # this should probably go elsewhere since its math but it is required here
 #=======
-#    brightnessctl
-#    playerctl
-#    pamixer
-#    hyprsunset
-#    btop
-#    hyprpicker
+    brightnessctl
+    playerctl
+    pamixer
+    hyprsunset
+    btop
+    hyprpicker
 #>>>>>>> master
-#  ];
-#
-#  systemd.user.services.hyprpolkitagent = {
-#    description = "Hyprpolkitagent - Polkit authentication agent";
-#    wantedBy = [ "graphical-session.target" ];
-#    wants = [ "graphical-session.target" ];
-#    after = [ "graphical-session.target" ];
-#    serviceConfig = {
-#      Type = "simple";
-#      ExecStart = "${pkgs.hyprpolkitagent}/libexec/hyprpolkitagent";
-#      Restart = "on-failure";
-#      RestartSec = 1;
-#      TimeoutStopSec = 10;
-#    };
-#  };
-#  services.displayManager.defaultSession = "hyprland";
-#
-#  programs.hyprland = {
-#    enable = true;
-#    package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
-#<<<<<<< HEAD
-#=======
-#    portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
-#>>>>>>> master
-#    # withUWSM = true;
-#  };
-#
-#  home-manager.sharedModules = [
-#    (_: {
-#      xdg.portal = {
-#        enable = true;
-#        extraPortals = with pkgs; [
-#          xdg-desktop-portal-gtk
-#        ];
-#        xdgOpenUsePortal = true;
-#        configPackages = [ config.programs.hyprland.package ];
-#        config.hyprland = {
-#          default = [
-#            "hyprland"
-#            "gtk"
-#          ];
-#<<<<<<< HEAD
+  ];
+
+  systemd.user.services.hyprpolkitagent = {
+    description = "Hyprpolkitagent - Polkit authentication agent";
+    wantedBy = [ "graphical-session.target" ];
+    wants = [ "graphical-session.target" ];
+    after = [ "graphical-session.target" ];
+    serviceConfig = {
+      Type = "simple";
+      ExecStart = "${pkgs.hyprpolkitagent}/libexec/hyprpolkitagent";
+      Restart = "on-failure";
+      RestartSec = 1;
+      TimeoutStopSec = 10;
+    };
+  };
+  services.displayManager.defaultSession = "hyprland";
+
+  programs.hyprland = {
+    enable = true;
+    package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+    portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
+    # withUWSM = true;
+  };
+
+  home-manager.sharedModules = [
+    (_: {
+      xdg.portal = {
+        enable = true;
+        extraPortals = with pkgs; [
+          xdg-desktop-portal-gtk
+        ];
+        xdgOpenUsePortal = true;
+        configPackages = [ config.programs.hyprland.package ];
+        #configPackages = [ config.wayland.windowManager.hyprland.package ];
+        #configPackages = [ inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland ];
+        config.hyprland = {
+          default = [
+            "hyprland"
+            "gtk"
+          ];
 #          xdgOpenUsePortal = true;
-#          #configPackages = [ config.wayland.windowManager.hyprland.package ];
-#          configPackages = [ inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland ];
-#          config.hyprland = {
-#            default = [
-#              "hyprland"
-#              "gtk"
-#            ];
-#            "org.freedesktop.impl.portal.OpenURI" = "gtk";
-#            "org.freedesktop.impl.portal.FileChooser" = "gtk";
-#            "org.freedesktop.impl.portal.Print" = "gtk";
-#          };
-#=======
-#          "org.freedesktop.impl.portal.OpenURI" = "gtk";
-#          "org.freedesktop.impl.portal.FileChooser" = "gtk";
-#          "org.freedesktop.impl.portal.Print" = "gtk";
-#>>>>>>> master
-#        };
-#      };
-#
-#      # Set wallpaper
-#      services.awww.enable = true;
-#
-#      # Hyprland config
-#      xdg.configFile = {
-#        "hypr/hyprland.lua".source = ./lua/hyprland.lua;
-#        "hypr/monitors.lua".source = ./lua/monitors.lua;
-#        "hypr/settings.lua".source = ./lua/settings.lua;
-#        "hypr/animations.lua".source = ./lua/animations.lua;
-#        "hypr/binds.lua".source = ./lua/binds.lua;
-#        "hypr/rules.lua".source = ./lua/rules.lua;
-#
-#        "hypr/icons" = {
-#          source = ./icons;
-#          recursive = true;
-#        };
+          "org.freedesktop.impl.portal.OpenURI" = "gtk";
+          "org.freedesktop.impl.portal.FileChooser" = "gtk";
+          "org.freedesktop.impl.portal.Print" = "gtk";
+        };
+      };
+
+      # Set wallpaper
+      services.awww.enable = true;
+
+      # Hyprland config
+      xdg.configFile = {
+        "hypr/hyprland.lua".source = ./lua/hyprland.lua;
+        "hypr/monitors.lua".source = ./lua/monitors.lua;
+        "hypr/settings.lua".source = ./lua/settings.lua;
+        "hypr/animations.lua".source = ./lua/animations.lua;
+        "hypr/binds.lua".source = ./lua/binds.lua;
+        "hypr/rules.lua".source = ./lua/rules.lua;
+
+        "hypr/icons" = {
+          source = ./icons;
+          recursive = true;
+        };
 #<<<<<<< HEAD
-#
-#        # Set wallpaper
-#        services.awww.enable = true;
-#
+
+        # Set wallpaper
+        services.awww.enable = true;
+
 #        #test later systemd.user.targets.hyprland-session.Unit.Wants = [ "xdg-desktop-autostart.target" ];
 #        wayland.windowManager.hyprland = {
 #          enable = true;
 #          package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
 #          configType = "hyprlang";
 #          plugins = [
-#            #inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.hyprwinwrap
-#            #inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.borders-plus-plus
-#            #inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.hyprexpo
-#            #inputs.hyprgrass.packages.${pkgs.stdenv.hostPlatform.system}.default
-#            #pkgs.hyprlandPlugins.hyprtrails
-#            #pkgs.hyprlandPlugins.borders-plus-plus
-#            # inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.hyprwinwrap
-#            # inputs.hyprsysteminfo.packages.${pkgs.stdenv.hostPlatform.system}.default
-#            #inputs.hyprkool.packages.${pkgs.stdenv.hostPlatform.system}.hyprkool-plugin 
+            #inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.hyprwinwrap
+            #inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.borders-plus-plus
+            #inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.hyprexpo
+            #inputs.hyprgrass.packages.${pkgs.stdenv.hostPlatform.system}.default
+            #pkgs.hyprlandPlugins.hyprtrails
+            #pkgs.hyprlandPlugins.borders-plus-plus
+            # inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.hyprwinwrap
+            # inputs.hyprsysteminfo.packages.${pkgs.stdenv.hostPlatform.system}.default
+            #inputs.hyprkool.packages.${pkgs.stdenv.hostPlatform.system}.hyprkool-plugin 
 #          ];
 #          systemd = {
 #            enable = true;
@@ -252,11 +236,9 @@
 #              "NIXPKGS_ALLOW_UNFREE,1"
 #            ];
 #            exec-once = hypr_session ++ [
-#              #"hyprsession"
 #              "librepods"
 #              "caelestia scheme set -n rosepine -f main && caelestia scheme set -n rosepine -f cute"
 #              "qs -c overview"
-#              #"hyprkool daemon"
 #              "hyprpm reload -n"
 #              "${lib.getExe border-animation}"
 #
@@ -413,8 +395,8 @@
 #      }
 #    )
 #=======
-#      };
-#    })
+      };
+    })
 #>>>>>>> master
-#  ];
-#}
+  ];
+}
