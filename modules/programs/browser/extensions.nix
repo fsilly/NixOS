@@ -51,12 +51,12 @@ let
         installation_mode = "force_installed";
         install_url = "https://addons.mozilla.org/firefox/downloads/latest/return-youtube-dislikes/latest.xpi";
       };
-      "{ce25b613-ecd1-47e0-9492-c0260efb633c}" = { # prevent google singin popup everywhere
-        navbar = true;
-        private_browsing = true;
-        installation_mode = "force_installed";
-        install_url = "https://addons.mozilla.org/firefox/downloads/latest/google-sign-in-popup-blocker/latest.xpi";
-      };
+#      "{ce25b613-ecd1-47e0-9492-c0260efb633c}" = { # prevent google singin popup everywhere
+#        navbar = true;
+#        private_browsing = true;
+#        installation_mode = "force_installed";
+#        install_url = "https://addons.mozilla.org/firefox/downloads/latest/google-sign-in-popup-blocker/latest.xpi";
+#      };
       "{71e8313c-dd11-4a7b-b198-ed905778077f}" = { # prevent google singin popup everywhere, same thing idk
         navbar = true;
         private_browsing = true;
