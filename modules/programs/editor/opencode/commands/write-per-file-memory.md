@@ -1,6 +1,14 @@
 # Write per file memories
 Usage: /write-per-file-memories
 
+
+## Session.md
+
+Read through the conversation and format a document session.md inside of ./agent/sessions containing every use input and a brief 1 line summary of the agent's implemented understanding of the input.
+
+
+## Per file memory
+
 For every file you've edited :
 0. Create memory file.md with that name format : [file-name].[file-extension].memory.md
 1. Update the relevant memory for that file following that format : [^1]

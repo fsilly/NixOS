@@ -21,6 +21,9 @@ in
         commands = ./commands; # folder of .md files prompt directly
         #themes = ./themes; # lits of themes, to enable them go in tui ?
         skills = ./skills; # text with ---metadata--- first
+        tui = {
+          plugins = ["https://github.com/oribarilan/vimcode"];
+        };
         settings = {
           mcp = {
             "deepwiki" = {
@@ -47,6 +50,13 @@ in
               prompt = builtins.readFile ./agents/personality.md + (builtins.readFile ./agents/investigator.md);
               #permission = ''edit = "deny"'';
             };
+#            memory = {
+#              mode = "subagent";
+#              reasoningEffort = "low";
+#              textVerbosity = "high";
+#              prompt = (builtins.readFile ./agents/personality.md) + (builtins.readFile ./agents/write-memory.md);
+#              #permission = ''edit = "deny"'';
+#            };
             investigation-sub = {
               mode = "subagent";
               reasoningEffort = "high";
