@@ -4,7 +4,6 @@
     obsidian
     ludusavi # For game saves
     proton-vpn # VPN
-    github-desktop
     vesktop
     # pokego # Overlayed
     # VPNs
