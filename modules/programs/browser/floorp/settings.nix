@@ -9,7 +9,7 @@ let
     Status = "locked";
   };
 
-  extensions = import ../extensions.nix { inherit lib; };
+  extensions = import ../extensions.nix { inherit lib; transparent-zen = false; };
 in
 {
   # Floorp
