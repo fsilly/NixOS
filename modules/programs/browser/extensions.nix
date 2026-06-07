@@ -1,55 +1,48 @@
 { lib, ... }:
-{
-  nav-bar = [
-    "extension_one-tab_com-browser-action"
-    "_8454caa8-cebc-4486-8b23-9771f187ed6c_-browser-action"
-    "firemonkey_eros_man-browser-action"
-    "ublock0_raymondhill_net-browser-action"
-    # "addon_darkreader_org-browser-action"
-    # "queryamoid_kaply_com-browser-action"
-    # "_aecec67f-0d10-4fa7-b7c7-609a2db280cf_-browser-action"
-  ];
+let
+  chars = ["@" "-" "." "{" "}"];
 
-  unified-extensions-area = [
-    "ublock0_raymondhill_net-browser-action"
-    "firemonkey_eros_man-browser-action"
-    "addon_darkreader_org-browser-action"
-    "queryamoid_kaply_com-browser-action"
-    # "_aecec67f-0d10-4fa7-b7c7-609a2db280cf_-browser-action"
-  ];
+  unwantedChars = [ "@" "." "{" "}" ];
+
+  extensionNames = lib.attrNames (lib.filterAttrs (_: ext: ext ? nav-bar && ext.nav-bar) extensionSettings);
+
+  sanatizeName = name: ((lib.replaceStrings unwantedChars (lib.replicate (builtins.length unwantedChars) "_")) name) + "-browser-action";
+
+  navbarList = map sanatizeName extensionNames;
 
   extensionSettings = {
     "*" = {
       blocked_install_message = "Addon is not added in the nix config";
       installation_mode = "blocked";
+      nav-bar = false;
     };
     "uBlock0@raymondhill.net" = {
       private_browsing = true;
-      default_area = "navbar";
+      nav-bar = true;
       installation_mode = "force_installed";
       install_url = "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi";
     };
     "firemonkey@eros.man" = {
       private_browsing = true;
-      default_area = "navbar";
+      nav-bar = true;
       installation_mode = "force_installed";
       install_url = "https://addons.mozilla.org/firefox/downloads/latest/firemonkey/latest.xpi";
     };
     "{8454caa8-cebc-4486-8b23-9771f187ed6c}" = {
       private_browsing = true;
-      default_area = "navbar";
+      nav-bar = true;
       installation_mode = "force_installed";
       install_url = "https://addons.mozilla.org/firefox/downloads/latest/600-sound-volume-privacy/latest.xpi";
     };
     "extension@one-tab.com" = {
       private_browsing = true;
-      default_area = "navbar";
+      nav-bar = true;
       installation_mode = "force_installed";
       install_url = "https://addons.mozilla.org/firefox/downloads/latest/onetab/latest.xpi";
     };
     "addon@darkreader.org" = {
       private_browsing = true;
-      # default_area = "navbar";
+      nav-bar = true;
       installation_mode = "force_installed";
       install_url = "https://addons.mozilla.org/firefox/downloads/latest/darkreader/latest.xpi";
     };
@@ -76,6 +69,19 @@
       install_url = "https://github.com/mkaply/queryamoid/releases/download/v0.2/query_amo_addon_id-0.2-fx.xpi";
     };
   };
+in 
+{
+  nav-bar = navbarList;
+
+  unified-extensions-area = [
+    "ublock0_raymondhill_net-browser-action"
+    "firemonkey_eros_man-browser-action"
+    "addon_darkreader_org-browser-action"
+    "queryamoid_kaply_com-browser-action"
+    # "_aecec67f-0d10-4fa7-b7c7-609a2db280cf_-browser-action"
+  ];
+
+  extensionSettings = extensionSettings;
 
   extensionConfig = {
     "uBlock0@raymondhill.net" = {
